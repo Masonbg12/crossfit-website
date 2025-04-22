@@ -1,13 +1,13 @@
 import { Container, Row, Col } from "react-bootstrap";
 
-function Schedule() {
+function Programs() {
   return (
     <Container>
       <Row>
-        <h3>This is the schedule section.</h3>
+        <h3>This is the programs section.</h3>
       </Row>
     </Container>
   );
 }
 
-export default Schedule;
+export default Programs;

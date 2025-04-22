@@ -1,8 +1,12 @@
+import { Container, Row, Col } from "react-bootstrap";
+
 function Store() {
   return (
-    <div>
-      <h1>This is Store.</h1>
-    </div>
+    <Container>
+      <Row>
+        <h3>This is the store info section.</h3>
+      </Row>
+    </Container>
   );
 }
 
