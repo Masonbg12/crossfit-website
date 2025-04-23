@@ -1,9 +1,9 @@
 import { Nav, Image } from "react-bootstrap";
-import logo from "../logos/CrossFit_logo.png";
+import logo from "../logos/CrossFit_logo_black.png";
 
 function Navigation() {
   return (
-    <Nav className="nav-bar">
+    <Nav id="nav-bar">
       <Nav.Item>
         <Image src={logo} fluid />
       </Nav.Item>
