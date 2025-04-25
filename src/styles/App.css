@@ -5,3 +5,8 @@
   justify-content: space-between;
   background-color: #54595f;
 }
+
+.footer {
+  padding: 10px;
+  font-size: .75rem;
+}

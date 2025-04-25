@@ -1,5 +1,4 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
-import logo from "../../logos/CrossFit_logo_black.png";
 import Footer from "../../components/Footer.js";
 
 function Home() {
@@ -8,7 +7,6 @@ function Home() {
       <Row style={{height: "100vh"}}>
         <Col xs={12} md={6}>
           <h3>This will be the hero header section.</h3>
-          <Image src={logo} fluid></Image>
         </Col>
         <Col xs={12} md={6}>
           <h3>This will be the free trial button and intro section.</h3>

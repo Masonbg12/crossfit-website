@@ -1,19 +1,26 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
 
 const FreeTrial = () => {
     return (
-        <Card style={{ color: "#000",}}>
-            <Card.Body style={{ textAlign: "center" }}>
-                <Card.Title>Start Your Free Trial</Card.Title>
-                <Card.Text>
-                    Join us today and get a free trial to experience our amazing CrossFit programs. No commitments, just results!
-                </Card.Text>
-                <Button variant="primary" onClick={() => alert('Free Trial Started!')}>
-                    Start Now
-                </Button>
-            </Card.Body>
-        </Card>
+        <div style={{ color: "#000" , fontSize: ".75rem"}}>
+            <h4>Start Your Free Trial</h4>
+            <p>
+                Join us today and get a free trial to experience our amazing CrossFit programs. No commitments, just results!
+            </p>
+            <button
+                style={{
+                    backgroundColor: "#007bff",
+                    color: "#fff",
+                    border: "none",
+                    padding: "10px 20px",
+                    borderRadius: "5px",
+                    cursor: "pointer",
+                }}
+                onClick={() => alert('Free Trial Started!')}
+            >
+                Start Now
+            </button>
+        </div>
     );
 };
 
