@@ -6,16 +6,10 @@ function Navigation() {
     <Navbar bg="#54595f" expand="md" id="nav-bar" style={{borderBottom: '4px solid #000'}}>
       <Container>
         <Navbar.Brand href="/" className="d-flex align-items-center">
-          <Image
-            src={logo}
-            fluid
-            className="logo"
-            style={{ width: "150px", height: "auto" }}
-          />
+          <Image src={logo} fluid style={{ width: "10rem", height: "auto" }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="offcanvasNavbar" />
         <Navbar.Offcanvas
-          id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
           placement="end"
           style={{ width: "75%", backgroundColor: "#54595f"  }}

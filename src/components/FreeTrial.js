@@ -2,7 +2,16 @@ import React from 'react';
 
 const FreeTrial = () => {
     return (
-        <div style={{ color: "#000" , fontSize: ".75rem"}}>
+        <div
+            style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+                height: "100%",
+            }}
+        >
             <h4>Start Your Free Trial</h4>
             <p>
                 Join us today and get a free trial to experience our amazing CrossFit programs. No commitments, just results!
@@ -10,7 +19,6 @@ const FreeTrial = () => {
             <button
                 style={{
                     backgroundColor: "#007bff",
-                    color: "#fff",
                     border: "none",
                     padding: "10px 20px",
                     borderRadius: "5px",
