@@ -45,7 +45,7 @@ function Wod() {
         </Col>
       </Row>
       <Row>
-        {workouts.map((workout) => (
+        {workouts.slice(0, 10).map((workout) => ( // Show only the first 10 workouts
           <Col xs={12} md={6} lg={4} className="mb-4" key={workout._id}>
             <Card>
               <Card.Img
