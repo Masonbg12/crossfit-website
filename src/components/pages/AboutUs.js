@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, Accordion } from "react-bootstrap";
+import { Container, Row, Col, Accordion } from "react-bootstrap";
 import Programs from "../Programs";
 
 function AboutUs() {
