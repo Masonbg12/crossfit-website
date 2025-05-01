@@ -1,49 +1,39 @@
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Container, Row, Col, Card } from "react-bootstrap";
 
 function Wod() {
-  const workouts = [
-    {
-      day: "Monday",
-      image: "https://via.placeholder.com/300x200",
-      description: "Start your week strong with a mix of cardio and strength training.",
-    },
-    {
-      day: "Tuesday",
-      image: "https://via.placeholder.com/300x200",
-      description: "Focus on endurance with a high-intensity interval training session.",
-    },
-    {
-      day: "Wednesday",
-      image: "https://via.placeholder.com/300x200",
-      description: "Midweek strength training to build muscle and improve form.",
-    },
-    {
-      day: "Thursday",
-      image: "https://via.placeholder.com/300x200",
-      description: "Cardio blast to keep your heart rate up and burn calories.",
-    },
-    {
-      day: "Friday",
-      image: "https://via.placeholder.com/300x200",
-      description: "End the week with a challenging WOD to test your limits.",
-    },
-    {
-      day: "Saturday",
-      image: "https://via.placeholder.com/300x200",
-      description: "Team WOD to build camaraderie and push each other to succeed.",
-    },
-    {
-      day: "Sunday",
-      image: "https://via.placeholder.com/300x200",
-      description: "Rest day. Take time to recover and prepare for the week ahead.",
-    },
-  ];
+  const [workouts, setWorkouts] = useState([]); // State to store WODs
+  const [loading, setLoading] = useState(true); // State to handle loading
+  const [error, setError] = useState(null); // State to handle errors
 
-  const archives = [
-    { month: "March 2025", link: "/wod/march-2025" },
-    { month: "February 2025", link: "/wod/february-2025" },
-    { month: "January 2025", link: "/wod/january-2025" },
-  ];
+  // Fetch WODs from the backend
+  useEffect(() => {
+    const fetchWODs = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/wods"); // Replace with your backend URL
+        if (!response.ok) {
+          throw new Error("Failed to fetch WODs");
+        }
+        const data = await response.json();
+        setWorkouts(data); // Set the fetched WODs to state
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchWODs();
+  }, []);
+
+  // Render loading or error states
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
   return (
     <Container style={{ padding: "2rem 0" }}>
@@ -55,32 +45,22 @@ function Wod() {
         </Col>
       </Row>
       <Row>
-        {workouts.map((workout, index) => (
-          <Col xs={12} md={6} lg={4} className="mb-4" key={index}>
+        {workouts.map((workout) => (
+          <Col xs={12} md={6} lg={4} className="mb-4" key={workout._id}>
             <Card>
-              <Card.Img variant="top" src={workout.image} alt={`${workout.day} workout`} />
+              <Card.Img
+                variant="top"
+                src={workout.images[0] || "https://via.placeholder.com/300x200"} // Use the first image or a placeholder
+                alt={`${workout.title} workout`}
+              />
               <Card.Body>
-                <Card.Title>{workout.day}</Card.Title>
+                <Card.Title>{workout.title}</Card.Title>
                 <Card.Text>{workout.description}</Card.Text>
+                <Card.Text>
+                  <small className="text-muted">Date: {new Date(workout.date).toLocaleDateString()}</small>
+                </Card.Text>
               </Card.Body>
             </Card>
-          </Col>
-        ))}
-      </Row>
-
-      {/* Archive Section */}
-      <Row className="text-center mt-5">
-        <Col>
-          <h2>Archive</h2>
-          <p>Explore previous months' workouts and stay on track with your fitness journey.</p>
-        </Col>
-      </Row>
-      <Row className="justify-content-center">
-        {archives.map((archive, index) => (
-          <Col xs={12} md={4} className="mb-3 text-center" key={index}>
-            <Button variant="outline-primary" href={archive.link} size="lg">
-              {archive.month}
-            </Button>
           </Col>
         ))}
       </Row>
