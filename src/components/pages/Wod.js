@@ -5,16 +5,18 @@ function Wod() {
   const [workouts, setWorkouts] = useState([]); // State to store WODs
   const [loading, setLoading] = useState(true); // State to handle loading
   const [error, setError] = useState(null); // State to handle errors
+  const mongoURL = "/localhost:5000/data"; // MongoDB URI
 
   // Fetch WODs from the backend
   useEffect(() => {
     const fetchWODs = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/wods"); // Replace with your backend URL
+        const response = await fetch(mongoURL);
         if (!response.ok) {
           throw new Error("Failed to fetch WODs");
         }
         const data = await response.json();
+        console.log(data); // Log the fetched data for debugging
         setWorkouts(data); // Set the fetched WODs to state
         setLoading(false);
       } catch (err) {

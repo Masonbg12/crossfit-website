@@ -50,7 +50,9 @@ function Footer() {
           <FreeTrial />
         </Col>
       </Row>
-      <Row className="d-flex text-center">
+      <Row 
+        className="d-flex text-center"
+      >
         <p style={{ paddingTop: "1rem"}}>
           CrossFit XLR8 | 202 Hwy 35 Gregory, TX USA | Phone: 361-444-3316 | Info@crossfitxlr8.com |
           Copyright © 2025 CrossFit XLR8
