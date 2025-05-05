@@ -1,5 +1,4 @@
 import { Container, Row, Col, Button, Image } from "react-bootstrap";
-import Footer from "../../components/Footer.js";
 import Programs from "../Programs.js";
 import FreeTrial from "../../components/FreeTrial.js";
 
