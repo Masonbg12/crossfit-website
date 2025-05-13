@@ -18,17 +18,17 @@ function Footer() {
           <Row>
             <Col>
               <Stack gap={1}>
-                <Link to="/">Home</Link>
-                <Link to="/Schedule">Schedule</Link>
-                <Link to="/WOD">WOD</Link>
-                <Link to="/AboutUs">About Us</Link>
-                <Link to="/Store">Store</Link>
-                <Link to="/ContactUs">Contact Us</Link>
+                <Link className="link" to="/">Home</Link>
+                <Link className="link" to="/Schedule">Schedule</Link>
+                <Link className="link" to="/WOD">WOD</Link>
+                <Link className="link" to="/AboutUs">About Us</Link>
+                <Link className="link" to="/Store">Store</Link>
+                <Link className="link" to="/ContactUs">Contact Us</Link>
               </Stack>
             </Col>
             <Col className="d-flex flex-column">
               <Link
-                to="https://www.instagram.com/crossfitxlr8?igsh=MTkyeDljcHk0aDFzcw=="
+                className="link" to="https://www.instagram.com/crossfitxlr8?igsh=MTkyeDljcHk0aDFzcw=="
                 target="_blank"
                 title="Instagram"
               >
@@ -36,7 +36,7 @@ function Footer() {
                 <span className="d-none d-md-inline">Join us on Instagram</span>
               </Link>
               <Link
-                to="https://www.facebook.com/share/14n5xZnNSX/?mibextid=wwXIfr"
+                className="link" to="https://www.facebook.com/share/14n5xZnNSX/?mibextid=wwXIfr"
                 target="_blank"
                 title="Facebook"
               >

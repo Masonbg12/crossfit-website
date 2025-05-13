@@ -6,9 +6,9 @@ function Home() {
   return (
     <Container fluid>
       {/* Hero Header Section */}
-      <Row className="hero-section d-flex align-items-center" style={{ height: "100vh", backgroundColor: "#f8f9fa" }}>
+      <Row className="hero-section d-flex align-items-center bg-light1" style={{ height: "100vh"}}>
         <Col xs={12} md={6} className="text-center text-md-start">
-          <h1>Welcome to CrossFit XLR8</h1>
+          <h1 className="poppins-900-main">WELCOME TO CROSSFIT XLR8</h1>
           <p>
             Achieve your fitness goals with our expert coaching, supportive community, and proven CrossFit programs.
           </p>
@@ -27,7 +27,7 @@ function Home() {
       </Row>
 
       {/* Free Trial Section */}
-      <Row className="free-trial-section d-flex align-items-center" style={{ padding: "4rem 0", backgroundColor: "#e9ecef" }}>
+      <Row className="d-flex align-items-center bg-light2" style={{ padding: "4rem 0"}}>
         <Col xs={12} md={6} className="text-center">
           <FreeTrial />
         </Col>
@@ -45,9 +45,9 @@ function Home() {
       <Programs />
 
       {/* Gallery/Testimonials Section */}
-      <Row className="gallery-section text-center" style={{ padding: "4rem 0", backgroundColor: "#e9ecef" }}>
+      <Row className="gallery-section text-center bg-light2" style={{ padding: "4rem 0" }}>
         <Col>
-          <h2>Gallery & Testimonials</h2>
+          <h2 className="poppins-900-sub">Gallery & Testimonials</h2>
           <p>See what our members have to say and check out our facilities.</p>
           <Image
             src="https://via.placeholder.com/800x400"
