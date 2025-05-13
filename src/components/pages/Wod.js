@@ -5,7 +5,7 @@ function Wod() {
   const [workouts, setWorkouts] = useState([]); // State to store WODs
   const [loading, setLoading] = useState(true); // State to handle loading
   const [error, setError] = useState(null); // State to handle errors
-  const mongoURL = "/localhost:5000/data"; // MongoDB URI
+  const mongoURL = "http://localhost:5000/data"; // MongoDB URI
 
   // Fetch WODs from the backend
   useEffect(() => {
@@ -16,7 +16,6 @@ function Wod() {
           throw new Error("Failed to fetch WODs");
         }
         const data = await response.json();
-        console.log(data); // Log the fetched data for debugging
         setWorkouts(data); // Set the fetched WODs to state
         setLoading(false);
       } catch (err) {
@@ -47,7 +46,7 @@ function Wod() {
         </Col>
       </Row>
       <Row>
-        {workouts.slice(0, 10).map((workout) => ( // Show only the first 10 workouts
+        {workouts.slice(-4).map((workout) => (
           <Col xs={12} md={6} lg={4} className="mb-4" key={workout._id}>
             <Card>
               <Card.Img
@@ -57,7 +56,7 @@ function Wod() {
               />
               <Card.Body>
                 <Card.Title>{workout.title}</Card.Title>
-                <Card.Text>{workout.description}</Card.Text>
+                <Card.Text dangerouslySetInnerHTML={{ __html: workout.content }} /> {/* Render raw HTML */}
                 <Card.Text>
                   <small className="text-muted">Date: {new Date(workout.date).toLocaleDateString()}</small>
                 </Card.Text>
