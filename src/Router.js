@@ -9,6 +9,7 @@ import Schedule from "./components/pages/Schedule.js";
 import Store from "./components/pages/Store.js";
 import AboutUs from "./components/pages/AboutUs.js";
 import ContactUs from "./components/pages/ContactUs.js";
+import PostWod from "./components/pages/PostWod.js";
 
 const Router = () => {
   return (
@@ -20,6 +21,7 @@ const Router = () => {
       <Route path="/Store" element={<Store />} />
       <Route path="/AboutUs" element={<AboutUs />} />
       <Route path="/ContactUs" element={<ContactUs />} />
+      <Route path="/postWOD" element={<PostWod />} />
     </Routes>
   );
 };

@@ -51,7 +51,7 @@ function Wod() {
             <Card>
               <Card.Img
                 variant="top"
-                src={workout.images[0] || "https://via.placeholder.com/300x200"} // Use the first image or a placeholder
+                src={(Array.isArray(workout.images) && workout.images[0]) || "https://via.placeholder.com/300x200"} // Check if images is an array
                 alt={`${workout.title} workout`}
               />
               <Card.Body>
