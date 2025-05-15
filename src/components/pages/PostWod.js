@@ -3,6 +3,12 @@ import { Container, Row, Col, Button, Form, Modal, Alert } from "react-bootstrap
 import DatePicker from "react-multi-date-picker";
 import { Editor } from "@tinymce/tinymce-react";
 
+// NEED TO:
+// actually create a post
+// create preview of new post before submitting
+// create instructions on how to best format posts
+// figure out how to delay a post for later time
+
 function PostWod() {
   // STATE VARIABLES
 
@@ -287,9 +293,10 @@ function PostWod() {
                   "advlist autolink lists link image charmap print preview anchor",
                   "searchreplace visualblocks code fullscreen",
                   "insertdatetime media table paste code help wordcount",
+                  "textcolor",
                 ],
                 toolbar:
-                  "undo redo | formatselect | bold italic backcolor | \
+                  "undo redo | formatselect | bold italic forecolor backcolor | \
                   alignleft aligncenter alignright alignjustify | \
                   bullist numlist outdent indent | removeformat | help",
               }}
@@ -395,9 +402,10 @@ function PostWod() {
                       "advlist autolink lists link image charmap print preview anchor",
                       "searchreplace visualblocks code fullscreen",
                       "insertdatetime media table paste code help wordcount",
+                      "textcolor",
                     ],
                     toolbar:
-                      "undo redo | formatselect | bold italic backcolor | \
+                      "undo redo | formatselect | bold italic forecolor backcolor | \
                       alignleft aligncenter alignright alignjustify | \
                       bullist numlist outdent indent | removeformat | help",
                   }}
