@@ -7,7 +7,9 @@ import { Editor } from "@tinymce/tinymce-react";
 // actually create a post
 // create preview of new post before submitting
 // create instructions on how to best format posts
-// figure out how to delay a post for later time
+// figure out how to delay a post for later time // CHECK?
+// test all of the functions of posting/updating/deleting
+// remove all photos more than 2 years back for storage
 
 function PostWod() {
   // STATE VARIABLES
@@ -43,6 +45,8 @@ function PostWod() {
   const [showConfirmation, setShowConfirmation] = useState(false);
   // Tracks the action (update/delete)
   const [confirmationAction, setConfirmationAction] = useState(null);
+  // Scheduled date and time for posts
+  const [scheduledDateTime, setScheduledDateTime] = useState("");
   
   // HANDLER/FETCHING FUNCTIONS
   const handleLogin = () => {
@@ -104,7 +108,7 @@ function PostWod() {
         method: "POST",
         body: formDataToSend,
       });
-      if (!response.ok) throw new Error("Failed to add post");
+      if (!response.ok) throw new Error("Failed to add post. Contact Mason.");
       alert("Post added successfully!");
       setFormData({
         date: "",
@@ -112,6 +116,9 @@ function PostWod() {
         content: "",
         images: null,
       });
+      setSelectedYear("");
+      setSelectedMonth("");
+      setSelectedPost(null);
       fetchPosts();
     } catch (err) {
       alert(err.message);
@@ -130,20 +137,41 @@ function PostWod() {
         method: "PUT",
         body: formDataToSend,
       });
-      if (!response.ok) throw new Error("Failed to update post");
+      if (!response.ok) throw new Error("Failed to update post. Contact Mason.");
       alert("Post updated successfully!");
+      setFormData({
+        date: "",
+        title: "",
+        content: "",
+        images: null,
+      });
+      setSelectedYear("");
+      setSelectedMonth("");
+      setSelectedPost(null);
+      fetchPosts();
     } catch (err) {
       alert(err.message);
     }
   };
 
   const handleDeletePost = async () => {
+    // Log the ID being deleted
+    console.log(`[Delete Post] ID:`, selectedPost._id);
+
     try {
       const response = await fetch(`http://localhost:5000/delete-post/${selectedPost._id}`, {
         method: "DELETE",
       });
       if (!response.ok) throw new Error("Failed to delete post");
       alert("Post deleted successfully!");
+      setFormData({
+        date: "",
+        title: "",
+        content: "",
+        images: null,
+      });
+      setSelectedYear("");
+      setSelectedMonth("");
       setSelectedPost(null);
       fetchPosts();
     } catch (err) {
@@ -163,6 +191,41 @@ function PostWod() {
       handleDeletePost(); 
     }
     setShowConfirmation(false);
+  };
+
+  const handleSchedulePost = async () => {
+    if (!scheduledDateTime) {
+      alert("Please select a date and time to schedule the post.");
+      return;
+    }
+    const formDataToSend = new FormData();
+    formDataToSend.append("date", formData.date);
+    formDataToSend.append("title", formData.title);
+    formDataToSend.append("content", formData.content);
+    if (formData.images) formDataToSend.append("images", formData.images);
+    formDataToSend.append("scheduledDateTime", scheduledDateTime);
+
+    try {
+      const response = await fetch("http://localhost:5000/schedule-post", {
+        method: "POST",
+        body: formDataToSend,
+      });
+      if (!response.ok) throw new Error("Failed to schedule post");
+      alert("Post scheduled successfully!");
+      setFormData({
+        date: "",
+        title: "",
+        content: "",
+        images: null,
+      });
+      setScheduledDateTime("");
+      setSelectedYear("");
+      setSelectedMonth("");
+      setSelectedPost(null);
+      fetchPosts();
+    } catch (err) {
+      alert(err.message);
+    }
   };
 
   useEffect(() => {
@@ -290,15 +353,14 @@ function PostWod() {
                 height: 300,
                 menubar: false,
                 plugins: [
-                  "advlist autolink lists link image charmap print preview anchor",
-                  "searchreplace visualblocks code fullscreen",
-                  "insertdatetime media table paste code help wordcount",
-                  "textcolor",
+                  "advlist", "autolink", "lists", "link", "image", "charmap", "preview", "anchor",
+                  "searchreplace", "visualblocks", "code", "fullscreen",
+                  "insertdatetime", "media", "table", "help", "wordcount"
                 ],
                 toolbar:
-                  "undo redo | formatselect | bold italic forecolor backcolor | \
-                  alignleft aligncenter alignright alignjustify | \
-                  bullist numlist outdent indent | removeformat | help",
+                  "undo redo | formatselect | bold italic forecolor backcolor | " +
+                  "alignleft aligncenter alignright alignjustify | " +
+                  "bullist numlist outdent indent | removeformat | help",
               }}
               onEditorChange={(content) => setFormData({ ...formData, content })}
             />
@@ -306,6 +368,14 @@ function PostWod() {
           <Form.Group className="mb-3">
             <Form.Label>Images</Form.Label>
             <Form.Control type="file" name="images" onChange={(e) => setFormData({ ...formData, images: e.target.files[0] })} />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Schedule Date & Time</Form.Label>
+            <Form.Control
+              type="datetime-local"
+              value={scheduledDateTime}
+              onChange={(e) => setScheduledDateTime(e.target.value)}
+            />
           </Form.Group>
           <Button variant="success" onClick={handleAddPost}>
             Submit
@@ -380,6 +450,15 @@ function PostWod() {
 
           {selectedPost && (
             <>
+              {/* Date Picker for Update */}
+              <Form.Group className="mb-3">
+                <Form.Label>Date</Form.Label>
+                <DatePicker
+                  value={formData.date}
+                  onChange={(selectedDate) => setFormData({ ...formData, date: selectedDate })}
+                  format="MM/DD/YYYY"
+                />
+              </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
@@ -399,15 +478,14 @@ function PostWod() {
                     height: 300,
                     menubar: false,
                     plugins: [
-                      "advlist autolink lists link image charmap print preview anchor",
-                      "searchreplace visualblocks code fullscreen",
-                      "insertdatetime media table paste code help wordcount",
-                      "textcolor",
+                      "advlist", "autolink", "lists", "link", "image", "charmap", "preview", "anchor",
+                      "searchreplace", "visualblocks", "code", "fullscreen",
+                      "insertdatetime", "media", "table", "help", "wordcount"
                     ],
                     toolbar:
-                      "undo redo | formatselect | bold italic forecolor backcolor | \
-                      alignleft aligncenter alignright alignjustify | \
-                      bullist numlist outdent indent | removeformat | help",
+                      "undo redo | formatselect | bold italic forecolor backcolor | " +
+                      "alignleft aligncenter alignright alignjustify | " +
+                      "bullist numlist outdent indent | removeformat | help",
                   }}
                   onEditorChange={(content) => setFormData({ ...formData, content })}
                 />
@@ -430,6 +508,13 @@ function PostWod() {
                   onClick={() => handleShowConfirmation("delete")}
                 >
                   Delete Post
+                </Button>
+                <Button
+                  variant="info"
+                  className="ms-2"
+                  onClick={handleSchedulePost}
+                >
+                  Schedule Post
                 </Button>
                 <Button
                   variant="secondary"

@@ -45,6 +45,13 @@ function Wod() {
 
   const organizedWorkouts = organizeWorkouts();
 
+  // Filter visible workouts
+  const now = new Date();
+  const visibleWorkouts = workouts.filter(workout => {
+    if (!workout.scheduledDateTime) return true;
+    return new Date(workout.scheduledDateTime) <= now;
+  });
+
   // Render loading or error states
   if (loading) {
     return <p className="poppins-700 text-center">Loading...</p>;
@@ -66,7 +73,7 @@ function Wod() {
         </Col>
       </Row>
       <Row>
-        {workouts.slice(-4).map((workout, index) => {
+        {visibleWorkouts.slice(-4).map((workout, index) => {
           const imageSrc =
             (Array.isArray(workout.images) && workout.images[0]) ||
             (() => {
@@ -80,7 +87,7 @@ function Wod() {
           return (
             <Col
               xs={12}
-              className={`mb-4 ${index === workouts.slice(-4).length - 1 ? "" : "card-divider"}`}
+              className={`mb-4 ${index === visibleWorkouts.slice(-4).length - 1 ? "" : "card-divider"}`}
               key={workout._id}
             >
               <Card className="d-flex align-items-center card-no-border card-mobile">
@@ -127,7 +134,7 @@ function Wod() {
                             <Accordion.Header className="poppins-900-sub">{month}</Accordion.Header>
                             <Accordion.Body>
                               {organizedWorkouts[year][month].map((workout, index) => {
-                                {/* THERE IS AN ERROR HERE WITH THE IMAGES NOT FOUND STILL BEING PRINTED */}
+                                {/* THERE NEEDS TO BE A DECISION MADE ABOUT ARCHIVED PHOTOS*/}
                                 const imageSrc =
                                   (Array.isArray(workout.images) && workout.images[0]) ||
                                   (() => {
@@ -149,7 +156,6 @@ function Wod() {
                                     key={workout._id}
                                   >
                                     <Card className="d-flex flex-column align-items-center card-no-border card-archive">
-                                      {/* THIS IS PART OF THE PROBLEM */}
                                       {imageSrc && ( 
                                         <div className="card-img-container">
                                           <Card.Img
