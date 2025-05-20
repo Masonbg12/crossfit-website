@@ -3,14 +3,14 @@ import FreeTrial from "../../components/FreeTrial";
 
 function ContactUs() {
   return (
-    <Container style={{ padding: "2rem 0" }}>
+    <Container style={{ padding: "2rem 0", minHeight: "100vh"}}>
       {/* Info Card Section */}
       <Row className="mb-5">
         <Col xs={12} md={6} className="mx-auto">
           <Card>
             <Card.Body>
-              <Card.Title className="text-center">Contact Information</Card.Title>
-              <Card.Text>
+              <Card.Title className="text-center poppins-900-sub">Contact Information</Card.Title>
+              <Card.Text className="contact-info">
                 <strong>Phone:</strong> 361-444-3316 <br />
                 <strong>Email:</strong> <a href="mailto:info@crossfitxlr8.com">info@crossfitxlr8.com</a> <br />
                 <strong>Address:</strong> 202 Hwy 35, Gregory, TX, USA
@@ -23,7 +23,6 @@ function ContactUs() {
       {/* Free Trial Section */}
       <Row>
         <Col>
-          <h3 className="text-center mb-4">Start Your Free Trial Today!</h3>
           <FreeTrial />
         </Col>
       </Row>

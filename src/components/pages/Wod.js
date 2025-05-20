@@ -67,7 +67,7 @@ function Wod() {
       <Row className="text-center mb-4">
         <Col>
           <h2 className="poppins-900-main">Workout of the Day (WOD)</h2>
-          <p className="poppins-700">
+          <p>
             Stay motivated with our daily workouts tailored to challenge and inspire you.
           </p>
         </Col>

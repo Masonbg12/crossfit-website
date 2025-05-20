@@ -47,7 +47,7 @@ function Home() {
       {/* Gallery/Testimonials Section */}
       <Row className="gallery-section text-center bg-light2" style={{ padding: "4rem 0" }}>
         <Col>
-          <h2 className="poppins-900-sub">Gallery & Testimonials</h2>
+          <h2 className="poppins-900-main">Gallery & Testimonials</h2>
           <p>See what our members have to say and check out our facilities.</p>
           <Image
             src="https://via.placeholder.com/800x400"

@@ -5,7 +5,7 @@ function Programs() {
     // Programs Section
     <Row className="programs-section text-center bg-light1" style={{ padding: "4rem 0"}}>
       <Col>
-        <h2 className="poppins-900-sub">Our Programs</h2>
+        <h2 className="poppins-900-main">Our Programs</h2>
         <p>Explore our programs tailored to all fitness levels.</p>
         <Row>
           <Col xs={12} md={4}>

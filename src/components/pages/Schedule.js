@@ -2,10 +2,10 @@ import { Container, Row, Col, Table } from "react-bootstrap";
 
 function Schedule() {
   return (
-    <Container fluid>
-      <Row className="text-center my-4">
+    <Container fluid style={{ minHeight: "100vh" }}>
+      <Row className="text-center mt-5 mb-4">
         <Col>
-          <h2>Weekly Schedule</h2>
+          <h2 className="poppins-900-main">Weekly Schedule</h2>
           <p>Plan your week with our CrossFit classes and programs.</p>
         </Col>
       </Row>
@@ -101,18 +101,11 @@ function Schedule() {
             Please contact for info.
           </p>
           <a
-            href="#"
+            href="/ContactUs"
             style={{
               color: "red",
               textDecoration: "underline",
-              cursor: "pointer",
             }}
-            onClick={(e) => {
-              e.preventDefault();
-              alert("Free Trial Started!");
-            }}
-            onMouseEnter={(e) => (e.target.style.color = "black")}
-            onMouseLeave={(e) => (e.target.style.color = "red")}
           >
             *Free trials can be done during any CrossFit class*
           </a>

@@ -27,7 +27,7 @@ function Store() {
       {/* Store Header */}
       <Row className="text-center mb-4">
         <Col>
-          <h2>Welcome to Our Store</h2>
+          <h2 className="poppins-900-main">Welcome to Our Store</h2>
           <p>Explore our exclusive CrossFit merchandise and gear.</p>
         </Col>
       </Row>
