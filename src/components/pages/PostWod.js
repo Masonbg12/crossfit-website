@@ -5,7 +5,6 @@ import { Editor } from "@tinymce/tinymce-react";
 
 function PostWod() {
   // STATE VARIABLES
-
   // Login state
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   // show login state
@@ -51,6 +50,7 @@ function PostWod() {
     }
   };
 
+  // FETCH POSTS FROM BACKEND
   const fetchPosts = async () => {
     try {
       const response = await fetch("http://localhost:5000/data");
@@ -62,6 +62,7 @@ function PostWod() {
     }
   };
 
+  // ORGANIZE POSTS BY YEAR AND MONTH
   const organizePosts = () => {
     const organized = {};
     posts.forEach((post) => {
@@ -76,6 +77,7 @@ function PostWod() {
     return organized;
   };
 
+  // HANDLE POST SELECTION FOR UPDATE/DELETE
   const handlePostSelection = (e) => {
     const postId = e.target.value;
     const post = posts.find((p) => p._id === postId);
@@ -88,12 +90,15 @@ function PostWod() {
     });
   };
 
+  // ADD POST FUNCTION
   const handleAddPost = async () => {
     const formDataToSend = new FormData();
     formDataToSend.append("date", formData.date);
     formDataToSend.append("title", formData.title);
     formDataToSend.append("content", formData.content);
     if (formData.images) formDataToSend.append("images", formData.images);
+
+    console.log(`[Add Post]`, formDataToSend);
 
     try {
       const response = await fetch("http://localhost:5000/new-post", {
@@ -117,6 +122,7 @@ function PostWod() {
     }
   };
 
+  // UPDATE POST FUNCTION
   const handleUpdatePost = async () => {
     const formDataToSend = new FormData();
     formDataToSend.append("date", formData.date);
@@ -146,8 +152,8 @@ function PostWod() {
     }
   };
 
+  // DELETE POST FUNCTION
   const handleDeletePost = async () => {
-    // Log the ID being deleted
     console.log(`[Delete Post] ID:`, selectedPost._id);
 
     try {
@@ -171,11 +177,13 @@ function PostWod() {
     }
   };
 
+  // SHOW CONFIRMATION MODAL
   const handleShowConfirmation = (action) => {
     setConfirmationAction(action); 
     setShowConfirmation(true); 
   };
 
+  // CONFIRMATION ACTION
   const handleConfirmAction = () => {
     if (confirmationAction === "update") {
       handleUpdatePost(); 
@@ -185,6 +193,7 @@ function PostWod() {
     setShowConfirmation(false);
   };
 
+  // SCHEDULE POST FUNCTION
   const handleSchedulePost = async () => {
     if (!scheduledDateTime) {
       alert("Please select a date and time to schedule the post.");

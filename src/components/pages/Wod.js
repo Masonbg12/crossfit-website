@@ -2,20 +2,16 @@ import { useEffect, useState } from "react";
 import { Container, Row, Col, Card, Accordion } from "react-bootstrap";
 
 function Wod() {
-  // State variables
   const [workouts, setWorkouts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const mongoURL = "http://localhost:5000/data";
 
-  // Fetch WODs from the backend
   useEffect(() => {
     const fetchWODs = async () => {
       try {
         const response = await fetch(mongoURL);
-        if (!response.ok) {
-          throw new Error("Failed to fetch WODs");
-        }
+        if (!response.ok) throw new Error("Failed to fetch WODs");
         const data = await response.json();
         setWorkouts(data);
         setLoading(false);
@@ -24,14 +20,25 @@ function Wod() {
         setLoading(false);
       }
     };
-
     fetchWODs();
   }, []);
 
-  // Organize workouts by year and month
-  const organizeWorkouts = () => {
+  const now = new Date();
+  const visibleWorkouts = workouts.filter(workout => {
+    if (!workout.scheduledDateTime) return true;
+    return new Date(workout.scheduledDateTime) <= now;
+  });
+  
+  const recentWorkouts = visibleWorkouts.slice(-4);
+
+  // Exclude the recentWorkouts from the archive
+  const recentWorkoutIds = new Set(recentWorkouts.map(w => w._id));
+  const archiveWorkouts = workouts.filter(w => !recentWorkoutIds.has(w._id));
+
+  // Organize archiveWorkouts for the archive section
+  const organizeArchiveWorkouts = () => {
     const organized = {};
-    workouts.forEach((workout) => {
+    archiveWorkouts.forEach((workout) => {
       const date = new Date(workout.date);
       const year = date.getFullYear();
       const month = date.toLocaleString("default", { month: "long" });
@@ -43,23 +50,10 @@ function Wod() {
     return organized;
   };
 
-  const organizedWorkouts = organizeWorkouts();
+  const organizedArchiveWorkouts = organizeArchiveWorkouts();
 
-  // Filter visible workouts
-  const now = new Date();
-  const visibleWorkouts = workouts.filter(workout => {
-    if (!workout.scheduledDateTime) return true;
-    return new Date(workout.scheduledDateTime) <= now;
-  });
-
-  // Render loading or error states
-  if (loading) {
-    return <p className="poppins-700 text-center">Loading...</p>;
-  }
-
-  if (error) {
-    return <p className="poppins-700">Error: {error}</p>;
-  }
+  if (loading) return <p className="poppins-700 text-center">Loading...</p>;
+  if (error) return <p className="poppins-700">Error: {error}</p>;
 
   return (
     <Container style={{ padding: "2rem 0" }}>
@@ -73,31 +67,27 @@ function Wod() {
         </Col>
       </Row>
       <Row>
-        {visibleWorkouts.slice(-4).map((workout, index) => {
-          const imageSrc =
-            (Array.isArray(workout.images) && workout.images[0]) ||
-            (() => {
-              const imgMatch = workout.content.match(/<img[^>]+src="([^">]+)"/);
-              return imgMatch ? imgMatch[1] : "placeholder.jpg";
-            })();
-
-          // Remove all <img> tags from the content
+        {recentWorkouts.map((workout, index) => {
+          // Use imageUrl from backend, only show if present
+          const imageSrc = workout.imageUrl || null;
           const cleanedContent = workout.content.replace(/<img[^>]*>/g, "");
 
           return (
             <Col
               xs={12}
-              className={`mb-4 ${index === visibleWorkouts.slice(-4).length - 1 ? "" : "card-divider"}`}
+              className={`mb-4 ${index === recentWorkouts.length - 1 ? "" : "card-divider"}`}
               key={workout._id}
             >
               <Card className="d-flex align-items-center card-no-border card-mobile">
-                <div className="card-img-container">
-                  <Card.Img
-                    src={imageSrc}
-                    alt={`${workout.title} workout`}
-                    className="card-img-left"
-                  />
-                </div>
+                {imageSrc && (
+                  <div className="card-img-container">
+                    <Card.Img
+                      src={imageSrc}
+                      alt={`${workout.title} workout`}
+                      className="card-img-left"
+                    />
+                  </div>
+                )}
                 <Card.Body className="card-body-stacked">
                   <Card.Title className="poppins-900-sub">{workout.title}</Card.Title>
                   <Card.Text
@@ -120,42 +110,34 @@ function Wod() {
       <Row>
         <Col>
           <Accordion>
-            {Object.keys(organizedWorkouts)
+            {Object.keys(organizedArchiveWorkouts)
               .sort((a, b) => b - a)
               .map((year) => (
                 <Accordion.Item eventKey={year} key={year}>
                   <Accordion.Header className="poppins-900-sub">{year}</Accordion.Header>
                   <Accordion.Body>
-                    {Object.keys(organizedWorkouts[year])
+                    {Object.keys(organizedArchiveWorkouts[year])
                       .sort((a, b) => new Date(`${b} 1, ${year}`) - new Date(`${a} 1, ${year}`))
                       .map((month) => (
                         <Accordion key={month}>
                           <Accordion.Item eventKey={`${year}-${month}`}>
                             <Accordion.Header className="poppins-900-sub">{month}</Accordion.Header>
                             <Accordion.Body>
-                              {organizedWorkouts[year][month].map((workout, index) => {
-                                const imageSrc =
-                                  (Array.isArray(workout.images) && workout.images[0]) ||
-                                  (() => {
-                                    const imgMatch = workout.content.match(/<img[^>]+src="([^">]+)"/);
-                                    return imgMatch ? imgMatch[1] : null;
-                                  })();
-
-                                // Remove all <img> tags from the content
+                              {organizedArchiveWorkouts[year][month].map((workout, index) => {
+                                const imageSrc = workout.imageUrl || null;
                                 const cleanedContent = workout.content.replace(/<img[^>]*>/g, "");
-
                                 return (
                                   <Col
                                     xs={12}
                                     className={`mb-4 ${
-                                      index === organizedWorkouts[year][month].length - 1
+                                      index === organizedArchiveWorkouts[year][month].length - 1
                                         ? ""
                                         : "card-divider"
                                     }`}
                                     key={workout._id}
                                   >
                                     <Card className="d-flex flex-column align-items-center card-no-border card-archive">
-                                      {imageSrc && ( 
+                                      {imageSrc && (
                                         <div className="card-img-container">
                                           <Card.Img
                                             src={imageSrc}

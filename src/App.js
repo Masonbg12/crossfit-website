@@ -16,7 +16,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // actually create a post
 // create instructions on how to best format posts
 // test all of the functions of posting/updating/deleting
-// remove all photos more than 2 years back for storage
+// remove all photos more than 2 years back for storage ******DONE********
 
 function App() {
   const location = useLocation();
