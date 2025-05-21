@@ -3,14 +3,6 @@ import { Container, Row, Col, Button, Form, Modal, Alert } from "react-bootstrap
 import DatePicker from "react-multi-date-picker";
 import { Editor } from "@tinymce/tinymce-react";
 
-// NEED TO:
-// actually create a post
-// create preview of new post before submitting
-// create instructions on how to best format posts
-// figure out how to delay a post for later time // CHECK?
-// test all of the functions of posting/updating/deleting
-// remove all photos more than 2 years back for storage
-
 function PostWod() {
   // STATE VARIABLES
 

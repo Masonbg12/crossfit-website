@@ -3,7 +3,7 @@ import FreeTrial from "../../components/FreeTrial";
 
 function ContactUs() {
   return (
-    <Container style={{ padding: "2rem 0", minHeight: "100vh"}}>
+    <Container fluid style={{ padding: "2rem 0", minHeight: "100vh"}}>
       {/* Info Card Section */}
       <Row className="mb-5">
         <Col xs={12} md={6} className="mx-auto">

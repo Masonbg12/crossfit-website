@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Modal, Button, Form, Alert } from "react-bootstrap";
+import emailjs from 'emailjs-com';
 
+// Options for class times
 const classOptions = [
   "Monday 5:30 AM", "Monday 8:30 AM", "Monday 12 PM", "Monday 4:30 PM", "Monday 5:30 PM", "Monday 6:30 PM",
   "Tuesday 5:30 AM", "Tuesday 8:30 AM", "Tuesday 12 PM", "Tuesday 4:30 PM", "Tuesday 5:30 PM", "Tuesday 6:30 PM",
@@ -11,40 +13,58 @@ const classOptions = [
   "Yoga Wednesday 6:00 PM", "Yoga Friday 9:30 AM"
 ];
 
+// regex patterns for validation
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phoneRegex = /^(\+?\d{1,2}\s?)?(\(?\d{3}\)?[\s.-]?)?\d{3}[\s.-]?\d{4}$/;
 
+// FreeTrial component
 const FreeTrial = () => {
-  const [show, setShow] = useState(false);
-  const [form, setForm] = useState({
+  const initialForm = {
     name: "",
     phone: "",
     email: "",
     classTime: "",
-  });
+    crossfitExperience: "",
+  };
+
+  // State variables
+  const [show, setShow] = useState(false);
+  const [form, setForm] = useState(initialForm);
   const [validated, setValidated] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [fieldErrors, setFieldErrors] = useState({});
 
-  const sendText = async (data) => {
+  // Send email using EmailJS API
+  const sendEmail = async (formData) => {
     try {
-      await fetch("/api/send-free-trial-sms", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      const result = await emailjs.send(
+        "service_t9kjisa",
+        "template_vrvru5x",
+        {
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          classTime: formData.classTime,
+          crossfitExperience: formData.crossfitExperience,
+        },
+        "7npPUHNAJ2uN917QH"
+      );
+      console.log("EmailJS result:", result.text);
       return true;
-    } catch (err) {
+    } catch (error) {
+      console.error("EmailJS error:", error);
       return false;
     }
   };
 
+  // Handle input changes
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setFieldErrors({ ...fieldErrors, [e.target.name]: "" });
   };
-
+  
+  // Validate form fields
   const validateFields = () => {
     const errors = {};
     if (!form.name.trim()) errors.name = "Please enter your name.";
@@ -59,9 +79,20 @@ const FreeTrial = () => {
       errors.email = "Please enter a valid email address.";
     }
     if (!form.classTime) errors.classTime = "Please select a class.";
+    if (!form.crossfitExperience) errors.crossfitExperience = "Please select an experience.";
     return errors;
   };
 
+  // Reset form to initial state
+  const resetForm = () => {
+    setForm(initialForm);
+    setValidated(false);
+    setSubmitted(false);
+    setError("");
+    setFieldErrors({});
+  };
+
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setValidated(true);
@@ -74,7 +105,7 @@ const FreeTrial = () => {
       return;
     }
 
-    const success = await sendText(form);
+    const success = await sendEmail(form);
     if (success) {
       setSubmitted(true);
     } else {
@@ -82,6 +113,7 @@ const FreeTrial = () => {
     }
   };
 
+  // Render the component
   return (
     <>
       <div
@@ -110,14 +142,28 @@ const FreeTrial = () => {
           Start Now
         </Button>
       </div>
-      <Modal centered show={show} onHide={() => { setShow(false); setSubmitted(false); setValidated(false); setError(""); setFieldErrors({}); }}>
+      <Modal
+        centered
+        show={show}
+        onHide={() => {
+          setShow(false);
+          resetForm();
+        }}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Free Trial Sign Up</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {submitted ? (
-            <Alert variant="success">
-              Thank you for signing up! We will see you at your selected class time. If you have any questions or need to reschedule, please contact us at <a href="tel:361-444-3316">361-444-3316</a>
+            <Alert
+              variant="success"
+              onClose={() => {
+                setSubmitted(false);
+                resetForm();
+                setShow(false);
+              }}
+            >
+              Thank you for signing up! We will see you at your selected class time. If you have any questions or need to reschedule, please contact us at <a href="tel:361-444-3316">361-444-3316</a>. This is just to give a heads-up to the coach. If we do not answer immediately, please feel free to come to the class.
             </Alert>
           ) : (
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -175,13 +221,31 @@ const FreeTrial = () => {
                   onChange={handleChange}
                   isInvalid={!!fieldErrors.classTime}
                 >
-                  <option value="">Choose a class...</option>
+                  <option value="">Please select a class...</option>
                   {classOptions.map((option, idx) => (
                     <option key={idx} value={option}>{option}</option>
                   ))}
                 </Form.Select>
                 <Form.Control.Feedback type="invalid">
                   {fieldErrors.classTime}
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="freeTrialExperience">
+                <Form.Label>CrossFit Experience</Form.Label>
+                <Form.Select
+                  required
+                  name="crossfitExperience"
+                  value={form.crossfitExperience}
+                  onChange={handleChange}
+                  isInvalid={!!fieldErrors.crossfitExperience}
+                >
+                  <option value="">Please select an experience...</option>
+                  <option value="first time CrossFitter">first time CrossFitter</option>
+                  <option value="done a few classes, but may need help with functional technique">done a few classes, but may need help with functional technique</option>
+                  <option value="experienced CrossFitter">experienced CrossFitter</option>
+                </Form.Select>
+                <Form.Control.Feedback type="invalid">
+                  {fieldErrors.crossfitExperience}
                 </Form.Control.Feedback>
               </Form.Group>
               {error && <Alert variant="danger">{error}</Alert>}

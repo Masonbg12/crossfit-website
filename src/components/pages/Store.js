@@ -35,8 +35,8 @@ function Store() {
       {/* Alert Section */}
       <Row className="mb-4">
         <Col>
-          <Alert variant="info">
-            Looking for custom orders? <a href="/custom-orders" className="alert-link">Click here</a> to place your custom order today!
+          <Alert variant="info" className="text-center">
+            Looking for custom orders? <a target="_blank" rel="noopener noreferrer" href="http://www.themarlinoutlet.com/xlr8" className="alert-link">Click here</a> to place your custom order today!
           </Alert>
         </Col>
       </Row>

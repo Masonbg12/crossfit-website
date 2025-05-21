@@ -134,7 +134,6 @@ function Wod() {
                             <Accordion.Header className="poppins-900-sub">{month}</Accordion.Header>
                             <Accordion.Body>
                               {organizedWorkouts[year][month].map((workout, index) => {
-                                {/* THERE NEEDS TO BE A DECISION MADE ABOUT ARCHIVED PHOTOS*/}
                                 const imageSrc =
                                   (Array.isArray(workout.images) && workout.images[0]) ||
                                   (() => {
