@@ -39,16 +39,14 @@ const FreeTrial = () => {
   const sendEmail = async (formData) => {
     try {
       const result = await emailjs.send(
-        "service_t9kjisa",
-        "template_vrvru5x",
+        "service_lolt6yf",
+        "template_dh1135e",
         {
           name: formData.name,
-          phone: formData.phone,
           email: formData.email,
-          classTime: formData.classTime,
-          crossfitExperience: formData.crossfitExperience,
+          message: `Phone: ${formData.phone}, classTime: ${formData.classTime}, CrossFit Experience: ${formData.crossfitExperience}`,
         },
-        "7npPUHNAJ2uN917QH"
+        "3B1c_7NdFQM5223JR"
       );
       console.log("EmailJS result:", result.text);
       return true;
