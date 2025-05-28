@@ -7,17 +7,18 @@ import "./styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // THINGS TO DO:
+// Free Trial email setup ******DONE********
+// actually create a post ******DONE********
+// create instructions on how to best format posts ******DONE********
+// remove all photos more than 2 years back for storage ******DONE********
+
+// test removal functionality
+// test all of the functions of posting/updating/deleting
+// Store needs list of items and pictures
+// Contact Us information card style update
 // Overall styling
 // simple documentation
 // Need pics from mom to update home page, meet the coaches, about us, and store
-// Free Trial email setup ******DONE********
-// Contact Us information card style update
-// Store needs list of items and pictures
-// actually create a post
-// create instructions on how to best format posts
-// test all of the functions of posting/updating/deleting
-// remove all photos more than 2 years back for storage ******DONE********
-// test removal functionality
 
 function App() {
   const location = useLocation();

@@ -90,34 +90,35 @@ function PostWod() {
   };
 
   // ADD POST FUNCTION
-  const handleAddPost = async () => {
-    const formDataToSend = new FormData();
-    formDataToSend.append("date", formData.scheduledDateTime);
-    formDataToSend.append("title", formData.title);
-    formDataToSend.append("content", formData.content);
-    if (formData.images) formDataToSend.append("images", formData.images);
-    
-    try {
-      const response = await fetch("http://localhost:5000/new-post", {
-        method: "POST",
-        body: formDataToSend,
-      });
-      if (!response.ok) throw new Error("Failed to add post. Contact Mason.");
-      alert("Post added successfully!");
-      setFormData({
-        date: "",
-        title: "",
-        content: "",
-        images: null,
-      });
-      setSelectedYear("");
-      setSelectedMonth("");
-      setSelectedPost(null);
-      fetchPosts();
-    } catch (err) {
-      alert(err.message);
-    }
-  };
+const handleAddPost = async () => {
+  const formDataToSend = new FormData();
+  formDataToSend.append("date", scheduledDateTime);
+  formDataToSend.append("title", formData.title);
+  formDataToSend.append("content", formData.content);
+  if (formData.images) formDataToSend.append("images", formData.images);
+
+  try {
+    const response = await fetch("http://localhost:5000/new-post", {
+      method: "POST",
+      body: formDataToSend,
+    });
+    if (!response.ok) throw new Error("Failed to add post. Contact Mason.");
+    alert("Post added successfully!");
+    setFormData({
+      date: "",
+      title: "",
+      content: "",
+      images: null,
+    });
+    setScheduledDateTime("");
+    setSelectedYear("");
+    setSelectedMonth("");
+    setSelectedPost(null);
+    fetchPosts();
+  } catch (err) {
+    alert(err.message);
+  }
+};
 
   // UPDATE POST FUNCTION
   const handleUpdatePost = async () => {
@@ -190,41 +191,6 @@ function PostWod() {
     setShowConfirmation(false);
   };
 
-  // SCHEDULE POST FUNCTION
-  const handleSchedulePost = async () => {
-    if (!scheduledDateTime) {
-      alert("Please select a date and time to schedule the post.");
-      return;
-    }
-    const formDataToSend = new FormData();
-    formDataToSend.append("date", formData.scheduledDateTime);
-    formDataToSend.append("title", formData.title);
-    formDataToSend.append("content", formData.content);
-    if (formData.images) formDataToSend.append("images", formData.images);
-
-    try {
-      const response = await fetch("http://localhost:5000/schedule-post", {
-        method: "POST",
-        body: formDataToSend,
-      });
-      if (!response.ok) throw new Error("Failed to schedule post");
-      alert("Post scheduled successfully!");
-      setFormData({
-        date: "",
-        title: "",
-        content: "",
-        images: null,
-      });
-      setScheduledDateTime("");
-      setSelectedYear("");
-      setSelectedMonth("");
-      setSelectedPost(null);
-      fetchPosts();
-    } catch (err) {
-      alert(err.message);
-    }
-  };
-
   useEffect(() => {
     if (activeForm === "updateDelete") {
       fetchPosts(); 
@@ -278,7 +244,7 @@ function PostWod() {
       <Row className="mb-4">
         <Col>
           <h2>Manage Workouts</h2>
-          <p>Add, update, or delete workouts of the day (WOD).</p>
+          <p>Add, update, or delete workouts of the day (WOD). Please Fill out all of the boxes before submitting anything.</p>
         </Col>
       </Row>
       <Row className="mb-4">
@@ -350,7 +316,7 @@ function PostWod() {
               apiKey="vz83r7df8uh8sv96mh2u08bjn97n2v42p319lxrbaoi995ha"
               value={
                 formData.content ||
-                `<p style="color: red;"><strong>WOD Details at CrossFit XLR8/Movements only:</strong><br/>
+                `<p style="color: red;">WOD Details at CrossFit XLR8/Movements only:<br/>
                 Monday:<br/>
                 Tuesday:<br/>
                 Wednesday:<br/>
@@ -500,6 +466,9 @@ function PostWod() {
                   }}
                   onEditorChange={(content) => setFormData({ ...formData, content })}
                 />
+                <Form.Text className="text-muted">
+                  If there is an image in the content box above do no add another image below.
+                </Form.Text>
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Images</Form.Label>
@@ -519,13 +488,6 @@ function PostWod() {
                   onClick={() => handleShowConfirmation("delete")}
                 >
                   Delete Post
-                </Button>
-                <Button
-                  variant="info"
-                  className="ms-2"
-                  onClick={handleSchedulePost}
-                >
-                  Schedule Post
                 </Button>
                 <Button
                   variant="secondary"

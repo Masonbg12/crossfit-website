@@ -29,8 +29,15 @@ function Wod() {
     if (!workoutDate) return true;
     return workoutDate <= now;
   });
-  
-  const recentWorkouts = visibleWorkouts.slice(-4);
+
+  // Sort by date descending (newest first)
+  const sortedVisibleWorkouts = [...visibleWorkouts].sort((a, b) => {
+    const dateA = a.date ? new Date(a.date) : (a.scheduledDateTime ? new Date(a.scheduledDateTime) : new Date(0));
+    const dateB = b.date ? new Date(b.date) : (b.scheduledDateTime ? new Date(b.scheduledDateTime) : new Date(0));
+    return dateB - dateA;
+  });
+
+  const recentWorkouts = sortedVisibleWorkouts.slice(0, 4);
 
   // Exclude the recentWorkouts from the archive
   const recentWorkoutIds = new Set(recentWorkouts.map(w => w._id));
