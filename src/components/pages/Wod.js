@@ -25,8 +25,9 @@ function Wod() {
 
   const now = new Date();
   const visibleWorkouts = workouts.filter(workout => {
-    if (!workout.scheduledDateTime) return true;
-    return new Date(workout.scheduledDateTime) <= now;
+    const workoutDate = workout.date ? new Date(workout.date) : (workout.scheduledDateTime ? new Date(workout.scheduledDateTime) : null);
+    if (!workoutDate) return true;
+    return workoutDate <= now;
   });
   
   const recentWorkouts = visibleWorkouts.slice(-4);
@@ -39,9 +40,10 @@ function Wod() {
   const organizeArchiveWorkouts = () => {
     const organized = {};
     archiveWorkouts.forEach((workout) => {
-      const date = new Date(workout.date);
-      const year = date.getFullYear();
-      const month = date.toLocaleString("default", { month: "long" });
+      const workoutDate = workout.date ? new Date(workout.date) : (workout.scheduledDateTime ? new Date(workout.scheduledDateTime) : null);
+      if (!workoutDate) return;
+      const year = workoutDate.getFullYear();
+      const month = workoutDate.toLocaleString("default", { month: "long" });
 
       if (!organized[year]) organized[year] = {};
       if (!organized[year][month]) organized[year][month] = [];

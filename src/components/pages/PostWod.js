@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button, Form, Modal, Alert } from "react-bootstrap";
-import DatePicker from "react-multi-date-picker";
 import { Editor } from "@tinymce/tinymce-react";
 
 function PostWod() {
@@ -93,13 +92,11 @@ function PostWod() {
   // ADD POST FUNCTION
   const handleAddPost = async () => {
     const formDataToSend = new FormData();
-    formDataToSend.append("date", formData.date);
+    formDataToSend.append("date", formData.scheduledDateTime);
     formDataToSend.append("title", formData.title);
     formDataToSend.append("content", formData.content);
     if (formData.images) formDataToSend.append("images", formData.images);
-
-    console.log(`[Add Post]`, formDataToSend);
-
+    
     try {
       const response = await fetch("http://localhost:5000/new-post", {
         method: "POST",
@@ -200,11 +197,10 @@ function PostWod() {
       return;
     }
     const formDataToSend = new FormData();
-    formDataToSend.append("date", formData.date);
+    formDataToSend.append("date", formData.scheduledDateTime);
     formDataToSend.append("title", formData.title);
     formDataToSend.append("content", formData.content);
     if (formData.images) formDataToSend.append("images", formData.images);
-    formDataToSend.append("scheduledDateTime", scheduledDateTime);
 
     try {
       const response = await fetch("http://localhost:5000/schedule-post", {
@@ -326,13 +322,13 @@ function PostWod() {
       </Row>
       {activeForm === "add" && (
         <Form>
+          {/* Schedule Date & Time moved up */}
           <Form.Group className="mb-3">
-            <Form.Label>Date</Form.Label>
-            <DatePicker
-              range
-              value={formData.date}
-              onChange={(selectedDates) => setFormData({ ...formData, date: selectedDates })}
-              format="MM/DD/YYYY"
+            <Form.Label>Schedule Date & Time</Form.Label>
+            <Form.Control
+              type="datetime-local"
+              value={scheduledDateTime}
+              onChange={(e) => setScheduledDateTime(e.target.value)}
             />
           </Form.Group>
           <Form.Group className="mb-3">
@@ -344,12 +340,24 @@ function PostWod() {
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
             />
+            <Form.Text className="text-muted">
+              Please structure the title as "Month Date-Date, Year". For Example: "May 26-31, 2025".
+            </Form.Text>
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Content</Form.Label>
             <Editor
               apiKey="vz83r7df8uh8sv96mh2u08bjn97n2v42p319lxrbaoi995ha"
-              value={formData.content}
+              value={
+                formData.content ||
+                `<p style="color: red;"><strong>WOD Details at CrossFit XLR8/Movements only:</strong><br/>
+                Monday:<br/>
+                Tuesday:<br/>
+                Wednesday:<br/>
+                Thursday:<br/>
+                Friday:<br/>
+                Saturday:</p>`
+              }
               init={{
                 height: 300,
                 menubar: false,
@@ -368,14 +376,10 @@ function PostWod() {
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Images</Form.Label>
-            <Form.Control type="file" name="images" onChange={(e) => setFormData({ ...formData, images: e.target.files[0] })} />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Schedule Date & Time</Form.Label>
             <Form.Control
-              type="datetime-local"
-              value={scheduledDateTime}
-              onChange={(e) => setScheduledDateTime(e.target.value)}
+              type="file"
+              name="images"
+              onChange={(e) => setFormData({ ...formData, images: e.target.files[0] })}
             />
           </Form.Group>
           <Button variant="success" onClick={handleAddPost}>
@@ -451,14 +455,17 @@ function PostWod() {
 
           {selectedPost && (
             <>
-              {/* Date Picker for Update */}
+              {/* Schedule Date & Time moved up */}
               <Form.Group className="mb-3">
-                <Form.Label>Date</Form.Label>
-                <DatePicker
-                  value={formData.date}
-                  onChange={(selectedDate) => setFormData({ ...formData, date: selectedDate })}
-                  format="MM/DD/YYYY"
+                <Form.Label>Schedule Date & Time</Form.Label>
+                <Form.Control
+                  type="datetime-local"
+                  value={scheduledDateTime}
+                  onChange={(e) => setScheduledDateTime(e.target.value)}
                 />
+                <Form.Text className="text-muted">
+                  Please select the date as the date above in parenthesis with any time.
+                </Form.Text>
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Title</Form.Label>
@@ -469,6 +476,9 @@ function PostWod() {
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 />
+                <Form.Text className="text-muted">
+                  Please structure the title as "Month Date-Date, Year". For Example: "May 26-31, 2025".
+                </Form.Text>
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Content</Form.Label>
