@@ -44,7 +44,9 @@ const FreeTrial = () => {
         {
           name: formData.name,
           email: formData.email,
-          message: `Phone: ${formData.phone}, classTime: ${formData.classTime}, CrossFit Experience: ${formData.crossfitExperience}`,
+          phone: formData.phone,
+          classTime: formData.classTime,
+          crossfitExperience: formData.crossfitExperience,
         },
         "3B1c_7NdFQM5223JR"
       );
