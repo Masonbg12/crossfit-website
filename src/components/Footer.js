@@ -54,7 +54,7 @@ function Footer() {
         className="d-flex text-center"
       >
         <p style={{ paddingTop: "1rem"}}>
-          CrossFit XLR8 | 202 Hwy 35 Gregory, TX USA | Phone: 361-444-3316 | Info@crossfitxlr8.com |
+          CrossFit XLR8 | 202 Hwy 35 Gregory, TX USA | Phone: 361-290-6969 | xlr8community@yahoo.com |
           Copyright © 2025 CrossFit XLR8
         </p>
       </Row>

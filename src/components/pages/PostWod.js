@@ -467,7 +467,7 @@ const handleAddPost = async () => {
                   onEditorChange={(content) => setFormData({ ...formData, content })}
                 />
                 <Form.Text className="text-muted">
-                  If there is an image in the content box above do no add another image below.
+                  If there is an image in the content box above do not add another image below.
                 </Form.Text>
               </Form.Group>
               <Form.Group className="mb-3">

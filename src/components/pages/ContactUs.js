@@ -11,8 +11,8 @@ function ContactUs() {
             <Card.Body>
               <Card.Title className="text-center poppins-900-sub">Contact Information</Card.Title>
               <Card.Text className="contact-info">
-                <strong>Phone:</strong> 361-444-3316 <br />
-                <strong>Email:</strong> <a href="mailto:info@crossfitxlr8.com">info@crossfitxlr8.com</a> <br />
+                <strong>Phone: *Leave a message or send a text to*</strong> 361-290-6969 <br />
+                <strong>Email:</strong> <a href="mailto:xlr8community@yahoo.com">xlr8community@yahoo.com</a> <br />
                 <strong>Address:</strong> 202 Hwy 35, Gregory, TX, USA
               </Card.Text>
             </Card.Body>

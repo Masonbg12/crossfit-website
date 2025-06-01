@@ -163,7 +163,7 @@ const FreeTrial = () => {
                 setShow(false);
               }}
             >
-              Thank you for signing up! We will see you at your selected class time. If you have any questions or need to reschedule, please contact us at <a href="tel:361-444-3316">361-444-3316</a>. This is just to give a heads-up to the coach. If we do not answer immediately, please feel free to come to the class.
+              Thank you for signing up! We will see you at your selected class time. If you have any questions or need to reschedule, please contact us at <a href="tel:361-290-6969">361-290-6969</a>. This is just to give a heads-up to the coach. If we do not answer immediately, please feel free to come to the class.
             </Alert>
           ) : (
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
