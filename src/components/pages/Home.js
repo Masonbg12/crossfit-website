@@ -4,71 +4,112 @@ import FreeTrial from "../../components/FreeTrial.js";
 
 function Home() {
   return (
-    <Container fluid>
+    <Container fluid style={{ padding: 0, margin: 0 }}>
       {/* Hero Header Section */}
       <div
-        className="hero-section position-relative"
-        style={{ height: "100vh", width: "100vw", overflow: "hidden" }}
+        className="hero-section"
+        style={{
+          height: "100vh",
+          width: "100vw",
+          display: "flex",
+          position: "relative",
+          overflow: "hidden",
+        }}
       >
-        {/* Video covers the entire background */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            objectFit: "cover",
-            zIndex: 0,
-          }}
-        >
-          <source src="/Third_Draft.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        {/* Gradient overlay covers left 25% */}
+        {/* Left 25%: Black */}
         <div
-          className="hero-gradient-overlay"
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "25vw",
-            height: "100%",
-            zIndex: 1,
-            pointerEvents: "none",
-            background: "linear-gradient(to right, rgba(0,0,0,0.95) 80%, rgba(0,0,0,0) 100%)",
+            width: "30vw",
+            height: "100vh",
+            background: "#000",
+            flexShrink: 0,
+            flexGrow: 0,
           }}
         />
-        {/* Text content */}
+        {/* Right 62%: Video */}
         <div
           style={{
+            width: "70vw",
+            height: "100vh",
             position: "relative",
+            overflow: "hidden",
+            flexShrink: 0,
+            flexGrow: 0,
+            background:
+              "linear-gradient(to right, #000 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              zIndex: -1,
+              background: "#000",
+            }}
+          >
+          <div
+            style={{
+            width: "100vw",
+            height: "100vh",
+            background:
+              "linear-gradient(to right, #000 0%, #000 30%)",
+            flexShrink: 0,
+            flexGrow: 0,
+            zIndex: 1,
+            }}
+          />
+            <source src="/Third_Draft.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        {/* Text content overlays left 38% (black + gradient), left-aligned */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "38vw", // 25vw + 13vw
+            height: "100vh",
             zIndex: 2,
-            height: "100%",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "flex-start",
-            paddingLeft: "3vw",
-            width: "25vw",
+            paddingLeft: "4vw",
+            pointerEvents: "none", // allows video interaction if needed
           }}
         >
-          <h1 className="poppins-900-main" style={{ color: "#fff" }}>WELCOME TO CROSSFIT XLR8</h1>
-          <p style={{ color: "#fff" }}>
-            Achieve your fitness goals with our expert coaching, supportive community, and proven CrossFit programs.
-          </p>
-          <Button variant="primary" size="lg">
-            Learn More
-          </Button>
+          <div style={{ pointerEvents: "auto" }}>
+            <h1 className="poppins-900-main" style={{ color: "#fff" }}>
+              WELCOME TO CROSSFIT XLR8
+            </h1>
+            <p style={{ color: "#fff" }}>
+              Achieve your fitness goals with our expert coaching, supportive
+              community, and proven CrossFit programs.
+            </p>
+            <Button variant="primary" size="lg">
+              Learn More
+            </Button>
+          </div>
         </div>
       </div>
 
       {/* Free Trial Section */}
-      <Row className="d-flex align-items-center bg-light2" style={{ padding: "4rem 0" }}>
+      <Row
+        className="d-flex align-items-center bg-light2"
+        style={{ padding: "4rem 0" }}
+      >
         <Col xs={12} md={6} className="text-center">
           <FreeTrial />
         </Col>
@@ -86,7 +127,10 @@ function Home() {
       <Programs />
 
       {/* Gallery/Testimonials Section */}
-      <Row className="gallery-section text-center bg-light2" style={{ padding: "4rem 0" }}>
+      <Row
+        className="gallery-section text-center bg-light2"
+        style={{ padding: "4rem 0" }}
+      >
         <Col>
           <h2 className="poppins-900-main">Gallery & Testimonials</h2>
           <p>See what our members have to say and check out our facilities.</p>
