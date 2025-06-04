@@ -39,6 +39,18 @@ html, body {
   font-size: 1.5rem !important;
 }
 
+/* Home Styling */
+
+.hero-gradient-overlay {
+  display: block;
+}
+
+@media (max-width: 991.98px) {
+  .hero-gradient-overlay {
+    display: none;
+  }
+}
+
 /* Navbar styling */
 #nav-bar {
   display: flex;

@@ -4,7 +4,7 @@ import logo from "../logos/CrossFit_logo_black.png";
 function Navigation() {
   return (
     // ************ work on desktop spacing **********
-    <Navbar expand="md" id="nav-bar" style={{ borderBottom: "4px solid #000" }}>
+    <Navbar expand="md" id="nav-bar">
       <Container fluid>
         <Navbar.Brand href="/" className="d-flex align-items-center">
           <Image src={logo} fluid style={{ width: "10rem", height: "auto" }} />
