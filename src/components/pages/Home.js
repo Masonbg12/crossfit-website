@@ -69,7 +69,7 @@ function Home() {
             zIndex: 1,
             }}
           />
-            <source src="/Third_Draft.mp4" type="video/mp4" />
+            <source src="/First_Draft.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
