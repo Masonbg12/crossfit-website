@@ -36,7 +36,7 @@ function Home() {
             flexShrink: 0,
             flexGrow: 0,
             background:
-              "linear-gradient(to right, #000 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)",
+              "linear-gradient(to right, #000 0%, rgba(0,0,0,0.85) 20%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -69,7 +69,7 @@ function Home() {
             zIndex: 1,
             }}
           />
-            <source src="/First_Draft.mp4" type="video/mp4" />
+            <source src="/crossfit-stitched-video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
