@@ -1,6 +1,6 @@
 import { Container, Row, Col, Button, Image } from "react-bootstrap";
 import Programs from "../Programs.js";
-import FreeTrial from "../../components/FreeTrial.js";
+import OurGym from "../OurGym.js";
 
 function Home() {
   return (
@@ -36,7 +36,7 @@ function Home() {
             flexShrink: 0,
             flexGrow: 0,
             background:
-              "linear-gradient(to right, #000 0%, rgba(0,0,0,0.85) 20%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)",
+              "linear-gradient(to right, #000 0%, rgba(0,0,0,0.85) 20%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 100%)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -63,13 +63,13 @@ function Home() {
             width: "100vw",
             height: "100vh",
             background:
-              "linear-gradient(to right, #000 0%, #000 30%)",
+              "linear-gradient(to right, #000 0%, #000 20%)",
             flexShrink: 0,
             flexGrow: 0,
             zIndex: 1,
             }}
           />
-            <source src="/crossfit-stitched-video.mp4" type="video/mp4" />
+            <source src="/media/crossfit-stitched-video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -105,23 +105,8 @@ function Home() {
         </div>
       </div>
 
-      {/* Free Trial Section */}
-      <Row
-        className="d-flex align-items-center bg-light2"
-        style={{ padding: "4rem 0" }}
-      >
-        <Col xs={12} md={6} className="text-center">
-          <FreeTrial />
-        </Col>
-        <Col xs={12} md={6} className="text-center">
-          <Image
-            src="https://via.placeholder.com/400x300"
-            alt="Free Trial"
-            fluid
-            style={{ borderRadius: "10px" }}
-          />
-        </Col>
-      </Row>
+      {/* Our Gym Section */}
+      <OurGym />
 
       {/* Programs Section */}
       <Programs />
