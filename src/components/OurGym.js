@@ -7,23 +7,27 @@ const gymImages = [
   },
   {
     src: "/media/building-pics/established-wall.jpg",
-    alt: "Front View of Our Gym",
+    alt: "Established Wall View of Our Gym",
   },
   {
     src: "/media/building-pics/main-floor.jpg",
     alt: "Front View of Our Gym",
   },
   {
+    src: "/media/building-pics/backyard.jpg",
+    alt: "Backyard View of Our Gym",
+  },
+  {
     src: "/media/building-pics/office.jpg",
-    alt: "Front View of Our Gym",
+    alt: "Office View of Our Gym",
   },
   {
     src: "/media/building-pics/second-floor.jpg",
-    alt: "Front View of Our Gym",
+    alt: "Second Floor View of Our Gym",
   },
   {
     src: "/media/building-pics/skis.jpg",
-    alt: "Front View of Our Gym",
+    alt: "Ski Area View of Our Gym",
   },
 ];
 
@@ -31,18 +35,28 @@ function OurGym() {
   return (
     <Row style={{ backgroundColor: "#f8f9fa", padding: "1rem" }}>
       <Col>
-        <Carousel>
-          {gymImages.map((img, idx) => (
-            <Carousel.Item key={idx}>
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="d-block w-100 img-fluid"
-              />
-            </Carousel.Item>
-          ))}
-        </Carousel>
-        <h2 className="text-center poppins-900-main">Our Gym</h2>
+        <h2 className="text-center mb-4 poppins-900-main">Our Gym</h2>
+        <div className="carousel-outer-wrap">
+          <Carousel
+            interval={null}
+            indicators={gymImages.length > 1}
+            controls={true}
+            className="custom-carousel-controls"
+            style={{ maxWidth: "75vw", width: "100%", margin: "0 auto" }}
+          >
+            {gymImages.map((img, idx) => (
+              <Carousel.Item key={idx}>
+                <div className="d-flex justify-content-center">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="d-block w-75 img-fluid"
+                  />
+                </div>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        </div>
         <p className="text-center p-3">
           Located on Hwy 35 in the “gateway” of Portland and Gregory, we have a
           13,000 square foot facility and a 400 meter track to run! Our facility
