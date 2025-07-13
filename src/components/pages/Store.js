@@ -4,21 +4,29 @@ function Store() {
   const items = [
     {
       name: "CrossFit T-Shirt",
-      image: "https://via.placeholder.com/300x200",
-      description: "High-quality CrossFit T-shirt available in various sizes.",
-      price: "$25",
+      image: "/media/store/t-shirt.jpg",
+      description: "long sleeve available.",
+      price: "$20-35"
     },
     {
-      name: "CrossFit Water Bottle",
-      image: "https://via.placeholder.com/300x200",
-      description: "Durable and lightweight water bottle to keep you hydrated.",
-      price: "$15",
+      name: "CrossFit Crop Top",
+      image: "/media/store/crop.jpg",
+      price: "$25"
     },
     {
-      name: "CrossFit Gym Bag",
-      image: "https://via.placeholder.com/300x200",
-      description: "Spacious and stylish gym bag for all your workout essentials.",
-      price: "$40",
+      name: "CrossFit Hoodie",
+      image: "media/store/jacket.jpg",
+      price: "$25-50"
+    },
+    {
+      name: "CrossFit Shorts",
+      image: "/media/store/shorts.jpg",
+      description: "leggings available.",
+      price: "$20-40"
+    },
+    {
+      name: "CrossFit Gear",
+      image: "/media/store/various.jpg"
     },
   ];
 
@@ -28,7 +36,7 @@ function Store() {
       <Row className="text-center mb-4">
         <Col>
           <h2 className="poppins-900-main">Welcome to Our Store</h2>
-          <p>Explore our exclusive CrossFit merchandise and gear.</p>
+          <p>All items are available in different styles, colors, and sizes in-gym.</p>
         </Col>
       </Row>
 
@@ -51,7 +59,6 @@ function Store() {
                 <Card.Title>{item.name}</Card.Title>
                 <Card.Text>{item.description}</Card.Text>
                 <Card.Text><strong>{item.price}</strong></Card.Text>
-                <Button variant="primary">Add to Cart</Button>
               </Card.Body>
             </Card>
           </Col>
