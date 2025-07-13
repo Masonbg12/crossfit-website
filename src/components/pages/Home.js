@@ -1,6 +1,41 @@
-import { Container, Row, Col, Button, Image } from "react-bootstrap";
+import { Container, Carousel, Row, Col, Button } from "react-bootstrap";
 import Programs from "../Programs.js";
 import OurGym from "../OurGym.js";
+
+const gallery = [
+  {
+    src: "/media/gallery/group-photo.jpg",
+    alt: "group photo"
+  },
+  {
+    src: "/media/gallery/side-sign.jpg",
+    alt: "side building sign"
+  },
+  {
+    src: "/media/gallery/america-bra.jpg",
+    alt: "workout action photo"
+  },
+  {
+    src: "/media/gallery/running-wave.jpg",
+    alt: "workout action photo"
+  },
+  {
+    src: "/media/gallery/group-outside.jpg",
+    alt: "group photo"
+  },
+  {
+    src: "/media/gallery/running-peace.jpg",
+    alt: "workout action photo"
+  },
+  {
+    src: "/media/gallery/parents-partner.jpg",
+    alt: "workout action photo"
+  },
+  {
+    src: "/media/gallery/running-smiling.jpg",
+    alt: "workout action photo"
+  }
+];
 
 function Home() {
   return (
@@ -111,20 +146,34 @@ function Home() {
       {/* Programs Section */}
       <Programs />
 
-      {/* Gallery/Testimonials Section */}
+      {/* Gallery Section */}
       <Row
-        className="gallery-section text-center bg-light2"
+        className="text-center bg-light2"
         style={{ padding: "4rem 0" }}
       >
         <Col>
-          <h2 className="poppins-900-main">Gallery & Testimonials</h2>
-          <p>See what our members have to say and check out our facilities.</p>
-          <Image
-            src="https://via.placeholder.com/800x400"
-            alt="Gallery"
-            fluid
-            style={{ borderRadius: "10px" }}
-          />
+          <h2 className="text-center mb-4 poppins-900-main">Gallery</h2>
+          <div className="carousel-outer-wrap">
+            <Carousel
+              interval={null}
+              indicators={gallery.length > 1}
+              controls={true}
+              className="custom-carousel-controls"
+              style={{ maxWidth: "75vw", width: "100%", margin: "0 auto" }}
+            >
+              {gallery.map((img, idx) => (
+                <Carousel.Item key={idx}>
+                  <div className="d-flex justify-content-center">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="d-block w-75 img-fluid"
+                    />
+                  </div>
+                </Carousel.Item>
+              ))}
+            </Carousel>
+          </div>
         </Col>
       </Row>
     </Container>

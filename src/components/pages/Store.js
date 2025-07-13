@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, Button, Alert } from "react-bootstrap";
+import { Container, Row, Col, Card, Alert } from "react-bootstrap";
 
 function Store() {
   const items = [
