@@ -67,6 +67,36 @@ html, body {
   vertical-align: middle;
 }
 
+/* general carousel styling for about us and home */
+
+
+.carousel-outer-wrap .carousel-control-prev-icon,
+.carousel-outer-wrap .carousel-control-next-icon {
+  background-image: none !important;
+  background: none !important;
+  color: #212529 !important;
+  filter: none !important;
+  opacity: 1 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.carousel-outer-wrap .carousel-control-prev-icon:after {
+  content: '\2039';
+  font-size: 2.5rem;
+  color: #212529;
+  display: block;
+  text-align: center;
+}
+
+.carousel-outer-wrap .carousel-control-next-icon:after {
+  content: '\203A';
+  font-size: 2.5rem;
+  color: #212529;
+  display: block;
+  text-align: center;
+}
+
 /* About Us styling */
 .carousel-outer-wrap {
   position: relative;
@@ -107,7 +137,6 @@ html, body {
   }
 
   .coach-card-uniform .card-img {
-    height: 200px !important;
     object-fit: cover !important;
     min-height: 400px !important;
     max-height: 400px !important;

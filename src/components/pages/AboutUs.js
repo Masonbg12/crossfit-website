@@ -17,7 +17,7 @@ function AboutUs() {
     {
       name: "Brian Hagemann",
       img: "/media/coaches/brian1.jpg",
-      bio: "need bio.",
+      bio: "Brian has been a CrossFit XLR8 member since 2009. With his current work schedule, he doesn’t get to work out or coach as much as he used to. But he gets in a workout and catches up with his CrossFit family as often as possible. You’ll usually find him at the noon class, choosing Option 1 every time! CrossFit has been the motivation to keep moving, so he can keep up with his 5 grand kids and enjoy an active life.",
     },
     {
       name: "Hailey Riedesel",
@@ -27,7 +27,7 @@ function AboutUs() {
     {
       name: "Dan Willot",
       img: "/media/coaches/.jpg",
-      bio: "need bio.",
+      bio: "Dan Willott dove into CrossFit at XLR8 in 2011, spurred on by his wife and fire station buddies. Throughout his career, CrossFit has kept him in peak shape and physically ready for the demands of firefighting. Shortly after, he earned his Olympic lifting coaching certification and loved coaching so much he went on to get his CrossFit level one certification. With sharp skills and infectious energy, he pushes athletes of all levels to crush their goals. In his free time, he’s part of a group that gives back to the community by forging knives with veterans and first responders.",
     },
     {
       name: "Matt Gully",
@@ -52,12 +52,12 @@ function AboutUs() {
     {
       name: "Amanda Rodriguez",
       img: "/media/coaches/amanda1.jpg",
-      bio: "Amanda grew up in Ingleside and started CrossFit in 2014. She been at CrossFit XLR8 since 2016 and just received her CF-OL1 June 2024. She loves CrossFit because the community, variety, and the motivation to compete. She says CrossFit has allowed her  to push herself to the point where it hurts and say “why do I keep coming back” but the results are worth it! Her least favorite thing is running but has pushed herself this year to choose running over rowing/skiing. She’s excited to be on the other side helping others improve their technique and reach goals like the coaches at CrossFit XLR8 have done for her. When you see Amanda around be sure to say hi and welcome her to our team!",
+      bio: "Amanda started CrossFit in 2014 and joined CrossFit XLR8 in 2016—pregnant with baby #2 (and later #3), determined not to let burpees slow her down too much. With the XLR8 coaches cheering her on to scale smart, listen to her body, and keep moving, she quickly realized this was more than a gym—it was family.These days, Amanda’s still showing up and still surprising herself. Her favorite movements are pull-ups and squat cleans. Running? Not so much. But every now and then, she shocks the coach by choosing it anyway then instantly regrets it mid workout. Her journey—competing, lifting while growing tiny humans, and proving that motherhood doesn’t mean slowing down—inspired her to become a coach. She received her CF-OL1 in June 2024. With her CF-OL1 and a whole lot of heart, Amanda wants to help others grow stronger, more confident, and supported—just like she was. If you see her coaching or mid-WOD, say hey! Just don’t invite her on a run unless snacks are promised.",
     },
     {
       name: "Matt Rodriguez",
       img: "/media/coaches/shorty2.jpg",
-      bio: "need bio."},
+      bio: "Matt Rodriguez Matt began his CrossFit journey in 2014 and instantly fell in love with the energy and community that XLR8 has built. His favorite workout is Cindy — 20 minutes of 5 pull-ups, 10 push-ups, and 15 air squats — a true test of grit and consistency. Matt enjoys spending time with family and friends whenever he can, mainly outdoors. After suffering a ruptured Achilles while playing basketball, he experienced firsthand the support and encouragement of the XLR8 coaching team, who helped guide him back into CrossFit workouts at his own pace. Inspired by that journey, Matt decided to become a coach himself, earning his CF-OL1. He wants to help others grow stronger, move better, and feel more confident. If you see him around—coaching, sweating, or pretending to stretch—say hey! Just don’t invite him to play basketball."},
     {
       name: "Oscar Lara",
       img: "/media/coaches/oscar1.jpg",
@@ -72,6 +72,11 @@ function AboutUs() {
       name: "anibal Guerrero",
       img: "/media/coaches/anibal2.jpg",
       bio: "need bio."
+    },
+    {
+      name: "Morgan Fehr",
+      img: "/media/coaches/morgan1.jpg",
+      bio: "Morgan started CrossFit back in 2014, and as a former high school athlete, fell in love with the competitiveness and triumph of the sport. She has been coaching off and on since 2016, joined CrossFit xlr8 in 2023, and is now excited to have the opportunity to coach for our facility. Being a positive influence for her two boys is extremely important to her and she hopes to carry that on in the gym with our athletes, helping them achieve their fitness goals in a fun and positive way. Her and her husband are proud members of our CrossFit community and love the great environment it provides. Morgan has a passion for the barbell and is excited to share that with our gym.",
     }
   ];
 
@@ -106,7 +111,7 @@ function AboutUs() {
                   <Card
                     className="mx-auto coach-card-uniform"
                     style={{
-                      height: "400px",
+                      height: "600px",
                       minHeight: "400px",
                       maxHeight: "400px",
                       display: "flex",
@@ -128,7 +133,7 @@ function AboutUs() {
                       </Col>
                       <Col xs={12} md={6} className="d-flex h-100">
                         <Card.Body
-                          className="d-flex flex-column justify-content-center h-100 w-100"
+                          className="d-flex flex-column justify-content-center"
                           style={{
                             overflow: "auto",
                             maxHeight: "350px",
