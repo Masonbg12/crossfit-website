@@ -7,17 +7,12 @@ function AboutUs() {
     {
       name: "Molly Gillespie",
       img: "/media/coaches/molly1.jpg",
-      bio: "Coach Molly, aka Mo…..yep, she’s still happy to be here! Believing quality of living has a foundation of feeling good, she is here to help ensure independent longevity and yes that comes with Burpees, falling down and returning to your feet! Mo started CrossFit in 2007, got her CF Level 1 2008, started CF XLR8 Affiliate in 2009 and CF Kids in 2010. Molly is a full time Medical Dosimetrist in Radiation Oncology and has been for the past 32 years, along with other businesses. She has been married for 32 years, and has two “kids” ages 29 & 23. Nothing feeds her drive more than being witness to individuals discovering just how strong they can be mentally and physically. CrossFit is her tool for self worth and life long lasting relationships!",
+      bio: "Molly, aka Mo…..yep, she’s still happy to be here! Believing quality of living has a foundation of feeling good, she is here to help ensure independent longevity and yes that comes with Burpees, falling down and returning to your feet! Mo started CrossFit in 2007, got her CF Level 1 2008, started CF XLR8 Affiliate in 2009 and CF Kids in 2010. Molly is a full time Medical Dosimetrist in Radiation Oncology and has been for the past 34 years, along with other businesses. Husband Jason and their children Shelby and Mason make her happy life complete. Nothing feeds her drive more than being witness to individuals discovering just how strong they can be mentally and physically. CrossFit is her tool for self worth and life long lasting relationships!",
     },
     {
       name: "Jason Gillespie",
       img: "/media/coaches/jason2.jpg",
-      bio: "need bio.",
-    },
-    {
-      name: "Paige Smith",
-      img: "/media/coaches/.jpg",
-      bio: "need bio.",
+      bio: "Jason started crossfit in October 2009. Along the way he received a CrossFit Level 1 coaching certificate and a USA weightlifting certification. Definitely the community is his favorite part of those 15 years. Working out, coaching and hanging out with all the amazing like minded members has been the highlight of his time at XLR8. \"Don’t let the old man\" in is his motto.. \"Crossfit XLR8 has allowed me to keep that goal. I can’t imagine not having XLR8 in our lives. Let’s continue to grow and help others achieve those goals\".",
     },
     {
       name: "Brian Hagemann",
@@ -27,7 +22,7 @@ function AboutUs() {
     {
       name: "Hailey Riedesel",
       img: "/media/coaches/hailey2.jpg",
-      bio: "Coach Hailey started CrossFit in 2014 and is happy to be back with her XLR8 Family. She received her CrossFit Level 1 and CrossFit Kids certifications in 2016 and recently completed her Masters in Kinesiology at TAMUCC. You can always find Hailey coaching multiple classes through out the week including our unloaded classes at 10am Tuesday and Thursdays.",
+      bio: "Hailey started CrossFit in 2014 and is happy to be back with her XLR8 Family. She received her CrossFit Level 1 and CrossFit Kids certifications in 2016 and recently completed her Masters in Kinesiology at TAMUCC. You can always find Hailey coaching multiple classes through out the week including our unloaded classes at 10am Tuesday and Thursdays.",
     },
     {
       name: "Dan Willot",
@@ -37,27 +32,27 @@ function AboutUs() {
     {
       name: "Matt Gully",
       img: "/media/coaches/matt1.jpg",
-      bio: "Coach Matt spent 24 years moving around the country flying helicopters for the US Coast Guard and began CrossFit in 2014 while living in Jacksonville, Florida. Originally from Texas he couldn’t wait to get back to his home state and moved to Portland in 2021, where he found our XLR8 family. Working out, starting back in High School and Collegiate sports, has always been an important part of his life. He has a daughter in High School and a son in Middle School who both enjoy sports and are starting on their fitness journey as well. He plans to retire from the military in 2024 and hopes to call this gym his home for many years to come. Coach Matt is excited to take the next step as a Coach and thankful for the opportunity to share his knowledge and experience!",
+      bio: "Matt spent 24 years moving around the country flying helicopters for the US Coast Guard and began CrossFit in 2014 while living in Jacksonville, Florida. Originally from Texas he couldn’t wait to get back to his home state and moved to Portland in 2021, where he found our XLR8 family. Working out, starting back in High School and Collegiate sports, has always been an important part of his life. He has a daughter in High School and a son in Middle School who both enjoy sports and are starting on their fitness journey as well. He plans to retire from the military in 2024 and hopes to call this gym his home for many years to come. Coach Matt is excited to take the next step as a Coach and thankful for the opportunity to share his knowledge and experience!",
     },
     {
       name: "Justin Horton",
       img: "/media/coaches/justin2.jpg",
-      bio: "Coach Justin is a native Portlander and moved away for a bit after graduating college from TAMUCC. However, in 2015 while finishing up his doctoral work he took a pastoral position at First Baptist Church here in Portland and moved back in 2016 to raise his family here. Justin has always enjoyed an active lifestyle spending his free time surfing, kayaking, fishing and pretty much anything else that involves coastal outdoor living. While “training” for a long distance relay race (223 miles) in 2017, Justin found Crossfit XLR8 and was quickly captivated with this new “competitive style” community workout environment. The rest, so they say, is history. He completed his CF-L1 as the next step to continue to help support and grow the XLR8 community that has become an integral part of his life.",
+      bio: "Justin is a native Portlander and moved away for a bit after graduating college from TAMUCC. However, in 2015 while finishing up his doctoral work he took a pastoral position at First Baptist Church here in Portland and moved back in 2016 to raise his family here. Justin has always enjoyed an active lifestyle spending his free time surfing, kayaking, fishing and pretty much anything else that involves coastal outdoor living. While “training” for a long distance relay race (223 miles) in 2017, Justin found Crossfit XLR8 and was quickly captivated with this new “competitive style” community workout environment. The rest, so they say, is history. He completed his CF-L1 as the next step to continue to help support and grow the XLR8 community that has become an integral part of his life.",
     },
     {
       name: "Tracy Gonzalez",
       img: "/media/coaches/tracy2.jpg",
-      bio: "Coach Tracy joined CrossFit XLR8 in 2014 and immediately fell in love with both the sport and the community. She earned her CF-OL1 certification in July 2024 and is passionate about CrossFit for its motivation to stay active and build strength. The skills and principles learned in CrossFit have greatly benefited her daily life, especially as a mom of two girls. When she’s not at the gym, Tracy enjoys spending time with her family, being outdoors, running or rides on her  Peloton at home. She is excited to be on the other side of the experience now, helping others improve their technique and achieve their goals, just as the coaches at CrossFit XLR8 have done for her.",
+      bio: "Tracy joined CrossFit XLR8 in 2014 and immediately fell in love with both the sport and the community. She earned her CF-0L1 certification in July 2024 and is passionate about CrossFit for its motivation to stay active and build strength. The skills and principles learned in CrossFit have greatly benefited her daily life, especially as a mom of two girls. When she’s not at the gym, Tracy enjoys spending time with her family, being outdoors, running or rides on her  Peloton at home. She is excited to be on the other side of the experience now, helping others improve their technique and achieve their goals, just as the coaches at CrossFit XLR8 have done for her.",
     },
     {
       name: "Hunter Myrick",
       img: "/media/coaches/hunter1.jpg",
-      bio: "Hunter Myrick began his CrossFit journey in 2019, working out at his company gym as a way to lose weight. In April of that year, he discovered CrossFit XLR8 and quickly fell in love with the atmosphere. Inspired by his own transformation, he decided to start coaching in 2020 and now finds immense joy in helping others improve themselves with each workout. When he’s not coaching, Hunter stays busy coaching his two sons in their various sports and enjoys putting his fitness to the test in a variety of events outside the gym.",
+      bio: "Hunter began his CrossFit journey in 2019, working out at his company gym as a way to lose weight. In April of that year, he discovered CrossFit XLR8 and quickly fell in love with the atmosphere. Inspired by his own transformation, he decided to start coaching in 2020 and now finds immense joy in helping others improve themselves with each workout. When he’s not coaching, Hunter stays busy coaching his two sons in their various sports and enjoys putting his fitness to the test in a variety of events outside the gym.",
     },
     {
       name: "Amanda Rodriguez",
       img: "/media/coaches/amanda1.jpg",
-      bio: "Coach Amanda grew up in Ingleside and started CrossFit in 2014. She been at CrossFit XLR8 since 2016 and just received her CF-OL1 June 2024. She loves CrossFit because the community, variety, and the motivation to compete. She says CrossFit has allowed her  to push herself to the point where it hurts and say “why do I keep coming back” but the results are worth it! Her least favorite thing is running but has pushed herself this year to choose running over rowing/skiing. She’s excited to be on the other side helping others improve their technique and reach goals like the coaches at Crossfit Xlr8 have done for her. When you see Amanda around be sure to say hi and welcome her to our team!",
+      bio: "Amanda grew up in Ingleside and started CrossFit in 2014. She been at CrossFit XLR8 since 2016 and just received her CF-OL1 June 2024. She loves CrossFit because the community, variety, and the motivation to compete. She says CrossFit has allowed her  to push herself to the point where it hurts and say “why do I keep coming back” but the results are worth it! Her least favorite thing is running but has pushed herself this year to choose running over rowing/skiing. She’s excited to be on the other side helping others improve their technique and reach goals like the coaches at CrossFit XLR8 have done for her. When you see Amanda around be sure to say hi and welcome her to our team!",
     },
     {
       name: "Matt Rodriguez",
@@ -71,7 +66,7 @@ function AboutUs() {
     {
       name: "Lindsay Flach",
       img: "/media/coaches/lindsay2.jpg",
-      bio: "Coach Lindsay Flach is a world-class athlete and experienced coach dedicated to helping others achieve their fitness and performance goals. A 3x Olympic Trials Qualifier and 9x Team USA Member, Lindsay brings over 12 years of coaching expertise in volleyball, track (sprints and multi-events), speed and agility training, and adult functional fitness. A Wisconsin native and 2018 University of South Alabama Hall of Fame Inductee, Lindsay was a dual-sport collegiate athlete and multi-sport high school standout. She has also been honored as Wisconsin Athlete of the Year and is a proud member of the National Society of Collegiate Scholars. Passionate about empowering others, she inspires athletes and adults to excel in both sports and everyday life.",
+      bio: "Lindsay is a world-class athlete and experienced coach dedicated to helping others achieve their fitness and performance goals. A 3x Olympic Trials Qualifier and 9x Team USA Member, Lindsay brings over 12 years of coaching expertise in volleyball, track (sprints and multi-events), speed and agility training, and adult functional fitness. A Wisconsin native and 2018 University of South Alabama Hall of Fame Inductee, Lindsay was a dual-sport collegiate athlete and multi-sport high school standout. She has also been honored as Wisconsin Athlete of the Year and is a proud member of the National Society of Collegiate Scholars. Passionate about empowering others, she inspires athletes and adults to excel in both sports and everyday life.",
     },
     {
       name: "anibal Guerrero",
@@ -95,24 +90,52 @@ function AboutUs() {
           <div className="carousel-outer-wrap">
             <Carousel
               interval={null}
-              indicators={coaches.length > 1}
               controls={true}
-              className="custom-carousel-controls"
-              style={{ maxWidth: 600, width: "100%", margin: "0 auto" }}
+              indicators={false}
+              fade
+              style={{
+                maxWidth: 600,
+                width: "100%",
+                margin: "0 auto",
+                display: "block",
+                overflow: "visible",
+              }}
             >
               {coaches.map((coach, idx) => (
                 <Carousel.Item key={idx}>
-                  <Card className="mx-auto coach-card-uniform">
-                    <Row className="g-0 align-items-center" style={{ height: "100%" }}>
-                      <Col xs={12} md={6} style={{ height: "100%" }}>
+                  <Card
+                    className="mx-auto coach-card-uniform"
+                    style={{
+                      height: "400px",
+                      minHeight: "400px",
+                      maxHeight: "400px",
+                      display: "flex",
+                    }}
+                  >
+                    <Row className="g-0 align-items-stretch h-100 flex-column flex-md-row">
+                      <Col xs={12} md={6} className="d-flex h-100">
                         <Card.Img
                           src={coach.img}
                           alt={coach.name}
-                          className="d-block w-100 img-fluid"
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            flex: 1,
+                          }}
+                          className="h-100 w-100"
                         />
                       </Col>
-                      <Col xs={12} md={6} style={{ height: "100%" }}>
-                        <Card.Body className="d-flex flex-column justify-content-center h-100" style={{ overflow: "hidden"}}>
+                      <Col xs={12} md={6} className="d-flex h-100">
+                        <Card.Body
+                          className="d-flex flex-column justify-content-center h-100 w-100"
+                          style={{
+                            overflow: "auto",
+                            maxHeight: "350px",
+                            minHeight: "350px",
+                            height: "350px",
+                          }}
+                        >
                           <Card.Title className="poppins-900-sub text-center">{coach.name}</Card.Title>
                           <Card.Text>{coach.bio}</Card.Text>
                         </Card.Body>

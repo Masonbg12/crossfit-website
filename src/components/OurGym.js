@@ -42,6 +42,7 @@ function OurGym() {
             indicators={gymImages.length > 1}
             controls={true}
             className="custom-carousel-controls"
+            fade
             style={{ maxWidth: "75vw", width: "100%", margin: "0 auto" }}
           >
             {gymImages.map((img, idx) => (

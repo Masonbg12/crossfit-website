@@ -74,37 +74,16 @@ html, body {
   justify-content: center;
 }
 
-.custom-carousel-controls .carousel-control-prev,
-.custom-carousel-controls .carousel-control-next {
-  width: 3rem;
-  height: 3rem;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none !important;
-  color: black !important;
-  opacity: 1 !important;
-  z-index: 2;
-}
-
-.custom-carousel-controls .carousel-control-prev {
-  left: -3.5rem;
-}
-
-.custom-carousel-controls .carousel-control-next {
-  right: -3.5rem;
-}
-
-.custom-carousel-controls .carousel-control-prev-icon,
-.custom-carousel-controls .carousel-control-next-icon {
-  filter: invert(1) brightness(0);
-}
-
 .coach-card-uniform {
   max-width: 100%;
   height: 20rem;
   min-height: 250px;
   display: flex;
   align-items: stretch;
+  border-width: 3px !important;
+  border-style: solid !important;
+  border-color: #343a40 !important; 
+  border-radius: 0.75rem !important;
 }
 
 .coach-card-uniform .card-img,
@@ -112,13 +91,42 @@ html, body {
   height: 100%;
   object-fit: cover;
   min-height: 350px;
-  border-radius: 0.5rem 0 0 0.5rem;
 }
 
 .coach-card-uniform .card-text {
   flex: 1 1 auto;
   overflow-y: auto;
   height: 20rem;
+}
+
+/* Mobile layout for Coaches section */
+@media (max-width: 768px) {
+  .carousel-outer-wrap {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .coach-card-uniform .card-img {
+    height: 200px !important;
+    object-fit: cover !important;
+    min-height: 400px !important;
+    max-height: 400px !important;
+    width: 100% !important;
+    border-radius: 0.5rem 0.5rem 0 0 !important;
+    display: block;
+  }
+
+  .coach-card-uniform {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    display: block !important;
+  }
+  .coach-card-uniform .card-text {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow-y: visible !important;
+  }
 }
 
 /* WOD page styling */
