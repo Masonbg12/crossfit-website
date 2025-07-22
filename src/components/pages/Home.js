@@ -53,6 +53,7 @@ function Home() {
       >
         {/* Left 25%: Black */}
         <div
+          className="black-box"
           style={{
             width: "30vw",
             height: "100vh",
@@ -63,6 +64,7 @@ function Home() {
         />
         {/* Right 62%: Video */}
         <div
+        className="video-container"
           style={{
             width: "70vw",
             height: "100vh",
@@ -108,13 +110,12 @@ function Home() {
             Your browser does not support the video tag.
           </video>
         </div>
-        {/* Text content overlays left 38% (black + gradient), left-aligned */}
         <div
           style={{
             position: "absolute",
             top: 0,
             left: 0,
-            width: "38vw", // 25vw + 13vw
+            width: "38vw",
             height: "100vh",
             zIndex: 2,
             display: "flex",
@@ -139,7 +140,7 @@ function Home() {
               style={{
                 backgroundColor: "var(--bg-dark)",
                 border: "none",
-                outline: "none", // Remove outline
+                outline: "none"
               }}
             >
               Learn More
