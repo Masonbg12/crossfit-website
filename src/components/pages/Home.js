@@ -133,7 +133,15 @@ function Home() {
               Achieve your fitness goals with our expert coaching, supportive
               community, and proven CrossFit programs.
             </p>
-            <Button variant="primary" size="lg">
+            <Button
+              href="/AboutUs"
+              size="lg"
+              style={{
+                backgroundColor: "var(--bg-dark)",
+                border: "none",
+                outline: "none", // Remove outline
+              }}
+            >
               Learn More
             </Button>
           </div>
@@ -148,7 +156,7 @@ function Home() {
 
       {/* Gallery Section */}
       <Row
-        className="text-center bg-light2"
+        className="text-center bg-light1"
         style={{ padding: "4rem 0" }}
       >
         <Col>

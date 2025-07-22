@@ -31,11 +31,11 @@ function Store() {
   ];
 
   return (
-    <Container style={{ padding: "2rem 0" }}>
+    <Container fluid style={{ padding: "none", backgroundColor: "var(--bg-light1)" }}>
       {/* Store Header */}
       <Row className="text-center mb-4">
         <Col>
-          <h2 className="poppins-900-main">Welcome to Our Store</h2>
+          <h2 className="mt-4 poppins-900-main">Welcome to Our Store</h2>
           <p>All items are available in different styles, colors, and sizes in-gym.</p>
         </Col>
       </Row>
@@ -43,8 +43,26 @@ function Store() {
       {/* Alert Section */}
       <Row className="mb-4">
         <Col>
-          <Alert variant="info" className="text-center">
-            Looking for custom orders? <a target="_blank" rel="noopener noreferrer" href="http://www.themarlinoutlet.com/xlr8" className="alert-link">Click here</a> to place your custom order today!
+          <Alert
+            variant="info"
+            className="text-center"
+            style={{
+              backgroundColor: "#274c77",
+              color: "#fff",
+              border: "none",
+            }}
+          >
+            Looking for custom orders?{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="http://www.themarlinoutlet.com/xlr8"
+              className="alert-link"
+              style={{ color: "rgba(188, 51, 13, 1)", textDecoration: "underline" }}
+            >
+              Click here
+            </a>{" "}
+            to place your custom order today!
           </Alert>
         </Col>
       </Row>
@@ -53,7 +71,7 @@ function Store() {
       <Row>
         {items.map((item, index) => (
           <Col xs={12} md={4} className="mb-4" key={index}>
-            <Card>
+            <Card className="store-card">
               <Card.Img variant="top" src={item.image} alt={item.name} />
               <Card.Body>
                 <Card.Title>{item.name}</Card.Title>

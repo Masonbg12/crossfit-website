@@ -89,10 +89,10 @@ function AboutUs() {
       <Programs />
 
       {/* Meet the Coaches Section */}
-      <Row className="mb-5">
+      <Row className="mb-5" style={{ backgroundColor: "var(--bg-light1)" }}>
         <Col>
-          <h2 className="text-center mb-4 poppins-900-main">Meet the Coaches</h2>
-          <div className="carousel-outer-wrap">
+          <h2 className="text-center my-5 poppins-900-main">Meet the Coaches</h2>
+          <div className="carousel-outer-wrap mb-5">
             <Carousel
               interval={null}
               controls={true}
@@ -115,6 +115,7 @@ function AboutUs() {
                       minHeight: "400px",
                       maxHeight: "400px",
                       display: "flex",
+                      backgroundColor: "var(--bg-light2)",
                     }}
                   >
                     <Row className="g-0 align-items-stretch h-100 flex-column flex-md-row">
@@ -155,10 +156,10 @@ function AboutUs() {
       </Row>
 
       {/* FAQ Section */}
-      <Row>
+      <Row style={{ backgroundColor: "var(--bg-light2)" }}>
         <Col>
-          <h2 className="text-center poppins-900-main">FAQs</h2>
-          <Accordion>
+          <h2 className="text-center mt-5 poppins-900-main">FAQs</h2>
+          <Accordion className="mb-3" defaultActiveKey="0">
             <Accordion.Item eventKey="0">
               <Accordion.Header>What are some of the exercises/movements we do?</Accordion.Header>
               <Accordion.Body>

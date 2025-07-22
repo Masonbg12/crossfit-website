@@ -2,8 +2,8 @@ import { Container, Row, Col, Table } from "react-bootstrap";
 
 function Schedule() {
   return (
-    <Container fluid style={{ minHeight: "100vh" }}>
-      <Row className="text-center mt-5 mb-4">
+    <Container fluid style={{ minHeight: "100vh", backgroundColor: "var(--bg-light1)" }}>
+      <Row className="text-center mb-4">
         <Col>
           <h2 className="poppins-900-main">Weekly Schedule</h2>
           <p>Plan your week with our CrossFit classes and programs.</p>
@@ -11,7 +11,7 @@ function Schedule() {
       </Row>
       <Row>
         <Col>
-          <Table striped bordered responsive className="text-center" style={{ fontSize: ".75rem" }}>
+          <Table striped bordered responsive className="text-center" style={{ fontSize: ".75rem", backgroundColor: "var(--bg-light1)" }}>
             <thead>
               <tr>
                 <th>Day/Time</th>
@@ -103,7 +103,7 @@ function Schedule() {
           <a
             href="/ContactUs"
             style={{
-              color: "red",
+              color: "rgba(188, 51, 13, 1)",
               textDecoration: "underline",
             }}
           >

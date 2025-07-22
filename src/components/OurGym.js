@@ -33,9 +33,9 @@ const gymImages = [
 
 function OurGym() {
   return (
-    <Row style={{ backgroundColor: "#f8f9fa", padding: "1rem" }}>
+    <Row style={{ backgroundColor: "var(--bg-light1", padding: "1rem" }}>
       <Col>
-        <h2 className="text-center mb-4 poppins-900-main">Our Gym</h2>
+        <h2 className="text-center my-4 poppins-900-main">Our Gym</h2>
         <div className="carousel-outer-wrap">
           <Carousel
             interval={null}

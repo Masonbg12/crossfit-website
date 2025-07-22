@@ -3,8 +3,8 @@
 
 /* Global styles */
 :root {
-  --bg-light1: #fffffc;
-  --bg-light2: #f5f3f4;
+  --bg-light1: #726d72;
+  --bg-light2: #7d787a;
   --bg-dark: #274c77;
 }
 
@@ -65,11 +65,12 @@ html, body {
 .text-center th {
   text-align: center;
   vertical-align: middle;
+  background-color: var(--bg-light1) !important;
+  color: #0a0a0a !important;
+  border: 2px solid #000 !important; /* Add this line for black borders */
 }
 
 /* general carousel styling for about us and home */
-
-
 .carousel-outer-wrap .carousel-control-prev-icon,
 .carousel-outer-wrap .carousel-control-next-icon {
   background-image: none !important;
@@ -129,6 +130,27 @@ html, body {
   height: 20rem;
 }
 
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+  background: var(--bg-light2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #343a40;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-light2);
+}
+
+/* For Firefox */
+html {
+  scrollbar-color: #343a40 var(--bg-light2);
+  scrollbar-width: thin;
+}
+
 /* Mobile layout for Coaches section */
 @media (max-width: 768px) {
   .carousel-outer-wrap {
@@ -156,6 +178,48 @@ html, body {
     min-height: 0 !important;
     overflow-y: visible !important;
   }
+}
+
+/* FAQ Accordion styling for About Us */
+.accordion,
+.accordion-item,
+.accordion-header,
+.accordion-button,
+.accordion-body {
+  background-color: var(--bg-light2) !important;
+  color: #0a0a0a !important;
+  border: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--bg-light2) !important;
+  color: #fff !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Remove Bootstrap's default margin-bottom from .mb-5 rows */
+.row.mb-5 {
+  margin-bottom: 0 !important;
+}
+
+/* Store page styling */
+/* Uniform card size for Store page */
+.store-card {
+  min-height: 400px;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.store-card .card-img-top,
+.store-card img {
+  height: 220px;
+  object-fit: cover;
 }
 
 /* WOD page styling */
