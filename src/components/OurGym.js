@@ -42,7 +42,7 @@ function OurGym() {
             indicators={gymImages.length > 1}
             controls={true}
             fade
-            style={{ maxWidth: "75vw", width: "100%", margin: "0 auto" }}
+            style={{ margin: "0 auto" }}
           >
             {gymImages.map((img, idx) => (
               <Carousel.Item key={idx}>
@@ -50,7 +50,7 @@ function OurGym() {
                   <img
                     src={img.src}
                     alt={img.alt}
-                    className="d-block w-75 img-fluid"
+                    className="d-block our-gym-image"
                   />
                 </div>
               </Carousel.Item>

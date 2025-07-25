@@ -89,7 +89,7 @@ function AboutUs() {
       <Programs />
 
       {/* Meet the Coaches Section */}
-      <Row className="mb-5" style={{ backgroundColor: "var(--bg-light1)" }}>
+      <Row style={{ backgroundColor: "var(--bg-light1)" }}>
         <Col>
           <h2 className="text-center my-5 poppins-900-main">Meet the Coaches</h2>
           <div className="carousel-outer-wrap mb-5">
@@ -159,7 +159,7 @@ function AboutUs() {
       <Row style={{ backgroundColor: "var(--bg-light2)" }}>
         <Col>
           <h2 className="text-center mt-5 poppins-900-main">FAQs</h2>
-          <Accordion className="mb-3" defaultActiveKey="0">
+          <Accordion className="mb-3">
             <Accordion.Item eventKey="0">
               <Accordion.Header>What are some of the exercises/movements we do?</Accordion.Header>
               <Accordion.Body>
