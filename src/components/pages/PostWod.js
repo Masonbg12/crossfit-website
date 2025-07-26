@@ -52,7 +52,7 @@ function PostWod() {
   // FETCH POSTS FROM BACKEND
   const fetchPosts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/data");
+      const response = await fetch("https://crossfit-backend-xk29.onrender.com/data");
       if (!response.ok) throw new Error("Failed to fetch posts");
       const data = await response.json();
       setPosts(data);
@@ -98,7 +98,7 @@ const handleAddPost = async () => {
   if (formData.images) formDataToSend.append("images", formData.images);
 
   try {
-    const response = await fetch("http://localhost:5000/new-post", {
+    const response = await fetch("https://crossfit-backend-xk29.onrender.com/new-post", {
       method: "POST",
       body: formDataToSend,
     });
@@ -129,7 +129,7 @@ const handleAddPost = async () => {
     if (formData.images) formDataToSend.append("images", formData.images);
 
     try {
-      const response = await fetch(`http://localhost:5000/update-post/${selectedPost._id}`, {
+      const response = await fetch(`https://crossfit-backend-xk29.onrender.com/update-post/${selectedPost._id}`, {
         method: "PUT",
         body: formDataToSend,
       });
@@ -155,7 +155,7 @@ const handleAddPost = async () => {
     console.log(`[Delete Post] ID:`, selectedPost._id);
 
     try {
-      const response = await fetch(`http://localhost:5000/delete-post/${selectedPost._id}`, {
+      const response = await fetch(`https://crossfit-backend-xk29.onrender.com/delete-post/${selectedPost._id}`, {
         method: "DELETE",
       });
       if (!response.ok) throw new Error("Failed to delete post");
