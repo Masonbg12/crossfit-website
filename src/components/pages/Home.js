@@ -155,6 +155,7 @@ function Home() {
               interval={null}
               indicators={gallery.length > 1}
               controls={true}
+              fade={true}
               style={{ margin: "0 auto" }}
             >
               {gallery.map((img, idx) => (

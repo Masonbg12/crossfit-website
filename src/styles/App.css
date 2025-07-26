@@ -436,6 +436,16 @@ html {
   font-weight: 700;
 }
 
+.contact-info a {
+  color: var(--bg-dark, #274c77) !important;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.contact-info a:hover,
+.contact-info a:focus {
+  color: #19335a !important; /* slightly darker for hover/focus */
+}
+
 /* Footer page styling */
 .footer {
   padding: 10px;
@@ -450,4 +460,24 @@ html {
 
 .link:hover {
   color: #000;
+}
+
+/* Free trial button styling */
+.btn,
+.btn-primary,
+.btn-dark {
+  background-color: var(--bg-dark, #274c77) !important;
+  border-color: var(--bg-dark, #274c77) !important;
+  color: #fff !important;
+}
+
+.btn:hover,
+.btn-primary:hover,
+.btn-dark:hover,
+.btn:focus,
+.btn-primary:focus,
+.btn-dark:focus {
+  background-color: #19335a !important;
+  border-color: #19335a !important;
+  color: #fff !important;
 }
