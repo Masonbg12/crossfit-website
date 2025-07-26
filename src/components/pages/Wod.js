@@ -5,7 +5,9 @@ function Wod() {
   const [workouts, setWorkouts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const mongoURL = "http://localhost:5000/data";
+  // API URL from environment variables
+  const API_URL = process.env.REACT_APP_API_URL;
+  const mongoURL = `${API_URL}/data`;
 
   useEffect(() => {
     const fetchWODs = async () => {
