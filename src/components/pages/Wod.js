@@ -67,7 +67,7 @@ function Wod() {
   if (error) return <p className="poppins-700">Error: {error}</p>;
 
   return (
-    <Container style={{ padding: "2rem 0" }}>
+    <Container style={{ padding: "2rem 0", backgroundColor: "var(--bg-light1)" }}>
       {/* Current Month's Workouts Section */}
       <Row className="text-center mb-4">
         <Col>
