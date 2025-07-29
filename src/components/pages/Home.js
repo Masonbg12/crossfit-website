@@ -12,10 +12,6 @@ const gallery = [
     alt: "side building sign"
   },
   {
-    src: "/media/gallery/america-bra.jpg",
-    alt: "workout action photo"
-  },
-  {
     src: "/media/gallery/running-wave.jpg",
     alt: "workout action photo"
   },
@@ -24,15 +20,7 @@ const gallery = [
     alt: "group photo"
   },
   {
-    src: "/media/gallery/running-peace.jpg",
-    alt: "workout action photo"
-  },
-  {
     src: "/media/gallery/parents-partner.jpg",
-    alt: "workout action photo"
-  },
-  {
-    src: "/media/gallery/running-smiling.jpg",
     alt: "workout action photo"
   }
 ];
@@ -53,6 +41,7 @@ function Home() {
       >
         {/* Left 25%: Black */}
         <div
+          className="black-box"
           style={{
             width: "30vw",
             height: "100vh",
@@ -63,6 +52,7 @@ function Home() {
         />
         {/* Right 62%: Video */}
         <div
+        className="video-container"
           style={{
             width: "70vw",
             height: "100vh",
@@ -108,13 +98,12 @@ function Home() {
             Your browser does not support the video tag.
           </video>
         </div>
-        {/* Text content overlays left 38% (black + gradient), left-aligned */}
         <div
           style={{
             position: "absolute",
             top: 0,
             left: 0,
-            width: "38vw", // 25vw + 13vw
+            width: "38vw",
             height: "100vh",
             zIndex: 2,
             display: "flex",
@@ -139,7 +128,7 @@ function Home() {
               style={{
                 backgroundColor: "var(--bg-dark)",
                 border: "none",
-                outline: "none", // Remove outline
+                outline: "none"
               }}
             >
               Learn More
@@ -166,8 +155,8 @@ function Home() {
               interval={null}
               indicators={gallery.length > 1}
               controls={true}
-              className="custom-carousel-controls"
-              style={{ maxWidth: "75vw", width: "100%", margin: "0 auto" }}
+              fade={true}
+              style={{ margin: "0 auto" }}
             >
               {gallery.map((img, idx) => (
                 <Carousel.Item key={idx}>
@@ -175,7 +164,7 @@ function Home() {
                     <img
                       src={img.src}
                       alt={img.alt}
-                      className="d-block w-75 img-fluid"
+                      className="d-block gallery-image"
                     />
                   </div>
                 </Carousel.Item>

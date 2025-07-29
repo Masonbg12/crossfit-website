@@ -2,32 +2,56 @@ import { Row, Col, Carousel } from "react-bootstrap";
 
 const gymImages = [
   {
-    src: "/media/building-pics/building-front.jpg",
-    alt: "Front View of Our Gym",
+    src: "/media/building-pics/gym-good-front.jpg",
+    alt: "Front view of our gym",
   },
   {
     src: "/media/building-pics/established-wall.jpg",
-    alt: "Established Wall View of Our Gym",
+    alt: "Established wall view of our gym",
   },
   {
     src: "/media/building-pics/main-floor.jpg",
-    alt: "Front View of Our Gym",
+    alt: "Front view of our gym",
+  },
+  {
+    src: "/media/building-pics/gym-main.jpg",
+    alt: "Main area view of our gym",
   },
   {
     src: "/media/building-pics/backyard.jpg",
-    alt: "Backyard View of Our Gym",
+    alt: "Backyard view of our gym",
   },
   {
     src: "/media/building-pics/office.jpg",
-    alt: "Office View of Our Gym",
+    alt: "Office view of our gym",
+  },
+  {
+    src: "/media/building-pics/gym-kitchen.jpg",
+    alt: "Kitchen room view of our gym",
+  },
+  {
+    src: "/media/building-pics/gym-massage.jpg",
+    alt: "Massage room view of our gym",
+  },
+  {
+    src: "/media/building-pics/gym-kids.jpg",
+    alt: "Kids area view of our gym",
+  },
+  {
+    src: "/media/building-pics/gym-back.jpg",
+    alt: "Back view of our gym",
+  },
+  {
+    src: "/media/building-pics/gym-studio.jpg",
+    alt: "Studio view of our gym",
   },
   {
     src: "/media/building-pics/second-floor.jpg",
-    alt: "Second Floor View of Our Gym",
+    alt: "Second floor view of our gym",
   },
   {
     src: "/media/building-pics/skis.jpg",
-    alt: "Ski Area View of Our Gym",
+    alt: "Ski area view of our gym",
   },
 ];
 
@@ -42,7 +66,7 @@ function OurGym() {
             indicators={gymImages.length > 1}
             controls={true}
             fade
-            style={{ maxWidth: "75vw", width: "100%", margin: "0 auto" }}
+            style={{ margin: "0 auto" }}
           >
             {gymImages.map((img, idx) => (
               <Carousel.Item key={idx}>
@@ -50,7 +74,7 @@ function OurGym() {
                   <img
                     src={img.src}
                     alt={img.alt}
-                    className="d-block w-75 img-fluid"
+                    className="d-block our-gym-image"
                   />
                 </div>
               </Carousel.Item>

@@ -71,7 +71,7 @@ function Store() {
       <Row>
         {items.map((item, index) => (
           <Col xs={12} md={4} className="mb-4" key={index}>
-            <Card className="store-card">
+            <Card className="store-card" style= {{ backgroundColor: "var(--bg-dark)"}}>
               <Card.Img variant="top" src={item.image} alt={item.name} />
               <Card.Body>
                 <Card.Title>{item.name}</Card.Title>

@@ -5,7 +5,9 @@ function Wod() {
   const [workouts, setWorkouts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const mongoURL = process.env.REACT_APP_API_URL + "/data";
+  // API URL from environment variables
+  const API_URL = process.env.REACT_APP_API_URL;
+  const mongoURL = `${API_URL}/data`;
 
   useEffect(() => {
     const fetchWODs = async () => {
@@ -65,7 +67,7 @@ function Wod() {
   if (error) return <p className="poppins-700">Error: {error}</p>;
 
   return (
-    <Container style={{ padding: "2rem 0" }}>
+    <Container style={{ padding: "2rem 0", backgroundColor: "var(--bg-light1)" }}>
       {/* Current Month's Workouts Section */}
       <Row className="text-center mb-4">
         <Col>

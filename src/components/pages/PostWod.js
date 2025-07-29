@@ -37,6 +37,10 @@ function PostWod() {
   const [confirmationAction, setConfirmationAction] = useState(null);
   // Scheduled date and time for posts
   const [scheduledDateTime, setScheduledDateTime] = useState("");
+
+  // API URL from environment variables
+  const API_URL = process.env.REACT_APP_API_URL;
+
   
   // HANDLER/FETCHING FUNCTIONS
   const handleLogin = () => {
@@ -52,7 +56,7 @@ function PostWod() {
   // FETCH POSTS FROM BACKEND
   const fetchPosts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/data");
+      const response = await fetch(`${API_URL}/data`);
       if (!response.ok) throw new Error("Failed to fetch posts");
       const data = await response.json();
       setPosts(data);
@@ -98,7 +102,7 @@ const handleAddPost = async () => {
   if (formData.images) formDataToSend.append("images", formData.images);
 
   try {
-    const response = await fetch("http://localhost:5000/new-post", {
+    const response = await fetch(`${API_URL}/new-post`, {
       method: "POST",
       body: formDataToSend,
     });
@@ -129,7 +133,7 @@ const handleAddPost = async () => {
     if (formData.images) formDataToSend.append("images", formData.images);
 
     try {
-      const response = await fetch(`http://localhost:5000/update-post/${selectedPost._id}`, {
+      const response = await fetch(`${API_URL}/update-post/${selectedPost._id}`, {
         method: "PUT",
         body: formDataToSend,
       });
@@ -155,7 +159,7 @@ const handleAddPost = async () => {
     console.log(`[Delete Post] ID:`, selectedPost._id);
 
     try {
-      const response = await fetch(`http://localhost:5000/delete-post/${selectedPost._id}`, {
+      const response = await fetch(`${API_URL}/delete-post/${selectedPost._id}`, {
         method: "DELETE",
       });
       if (!response.ok) throw new Error("Failed to delete post");
