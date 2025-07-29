@@ -70,8 +70,8 @@ function AboutUs() {
     },
     {
       name: "anibal Guerrero",
-      img: "/media/coaches/anibal2.jpg",
-      bio: "need bio."
+      img: "/media/coaches/anibal1.jpg",
+      bio: "Aníbal started training CrossFit in 2018 in Venezuela and hasn’t stopped since. He loves the challenges and competition, he especially enjoys Olympic lifting — like the clean & jerk and snatch — and although gymnastics isn’t his strongest suit yet, he stays motivated practicing movements like handstand push-ups, wall walks, and muscle-ups. In 2021, he competed in Venezuela’s largest CrossFit competition— an experience that marked a turning point in his motivation as an athlete. He is a mechanical engineer with over 20 years of experience, Aníbal loves his work, but CrossFit is his space to disconnect from work stress — his “personal, selfish, and relaxing hour.” Passionate about sports since childhood, he played baseball throughout his youth and also enjoys soccer and basketball. Since June 2023, he has been part of the XLR8 community, where he immediately connected with the box’s energy and people. Always driven to help others, both in his engineering career and in every workout shared. In 2025, he earned his CF-OL1 certification, aiming to contribute as a coach by helping others move better, train with intention, and enjoy the process."
     },
     {
       name: "Morgan Fehr",
