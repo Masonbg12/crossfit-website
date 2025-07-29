@@ -65,6 +65,19 @@ function Home() {
             justifyContent: "center",
           }}
         >
+          <div
+            className="hero-gradient-overlay"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background: "linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0) 80%)",
+              zIndex: 2,
+              pointerEvents: "none",
+            }}
+          />
           <video
             autoPlay
             loop
@@ -84,7 +97,7 @@ function Home() {
             <source src="/media/crossfit-compressed.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          {/* Gradient Overlay */}
+
           <div
             className="hero-gradient-overlay"
             style={{
