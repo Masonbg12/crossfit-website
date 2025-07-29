@@ -77,7 +77,7 @@ function Wod({ setIsLoading }) {
   
   if (error) return (
     <Container fluid style={{ backgroundColor: "var(--bg-light1)", minHeight: "100vh" }}>
-      <p className="poppins-700">Error: "Please try again or contact CrossFit XLR8.</p>
+      <p className="poppins-700">Error, please try again or contact CrossFit XLR8.</p>
     </Container>
   );
 
