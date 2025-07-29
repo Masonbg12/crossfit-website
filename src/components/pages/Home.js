@@ -81,9 +81,23 @@ function Home() {
               background: "#000",
             }}
           >
-            <source src="/media/crossfit-stitched-video.mp4" type="video/mp4" />
+            <source src="/media/crossfit-compressed.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+          {/* Gradient Overlay */}
+          <div
+            className="hero-gradient-overlay"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background: "linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%)",
+              zIndex: 2,
+              pointerEvents: "none",
+            }}
+          />
         </div>
         {/* Text Overlay */}
         <div
