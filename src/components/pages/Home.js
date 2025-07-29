@@ -111,7 +111,7 @@ function Home() {
             justifyContent: "center",
             alignItems: "flex-start",
             paddingLeft: "4vw",
-            pointerEvents: "none", // allows video interaction if needed
+            pointerEvents: "none"
           }}
         >
           <div style={{ pointerEvents: "auto" }}>
