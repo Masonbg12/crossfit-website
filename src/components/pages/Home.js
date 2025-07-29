@@ -27,7 +27,7 @@ const gallery = [
 
 function Home() {
   return (
-    <Container fluid style={{ padding: 0, margin: 0 }}>
+    <Container fluid style={{ padding: 0, margin: 0, overflow: "hidden" }}>
       {/* Hero Header Section */}
       <div
         className="hero-section"
@@ -39,7 +39,7 @@ function Home() {
           overflow: "hidden",
         }}
       >
-        {/* Left 25%: Black */}
+        {/* Left 30%: Black */}
         <div
           className="black-box"
           style={{
@@ -50,9 +50,9 @@ function Home() {
             flexGrow: 0,
           }}
         />
-        {/* Right 62%: Video */}
+        {/* Right 70%: Video */}
         <div
-        className="video-container"
+          className="video-container"
           style={{
             width: "70vw",
             height: "100vh",
@@ -60,8 +60,6 @@ function Home() {
             overflow: "hidden",
             flexShrink: 0,
             flexGrow: 0,
-            background:
-              "linear-gradient(to right, #000 0%, rgba(0,0,0,0.85) 20%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 100%)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -79,25 +77,15 @@ function Home() {
               position: "absolute",
               top: 0,
               left: 0,
-              zIndex: -1,
+              zIndex: 1,
               background: "#000",
             }}
           >
-          <div
-            style={{
-            width: "100vw",
-            height: "100vh",
-            background:
-              "linear-gradient(to right, #000 0%, #000 20%)",
-            flexShrink: 0,
-            flexGrow: 0,
-            zIndex: 1,
-            }}
-          />
             <source src="/media/crossfit-stitched-video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
+        {/* Text Overlay */}
         <div
           style={{
             position: "absolute",
@@ -111,7 +99,7 @@ function Home() {
             justifyContent: "center",
             alignItems: "flex-start",
             paddingLeft: "4vw",
-            pointerEvents: "none"
+            pointerEvents: "none",
           }}
         >
           <div style={{ pointerEvents: "auto" }}>
