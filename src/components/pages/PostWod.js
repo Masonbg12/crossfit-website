@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Container, Row, Col, Button, Form, Modal, Alert } from "react-bootstrap";
 import { Editor } from "@tinymce/tinymce-react";
 
@@ -54,7 +54,7 @@ function PostWod() {
   };
 
   // FETCH POSTS FROM BACKEND
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
     try {
       const response = await fetch(`${API_URL}/data`);
       if (!response.ok) throw new Error("Failed to fetch posts");
@@ -63,7 +63,7 @@ function PostWod() {
     } catch (err) {
       alert(err.message);
     }
-  };
+  }, [API_URL]);
 
   // ORGANIZE POSTS BY YEAR AND MONTH
   const organizePosts = () => {
@@ -199,7 +199,7 @@ const handleAddPost = async () => {
     if (activeForm === "updateDelete") {
       fetchPosts(); 
     }
-  }, [activeForm]);
+  }, [activeForm, fetchPosts]);
 
   // LOGIN MODAL/LOGIC
   if (!isLoggedIn) {

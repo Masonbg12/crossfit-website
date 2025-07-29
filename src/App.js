@@ -8,11 +8,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const location = useLocation();
+  const [isLoading, setIsLoading] = React.useState(false);
+  
   return (
-    <div>
+    <div style={{ backgroundColor: "var(--bg-light1)", minHeight: "100vh" }}>
       <Navigation />
-      <Router />
-      {location.pathname !== "/postWOD" && <Footer />}
+      <Router setIsLoading={setIsLoading} />
+      {location.pathname !== "/postWOD" && !isLoading && <Footer />}
     </div>
   );
 }

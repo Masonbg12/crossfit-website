@@ -145,8 +145,8 @@ function Home() {
 
       {/* Gallery Section */}
       <Row
-        className="text-center bg-light1"
-        style={{ padding: "4rem 0" }}
+        className="text-center"
+        style={{ padding: "4rem 0", backgroundColor: "var(--bg-light1)" }}
       >
         <Col>
           <h2 className="text-center mb-4 poppins-900-main">Gallery</h2>

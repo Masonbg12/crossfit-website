@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Card, Accordion } from "react-bootstrap";
+import { Container, Row, Col, Card, Accordion, Spinner } from "react-bootstrap";
 
-function Wod() {
+function Wod({ setIsLoading }) {
   const [workouts, setWorkouts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -11,19 +11,22 @@ function Wod() {
 
   useEffect(() => {
     const fetchWODs = async () => {
+      setIsLoading && setIsLoading(true); // Set app loading state
       try {
         const response = await fetch(mongoURL);
         if (!response.ok) throw new Error("Failed to fetch WODs");
         const data = await response.json();
         setWorkouts(data);
         setLoading(false);
+        setIsLoading && setIsLoading(false); // Clear app loading state
       } catch (err) {
         setError(err.message);
         setLoading(false);
+        setIsLoading && setIsLoading(false); // Clear app loading state
       }
     };
     fetchWODs();
-  }, []);
+  }, [mongoURL, setIsLoading]); 
 
   const now = new Date();
   const visibleWorkouts = workouts.filter(workout => {
@@ -63,13 +66,25 @@ function Wod() {
 
   const organizedArchiveWorkouts = organizeArchiveWorkouts();
 
-  if (loading) return <p className="poppins-700 text-center">Loading...</p>;
-  if (error) return <p className="poppins-700">Error: {error}</p>;
+  if (loading) return (
+    <Container fluid style={{ backgroundColor: "var(--bg-light1)", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
+      <Spinner animation="border" role="status" style={{ width: "3rem", height: "3rem", color: "var(--bg-black)" }}>
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+      <p className="poppins-700 text-center mt-3" style={{ color: "var(--bg-black)" }}>Loading workouts...</p>
+    </Container>
+  );
+  
+  if (error) return (
+    <Container fluid style={{ backgroundColor: "var(--bg-light1)", minHeight: "100vh" }}>
+      <p className="poppins-700">Error: "Please try again or contact CrossFit XLR8.</p>
+    </Container>
+  );
 
   return (
-    <Container style={{ padding: "2rem 0", backgroundColor: "var(--bg-light1)" }}>
+    <Container fluid style={{ backgroundColor: "var(--bg-light1)" }}>
       {/* Current Month's Workouts Section */}
-      <Row className="text-center mb-4">
+      <Row className="text-center py-4">
         <Col>
           <h2 className="poppins-900-main">Workout of the Day (WOD)</h2>
           <p>
@@ -89,7 +104,8 @@ function Wod() {
               className={`mb-4 ${index === recentWorkouts.length - 1 ? "" : "card-divider"}`}
               key={workout._id}
             >
-              <Card className="d-flex align-items-center card-no-border card-mobile">
+              <Card className="d-flex align-items-center card-no-border card-mobile"
+              style= {{ backgroundColor: "var(--bg-dark)" }}>
                 {imageSrc && (
                   <div className="card-img-container">
                     <Card.Img
@@ -120,7 +136,7 @@ function Wod() {
       </Row>
       <Row>
         <Col>
-          <Accordion>
+          <Accordion className="mb-3">
             {Object.keys(organizedArchiveWorkouts)
               .sort((a, b) => b - a)
               .map((year) => (

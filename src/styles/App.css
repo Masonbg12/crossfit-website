@@ -6,6 +6,8 @@
   --bg-light1: #726d72;
   --bg-light2: #7d787a;
   --bg-dark: #274c77;
+  --bg-hover: #19335a;
+  --bg-black: #000;
 }
 
 .bg-light1 {
@@ -18,7 +20,7 @@
 
 html, body {
   font-size: 1rem;
-  color: #000;
+  color: var(--bg-black);
   font-family: "Poppins", sans-serif !important;
   font-weight: 400;
   font-style: normal;
@@ -114,8 +116,8 @@ html, body {
   text-align: center;
   vertical-align: middle;
   background-color: var(--bg-light1) !important;
-  color: #0a0a0a !important;
-  border: 2px solid #000 !important; /* Add this line for black borders */
+  color: var(--bg-black) !important;
+  border: 2px solid var(--bg-black) !important; /* Add this line for black borders */
 }
 
 /* general carousel styling for about us and home */
@@ -123,7 +125,7 @@ html, body {
 .carousel-outer-wrap .carousel-control-next-icon {
   background-image: none !important;
   background: none !important;
-  color: #212529 !important;
+  color: var(--bg-black) !important;
   filter: none !important;
   opacity: 1 !important;
   border: none !important;
@@ -133,7 +135,7 @@ html, body {
 .carousel-outer-wrap .carousel-control-prev-icon:after {
   content: '\2039';
   font-size: 2.5rem;
-  color: #212529;
+  color: var(--bg-black);
   display: block;
   text-align: center;
 }
@@ -141,7 +143,7 @@ html, body {
 .carousel-outer-wrap .carousel-control-next-icon:after {
   content: '\203A';
   font-size: 2.5rem;
-  color: #212529;
+  color: var(--bg-black);
   display: block;
   text-align: center;
 }
@@ -149,7 +151,7 @@ html, body {
 .gallery-image {
     border-width: 3px !important;
     border-style: solid !important;
-    border-color: #343a40 !important; 
+    border-color: var(--bg-black) !important; 
     border-radius: 0.75rem !important;
     width: 50vw !important;
     height: 35vw !important; 
@@ -172,7 +174,7 @@ html, body {
 .our-gym-image {
     border-width: 3px !important;
     border-style: solid !important;
-    border-color: #343a40 !important; 
+    border-color: var(--bg-black) !important; 
     border-radius: 0.75rem !important;
     height: auto !important;
     object-fit: cover !important;
@@ -208,7 +210,7 @@ html, body {
   align-items: stretch;
   border-width: 3px !important;
   border-style: solid !important;
-  border-color: #343a40 !important; 
+  border-color: var(--bg-black) !important; 
   border-radius: 0.75rem !important;
 }
 
@@ -264,7 +266,7 @@ html, body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #343a40;
+  background: var(--bg-black);
   border-radius: 6px;
 }
 
@@ -274,7 +276,7 @@ html, body {
 
 /* For Firefox */
 html {
-  scrollbar-color: #343a40 var(--bg-light2);
+  scrollbar-color: var(--bg-black) var(--bg-light2);
   scrollbar-width: thin;
 }
 
@@ -314,13 +316,13 @@ html {
 .accordion-button,
 .accordion-body {
   background-color: var(--bg-light2) !important;
-  color: #0a0a0a !important;
+  color: var(--bg-black) !important;
   border: none !important;
 }
 
 .accordion-button:not(.collapsed) {
   background-color: var(--bg-light2) !important;
-  color: #fff !important;
+  color: var(--bg-black) !important;
 }
 
 .accordion-button:focus {
@@ -328,6 +330,33 @@ html {
   border: none !important;
 }
 
+/* WOD page styling - Accordion border and rounded corners */
+.accordion {
+  border: 3px solid var(--bg-black) !important;
+  border-radius: 0.75rem !important;
+  overflow: hidden; /* Ensures content respects rounded corners */
+}
+
+.accordion-item:first-child {
+  border-top-left-radius: 0.75rem !important;
+  border-top-right-radius: 0.75rem !important;
+}
+
+.accordion-item:last-child {
+  border-bottom-left-radius: 0.75rem !important;
+  border-bottom-right-radius: 0.75rem !important;
+}
+
+.accordion-item {
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-bottom: 1px solid var(--bg-black) !important;
+}
+
+.accordion-item:last-child {
+  border-bottom: none !important;
+}
 
 /* Store page styling */
 /* Uniform card size for Store page */
@@ -354,12 +383,12 @@ html {
 }
 
 .card-no-border {
-  border-width: 0 !important; 
+  border-width: 0 !important;
   box-shadow: none;
 }
 
 .card-divider {
-  border-bottom: 1px solid #ddd; 
+  border-bottom: 1px solid var(--bg-light1); 
   padding-bottom: 1rem;
   margin-bottom: 1rem; 
 }
@@ -409,6 +438,9 @@ html {
   flex-direction: column !important;
   align-items: center;
   text-align: center;
+  background-color: var(--bg-dark) !important;
+  color: var(--bg-black) !important;
+  border-radius: 0.75rem !important; /* Add rounded corners */
 }
 
 .card-archive .card-img-container {
@@ -437,13 +469,13 @@ html {
 }
 
 .contact-info a {
-  color: var(--bg-dark, #274c77) !important;
+  color: var(--bg-dark) !important;
   text-decoration: underline;
   transition: color 0.2s;
 }
 .contact-info a:hover,
 .contact-info a:focus {
-  color: #19335a !important; /* slightly darker for hover/focus */
+  color: var(--bg-hover) !important;
 }
 
 /* Footer page styling */
@@ -454,21 +486,21 @@ html {
 }
 
 .link {
-  color: #0d1321;
+  color: var(--bg-black);
   text-decoration: none;
 }
 
 .link:hover {
-  color: #000;
+  color: var(--bg-hover);
 }
 
 /* Free trial button styling */
 .btn,
 .btn-primary,
 .btn-dark {
-  background-color: var(--bg-dark, #274c77) !important;
-  border-color: var(--bg-dark, #274c77) !important;
-  color: #fff !important;
+  background-color: var(--bg-dark) !important;
+  border-color: var(--bg-black) !important;
+  color: var(--bg-light1) !important;
 }
 
 .btn:hover,
@@ -477,7 +509,7 @@ html {
 .btn:focus,
 .btn-primary:focus,
 .btn-dark:focus {
-  background-color: #19335a !important;
-  border-color: #19335a !important;
-  color: #fff !important;
+  background-color: var(--bg-hover) !important;
+  border-color: var(--bg-hover) !important;
+  color: var(--bg-light1) !important;
 }
