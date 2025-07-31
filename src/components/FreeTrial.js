@@ -133,7 +133,6 @@ const FreeTrial = () => {
         <Button
           variant="primary"
           style={{
-            padding: "10px 20px",
             borderRadius: "5px",
             cursor: "pointer",
           }}

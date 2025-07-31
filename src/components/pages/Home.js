@@ -140,11 +140,6 @@ function Home() {
             <Button
               href="/AboutUs"
               size="lg"
-              style={{
-                backgroundColor: "var(--bg-dark)",
-                border: "none",
-                outline: "none"
-              }}
             >
               Learn More
             </Button>

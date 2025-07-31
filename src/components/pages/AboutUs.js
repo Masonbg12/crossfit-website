@@ -26,7 +26,7 @@ function AboutUs() {
     },
     {
       name: "Dan Willot",
-      img: "/media/coaches/.jpg",
+      img: "/media/coaches/dan1.jpg",
       bio: "Dan Willott dove into CrossFit at XLR8 in 2011, spurred on by his wife and fire station buddies. Throughout his career, CrossFit has kept him in peak shape and physically ready for the demands of firefighting. Shortly after, he earned his Olympic lifting coaching certification and loved coaching so much he went on to get his CrossFit level one certification. With sharp skills and infectious energy, he pushes athletes of all levels to crush their goals. In his free time, he’s part of a group that gives back to the community by forging knives with veterans and first responders.",
     },
     {

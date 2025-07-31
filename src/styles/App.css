@@ -496,11 +496,11 @@ html {
 
 /* Free trial button styling */
 .btn,
-.btn-primary,
-.btn-dark {
+.btn-primary {
   background-color: var(--bg-dark) !important;
-  border-color: var(--bg-black) !important;
-  color: var(--bg-light1) !important;
+  border-color: var(--bg-hover) !important;
+  color: var(--bg-black) !important;
+  padding: 0.5rem 1.25rem !important;
 }
 
 .btn:hover,
@@ -510,6 +510,4 @@ html {
 .btn-primary:focus,
 .btn-dark:focus {
   background-color: var(--bg-hover) !important;
-  border-color: var(--bg-hover) !important;
-  color: var(--bg-light1) !important;
 }
