@@ -11,18 +11,18 @@ function Wod({ setIsLoading }) {
 
   useEffect(() => {
     const fetchWODs = async () => {
-      setIsLoading && setIsLoading(true); // Set app loading state
+      setIsLoading && setIsLoading(true); // set app loading state
       try {
         const response = await fetch(mongoURL);
         if (!response.ok) throw new Error("Failed to fetch WODs");
         const data = await response.json();
         setWorkouts(data);
         setLoading(false);
-        setIsLoading && setIsLoading(false); // Clear app loading state
+        setIsLoading && setIsLoading(false); // clear app loading state
       } catch (err) {
         setError(err.message);
         setLoading(false);
-        setIsLoading && setIsLoading(false); // Clear app loading state
+        setIsLoading && setIsLoading(false); // clear app loading state
       }
     };
     fetchWODs();
