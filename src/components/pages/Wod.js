@@ -7,13 +7,13 @@ function Wod({ setIsLoading }) {
   const [error, setError] = useState(null);
   // API URL from environment variables
   const API_URL = process.env.REACT_APP_API_URL;
-  const mongoURL = `${API_URL}/data`;
+  const backendURL = `${API_URL}/data`;
 
   useEffect(() => {
     const fetchWODs = async () => {
       setIsLoading && setIsLoading(true); // set app loading state
       try {
-        const response = await fetch(mongoURL);
+        const response = await fetch(backendURL);
         if (!response.ok) throw new Error("Failed to fetch WODs");
         const data = await response.json();
         setWorkouts(data);
