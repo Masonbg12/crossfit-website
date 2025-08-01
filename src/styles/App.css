@@ -413,11 +413,17 @@ html {
 
   .card-img-container {
     padding: 0 1rem;
+    width: 100% !important;
+    height: 250px !important; /* Fixed height for mobile */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
   }
 
   .card-img-left {
     width: 100% !important;
-    height: auto !important;
+    height: 250px !important; /* Match container height */
     border-radius: 0.25rem;
     object-fit: cover;
   }
