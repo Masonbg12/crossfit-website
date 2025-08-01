@@ -26,7 +26,7 @@ function Wod({ setIsLoading }) {
       }
     };
     fetchWODs();
-  }, [mongoURL, setIsLoading]); 
+  }, [backendURL, setIsLoading]); 
 
   const now = new Date();
   const visibleWorkouts = workouts.filter(workout => {

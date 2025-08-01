@@ -334,7 +334,7 @@ html {
 .accordion {
   border: 3px solid var(--bg-black) !important;
   border-radius: 0.75rem !important;
-  overflow: hidden; /* Ensures content respects rounded corners */
+  overflow: hidden;
 }
 
 .accordion-item:first-child {
