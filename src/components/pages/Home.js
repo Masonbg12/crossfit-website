@@ -1,4 +1,6 @@
 import { Container, Carousel, Row, Col, Button } from "react-bootstrap";
+import { Cloudinary } from '@cloudinary/url-gen';
+import { AdvancedVideo } from '@cloudinary/react';
 import Programs from "../Programs.js";
 import OurGym from "../OurGym.js";
 
@@ -26,6 +28,9 @@ const gallery = [
 ];
 
 function Home() {
+  // Define cld inside the component
+  const cld = new Cloudinary({ cloud: { cloudName: 'dgdbmfaaq' } });
+
   return (
     <Container fluid style={{ padding: 0, margin: 0, overflow: "hidden" }}>
       {/* Hero Header Section */}
@@ -73,12 +78,13 @@ function Home() {
               left: 0,
               width: "100%",
               height: "100%",
-              background: "linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0) 80%)",
+              background: "linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0) 100%)",
               zIndex: 2,
               pointerEvents: "none",
             }}
           />
-          <video
+          <AdvancedVideo 
+            cldVid={cld.video('crossfit-compressed_peqgjy').quality('auto').format('auto')}
             autoPlay
             loop
             muted
@@ -91,13 +97,8 @@ function Home() {
               top: 0,
               left: 0,
               zIndex: 1,
-              background: "#000",
             }}
-          >
-            <source src="/media/crossfit-compressed.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-
+          />
           <div
             className="hero-gradient-overlay"
             style={{
@@ -106,7 +107,7 @@ function Home() {
               left: 0,
               width: "100%",
               height: "100%",
-              background: "linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%)",
+              background: "linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0) 100%)",
               zIndex: 2,
               pointerEvents: "none",
             }}
@@ -120,7 +121,7 @@ function Home() {
             left: 0,
             width: "38vw",
             height: "100vh",
-            zIndex: 2,
+            zIndex: 3, // Higher than gradient
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
