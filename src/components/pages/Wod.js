@@ -83,6 +83,67 @@ function Wod({ setIsLoading }) {
 
   return (
     <Container fluid style={{ backgroundColor: "var(--bg-light1)" }}>
+      {/* Video Background Section */}
+      <div
+        className="video-container"
+        style={{
+          width: "70vw",
+          height: "100vh",
+          position: "relative",
+          overflow: "hidden",
+          flexShrink: 0,
+          flexGrow: 0,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundImage: "url('/media/gallery/group-photo.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          onError={(e) => {
+            console.log('Video failed to load:', e);
+            e.target.style.display = 'none';
+          }}
+          onLoadStart={() => console.log('Video loading started')}
+          onCanPlay={() => console.log('Video can play')}
+          onLoadedData={() => console.log('Video loaded successfully')}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            zIndex: 1,
+            background: "#000",
+          }}
+        >
+          <source src="/media/crossfit-compressed.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        
+        <div
+          className="hero-gradient-overlay"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%)",
+            zIndex: 2,
+            pointerEvents: "none",
+          }}
+        />
+      </div>
+
       {/* Current Month's Workouts Section */}
       <Row className="text-center py-4">
         <Col>

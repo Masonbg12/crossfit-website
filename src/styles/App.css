@@ -385,6 +385,8 @@ html {
 .card-no-border {
   border-width: 0 !important;
   box-shadow: none;
+  background-color: var(--bg-dark) !important;
+  color: #fff !important;
 }
 
 .card-divider {
@@ -445,8 +447,8 @@ html {
   align-items: center;
   text-align: center;
   background-color: var(--bg-dark) !important;
-  color: var(--bg-black) !important;
-  border-radius: 0.75rem !important; /* Add rounded corners */
+  color: #fff !important; /* Change from var(--bg-black) to white */
+  border-radius: 0.75rem !important;
 }
 
 .card-archive .card-img-container {
