@@ -331,6 +331,14 @@ const handleAddPost = async () => {
               init={{
                 height: 300,
                 menubar: false,
+                statusbar: false, // Remove status bar at bottom
+                branding: false, // Remove "Powered by TinyMCE" branding
+                link_assume_external_targets: false, // Don't assume external targets
+                link_context_toolbar: false, // Disable link context toolbar
+                paste_as_text: true, // Paste as plain text by default
+                paste_auto_cleanup_on_paste: true, // Clean up pasted content
+                paste_remove_styles: false, // Keep some styles when pasting
+                paste_remove_spans: false, // Keep spans when pasting
                 plugins: [
                   "advlist", "lists", "link", "image", "charmap", "preview", "anchor",
                   "searchreplace", "visualblocks", "code", "fullscreen",
@@ -340,6 +348,15 @@ const handleAddPost = async () => {
                   "undo redo | formatselect | bold italic forecolor backcolor | " +
                   "alignleft aligncenter alignright alignjustify | " +
                   "bullist numlist outdent indent | removeformat | help",
+                setup: function (editor) {
+                  // Disable automatic link detection on paste
+                  editor.on('paste', function (e) {
+                    e.preventDefault();
+                    const clipboardData = e.clipboardData || window.clipboardData;
+                    const pastedData = clipboardData.getData('text/plain');
+                    editor.insertContent(pastedData);
+                  });
+                }
               }}
               onEditorChange={(content) => setFormData({ ...formData, content })}
             />
@@ -458,6 +475,14 @@ const handleAddPost = async () => {
                   init={{
                     height: 300,
                     menubar: false,
+                    statusbar: false, // Remove status bar at bottom
+                    branding: false, // Remove "Powered by TinyMCE" branding
+                    link_assume_external_targets: false, // Don't assume external targets
+                    link_context_toolbar: false, // Disable link context toolbar
+                    paste_as_text: true, // Paste as plain text by default
+                    paste_auto_cleanup_on_paste: true, // Clean up pasted content
+                    paste_remove_styles: false, // Keep some styles when pasting
+                    paste_remove_spans: false, // Keep spans when pasting
                     plugins: [
                       "advlist", "autolink", "lists", "link", "image", "charmap", "preview", "anchor",
                       "searchreplace", "visualblocks", "code", "fullscreen",
