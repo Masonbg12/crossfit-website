@@ -332,7 +332,7 @@ const handleAddPost = async () => {
                 height: 300,
                 menubar: false,
                 plugins: [
-                  "advlist", "autolink", "lists", "link", "image", "charmap", "preview", "anchor",
+                  "advlist", "lists", "link", "image", "charmap", "preview", "anchor",
                   "searchreplace", "visualblocks", "code", "fullscreen",
                   "insertdatetime", "media", "table", "help", "wordcount"
                 ],
