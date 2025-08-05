@@ -475,14 +475,14 @@ const handleAddPost = async () => {
                   init={{
                     height: 300,
                     menubar: false,
-                    statusbar: false, // Remove status bar at bottom
-                    branding: false, // Remove "Powered by TinyMCE" branding
-                    link_assume_external_targets: false, // Don't assume external targets
-                    link_context_toolbar: false, // Disable link context toolbar
-                    paste_as_text: true, // Paste as plain text by default
-                    paste_auto_cleanup_on_paste: true, // Clean up pasted content
-                    paste_remove_styles: false, // Keep some styles when pasting
-                    paste_remove_spans: false, // Keep spans when pasting
+                    statusbar: false,
+                    branding: false,
+                    link_context_toolbar: false, // disables link context menu
+                    contextmenu: false,          // disables TinyMCE context menu, enables browser default
+                    paste_as_text: true,
+                    paste_auto_cleanup_on_paste: true,
+                    paste_remove_styles: false,
+                    paste_remove_spans: false,
                     plugins: [
                       "advlist", "autolink", "lists", "link", "image", "charmap", "preview", "anchor",
                       "searchreplace", "visualblocks", "code", "fullscreen",
