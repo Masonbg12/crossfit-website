@@ -321,12 +321,12 @@ const handleAddPost = async () => {
               value={
                 formData.content ||
                 `<p style="color: red;">WOD Details at CrossFit XLR8/Movements only:<br/>
-                Monday:<br/>
-                Tuesday:<br/>
-                Wednesday:<br/>
-                Thursday:<br/>
-                Friday:<br/>
-                Saturday:</p>`
+                Monday: <br/>
+                Tuesday: <br/>
+                Wednesday: <br/>
+                Thursday: <br/>
+                Friday: <br/>
+                Saturday: </p>`
               }
               init={{
                 height: 300,
