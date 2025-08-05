@@ -5,13 +5,13 @@ function Schedule() {
     <Container fluid style={{ minHeight: "100vh", backgroundColor: "var(--bg-light1)" }}>
       <Row className="text-center mb-4">
         <Col>
-          <h2 className="poppins-900-main">Weekly Schedule</h2>
-          <p>Plan your week with our CrossFit classes and programs.</p>
+          <h2 className="poppins-900-main"  style= {{color: "var(--bg-black)"}}>Weekly Schedule</h2>
+          <p style= {{color: "var(--bg-black)"}}>Plan your week with our CrossFit classes and programs.</p>
         </Col>
       </Row>
       <Row>
         <Col>
-          <Table striped bordered responsive className="text-center" style={{ fontSize: ".75rem", backgroundColor: "var(--bg-light1)" }}>
+          <Table striped bordered responsive className="text-center" style={{ fontSize: ".75rem", backgroundColor: "var(--bg-light1)", color: "var(--bg-black)" }}>
             <thead>
               <tr>
                 <th>Day/Time</th>

@@ -247,8 +247,8 @@ const handleAddPost = async () => {
     <Container style={{ padding: "2rem 0" }}>
       <Row className="mb-4">
         <Col>
-          <h2>Manage Workouts</h2>
-          <p>Add, update, or delete workouts of the day (WOD). Please Fill out all of the boxes before submitting anything.</p>
+          <h2  style= {{color: "var(--bg-black)"}}>Manage Workouts</h2>
+          <p  style= {{color: "var(--bg-black)"}}>Add, update, or delete workouts of the day (WOD). Please Fill out all of the boxes before submitting anything.</p>
         </Col>
       </Row>
       <Row className="mb-4">

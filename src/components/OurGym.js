@@ -59,7 +59,7 @@ function OurGym() {
   return (
     <Row style={{ backgroundColor: "var(--bg-light1", padding: "1rem" }}>
       <Col>
-        <h2 className="text-center my-4 poppins-900-main">Our Gym</h2>
+        <h2 className="text-center my-4 poppins-900-main"  style= {{color: "var(--bg-black)"}}>Our Gym</h2>
         <div className="carousel-outer-wrap">
           <Carousel
             interval={null}
@@ -81,7 +81,7 @@ function OurGym() {
             ))}
           </Carousel>
         </div>
-        <p className="text-center p-3">
+        <p className="text-center p-3"  style= {{color: "var(--bg-black)"}}>
           Located on Hwy 35 in the “gateway” of Portland and Gregory, we have a
           13,000 square foot facility and a 400 meter track to run! Our facility
           offers men and women’s showers, full kitchen, apparel shop. In our main

@@ -147,7 +147,7 @@ function Home() {
         style={{ padding: "4rem 0", backgroundColor: "var(--bg-light1)" }}
       >
         <Col>
-          <h2 className="text-center mb-4 poppins-900-main">Gallery</h2>
+          <h2 className="text-center mb-4 poppins-900-main"  style= {{color: "var(--bg-black)"}}>Gallery</h2>
           <div className="carousel-outer-wrap">
             <Carousel
               interval={null}

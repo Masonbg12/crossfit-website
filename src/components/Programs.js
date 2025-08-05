@@ -3,7 +3,7 @@ import { Row, Col } from "react-bootstrap";
 function Programs() {
   return (
     // Programs Section
-    <Row className="text-center bg-light2" style={{ padding: "4rem 0"}}>
+    <Row className="text-center bg-light2" style={{ padding: "4rem 0", color: "var(--bg-black)" }}>
       <Col>
         <h2 className="poppins-900-main">Our Programs</h2>
         <p>Explore our programs tailored to all fitness levels.</p>

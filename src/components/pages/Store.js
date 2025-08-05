@@ -35,8 +35,8 @@ function Store() {
       {/* Store Header */}
       <Row className="text-center mb-4">
         <Col>
-          <h2 className="mt-4 poppins-900-main">Welcome to Our Store</h2>
-          <p>All items are available in different styles, colors, and sizes in-gym.</p>
+          <h2 className="mt-4 poppins-900-main"  style= {{color: "var(--bg-black)"}}>Welcome to Our Store</h2>
+          <p  style= {{color: "var(--bg-black)"}}>All items are available in different styles, colors, and sizes in-gym.</p>
         </Col>
       </Row>
 
@@ -48,7 +48,7 @@ function Store() {
             className="text-center"
             style={{
               backgroundColor: "#274c77",
-              color: "#fff",
+              color: "var(--bg-black)",
               border: "none",
             }}
           >
@@ -71,7 +71,7 @@ function Store() {
       <Row>
         {items.map((item, index) => (
           <Col xs={12} md={4} className="mb-4" key={index}>
-            <Card className="store-card" style= {{ backgroundColor: "var(--bg-dark)"}}>
+            <Card className="store-card" style= {{ backgroundColor: "var(--bg-dark)", color: "var(--bg-black)" }}>
               <Card.Img variant="top" src={item.image} alt={item.name} />
               <Card.Body>
                 <Card.Title>{item.name}</Card.Title>

@@ -126,8 +126,8 @@ const FreeTrial = () => {
           height: "100%",
         }}
       >
-        <h4 className="poppins-900-sub">Start Your Free Trial</h4>
-        <p>
+        <h4 className="poppins-900-sub"  style= {{color: "var(--bg-black)"}}>Start Your Free Trial</h4>
+        <p style= {{color: "var(--bg-black)"}}>
           Join us today and get a free trial to experience our amazing CrossFit programs. No commitments, just results!
         </p>
         <Button

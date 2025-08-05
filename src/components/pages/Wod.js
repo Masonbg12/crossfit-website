@@ -86,8 +86,8 @@ function Wod({ setIsLoading }) {
       {/* Current Month's Workouts Section */}
       <Row className="text-center py-4">
         <Col>
-          <h2 className="poppins-900-main">Workout of the Day (WOD)</h2>
-          <p>
+          <h2 className="poppins-900-main" style= {{color: "var(--bg-black)"}}>Workout of the Day (WOD)</h2>
+          <p  style= {{color: "var(--bg-black)"}}>
             Stay motivated with our daily workouts tailored to challenge and inspire you.
           </p>
         </Col>
@@ -131,7 +131,7 @@ function Wod({ setIsLoading }) {
       {/* Archive Section */}
       <Row className="text-center m-5">
         <Col>
-          <h2 className="poppins-900-main">Archives</h2>
+          <h2 className="poppins-900-main" style= {{color: "var(--bg-black)"}}>Archives</h2>
         </Col>
       </Row>
       <Row>
