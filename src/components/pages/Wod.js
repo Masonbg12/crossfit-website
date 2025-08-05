@@ -116,7 +116,7 @@ function Wod({ setIsLoading }) {
                   </div>
                 )}
                 <Card.Body className="card-body-stacked">
-                  <Card.Title className="poppins-900-sub">{workout.title}</Card.Title>
+                  <Card.Title className="poppins-900-sub" style= {{color: "var(--bg-black)"}}>{workout.title}</Card.Title>
                   <Card.Text
                     className="poppins-700"
                     dangerouslySetInnerHTML={{ __html: cleanedContent }}
