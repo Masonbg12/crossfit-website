@@ -11,7 +11,7 @@ function Schedule() {
       </Row>
       <Row>
         <Col>
-          <Table striped bordered responsive className="text-center" style={{ fontSize: ".75rem", backgroundColor: "var(--bg-light1)", color: "var(--bg-black)" }}>
+          <Table striped bordered responsive className="text-center" style={{ fontSize: ".75rem", backgroundColor: "var(--bg-light1)"}}>
             <thead>
               <tr>
                 <th>Day/Time</th>
