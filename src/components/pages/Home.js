@@ -78,7 +78,7 @@ function Home() {
               left: 0,
               width: "100%",
               height: "100%",
-              background: "linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0) 100%)",
+              background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0) 100%)",
               zIndex: 2,
               pointerEvents: "none",
             }}
@@ -97,19 +97,6 @@ function Home() {
               top: 0,
               left: 0,
               zIndex: 1,
-            }}
-          />
-          <div
-            className="hero-gradient-overlay"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              background: "linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0) 100%)",
-              zIndex: 2,
-              pointerEvents: "none",
             }}
           />
         </div>
