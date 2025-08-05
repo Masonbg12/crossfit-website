@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Card, Accordion, Spinner } from "react-bootstrap";
+import tinymce from "tinymce";
 
 function Wod({ setIsLoading }) {
   const [workouts, setWorkouts] = useState([]);
@@ -65,6 +66,19 @@ function Wod({ setIsLoading }) {
   };
 
   const organizedArchiveWorkouts = organizeArchiveWorkouts();
+
+  useEffect(() => {
+    tinymce.init({
+      selector: '#your-textarea',
+      plugins: 'link contextmenu paste',
+      toolbar: 'undo redo | bold italic | link',
+      contextmenu: 'copy paste link',
+    });
+
+    return () => {
+      tinymce.remove();
+    };
+  }, []);
 
   if (loading) return (
     <Container fluid style={{ backgroundColor: "var(--bg-light1)", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
