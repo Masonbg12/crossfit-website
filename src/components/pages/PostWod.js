@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Container, Row, Col, Button, Form, Modal, Alert } from "react-bootstrap";
+import { Container, Row, Col, Button, Form, Modal, Alert, Spinner } from "react-bootstrap";
 import { Editor } from "@tinymce/tinymce-react";
 
 function PostWod() {
@@ -37,6 +37,8 @@ function PostWod() {
   const [confirmationAction, setConfirmationAction] = useState(null);
   // Scheduled date and time for posts
   const [scheduledDateTime, setScheduledDateTime] = useState("");
+  // Loading state for login
+  const [isLoadingLogin, setIsLoadingLogin] = useState(false);
 
   // API URL from environment variables
   const API_URL = process.env.REACT_APP_API_URL;
@@ -44,19 +46,26 @@ function PostWod() {
   
   // HANDLER/FETCHING FUNCTIONS
   const handleLogin = async () => {
-    const response = await fetch(`${API_URL}/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
-    });
-    const data = await response.json();
-    if (data.success) {
-      setIsLoggedIn(true);
-      setShowLogin(false);
-      setAlertMessage(null);
-    } else {
-      setAlertMessage("Invalid username or password");
+    setIsLoadingLogin(true);
+    setAlertMessage(null);
+    try {
+      const response = await fetch(`${API_URL}/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        setIsLoggedIn(true);
+        setShowLogin(false);
+        setAlertMessage(null);
+      } else {
+        setAlertMessage("Incorrect username or password. Please try again.");
+      }
+    } catch (err) {
+      setAlertMessage("An error occurred during login. Please try again.");
     }
+    setIsLoadingLogin(false);
   };
 
   // FETCH POSTS FROM BACKEND
@@ -224,6 +233,7 @@ const handleAddPost = async () => {
                 placeholder="Enter username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                disabled={isLoadingLogin}
               />
             </Form.Group>
             <Form.Group className="mb-3">
@@ -233,13 +243,19 @@ const handleAddPost = async () => {
                 placeholder="Enter password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                disabled={isLoadingLogin}
               />
             </Form.Group>
           </Form>
+          {isLoadingLogin && (
+            <div className="d-flex justify-content-center my-3">
+              <Spinner animation="border" variant="primary" />
+            </div>
+          )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleLogin}>
-            Login
+          <Button variant="primary" onClick={handleLogin} disabled={isLoadingLogin}>
+            {isLoadingLogin ? "Verifying..." : "Login"}
           </Button>
         </Modal.Footer>
       </Modal>
