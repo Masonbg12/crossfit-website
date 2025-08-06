@@ -499,8 +499,8 @@ const handleAddPost = async () => {
                     menubar: false,
                     statusbar: false,
                     branding: false,
-                    link_context_toolbar: false, // disables link context menu
-                    contextmenu: false,          // disables TinyMCE context menu, enables browser default
+                    link_context_toolbar: false,
+                    contextmenu: false,
                     paste_as_text: true,
                     paste_auto_cleanup_on_paste: true,
                     paste_remove_styles: false,
