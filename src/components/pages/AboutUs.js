@@ -83,7 +83,7 @@ function AboutUs() {
   return (
     <Container fluid style={{ padding: 0, margin: 0 }}>
       {/* Meet the Coaches Section */}
-      <Row style={{ backgroundColor: "var(--bg-light1)" }}>
+      <Row style={{ backgroundColor: "var(--bg-light2)" }}>
         <Col>
           <h2 className="text-center my-5 poppins-900-main"  style= {{color: "var(--bg-black)"}}>Meet the Coaches</h2>
           <div className="carousel-outer-wrap mb-5">

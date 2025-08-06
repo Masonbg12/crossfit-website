@@ -103,7 +103,7 @@ function Schedule() {
           <a
             href="/ContactUs"
             style={{
-              color: "rgba(188, 51, 13, 1)",
+              color: "var(--bg-black)",
               textDecoration: "underline",
             }}
           >

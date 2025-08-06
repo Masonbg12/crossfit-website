@@ -3,10 +3,10 @@
 
 /* Global styles */
 :root {
-  --bg-light1: #726d72;
-  --bg-light2: #7d787a;
-  --bg-dark: #274c77;
-  --bg-hover: #19335a;
+  --bg-light1: #D3D9EE;
+  --bg-light2: #E6E9F5;
+  --bg-dark: #4169E1;
+  --bg-hover: #fff;
   --bg-black: #000;
 }
 

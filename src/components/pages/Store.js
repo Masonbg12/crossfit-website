@@ -47,7 +47,7 @@ function Store() {
             variant="info"
             className="text-center"
             style={{
-              backgroundColor: "#274c77",
+              backgroundColor: "var(--bg-dark)",
               color: "var(--bg-black)",
               border: "none",
             }}
@@ -58,7 +58,7 @@ function Store() {
               rel="noopener noreferrer"
               href="http://www.themarlinoutlet.com/xlr8"
               className="alert-link"
-              style={{ color: "rgba(188, 51, 13, 1)", textDecoration: "underline" }}
+              style={{ color: "var(--bg-black)", textDecoration: "underline" }}
             >
               Click here
             </a>{" "}
