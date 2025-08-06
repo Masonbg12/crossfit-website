@@ -5,6 +5,11 @@ import OurGym from "../OurGym";
 function AboutUs() {
   const coaches = [
     {
+      name: "Hailey Riedesel",
+      img: "/media/coaches/hailey2.jpg",
+      bio: "Hailey started CrossFit in 2014 and is happy to be back with her XLR8 Family. She received her CrossFit Level 1 and CrossFit Kids certifications in 2016 and recently completed her Masters in Kinesiology at TAMUCC. You can always find Hailey coaching multiple classes through out the week including our unloaded classes at 10am Tuesday and Thursdays.",
+    },
+    {
       name: "Molly Gillespie",
       img: "/media/coaches/molly1.jpg",
       bio: "Molly, aka Mo…..yep, she’s still happy to be here! Believing quality of living has a foundation of feeling good, she is here to help ensure independent longevity and yes that comes with Burpees, falling down and returning to your feet! Mo started CrossFit in 2007, got her CF Level 1 2008, started CF XLR8 Affiliate in 2009 and CF Kids in 2010. Molly is a full time Medical Dosimetrist in Radiation Oncology and has been for the past 34 years, along with other businesses. Husband Jason and their children Shelby and Mason make her happy life complete. Nothing feeds her drive more than being witness to individuals discovering just how strong they can be mentally and physically. CrossFit is her tool for self worth and life long lasting relationships!",
@@ -18,11 +23,6 @@ function AboutUs() {
       name: "Brian Hagemann",
       img: "/media/coaches/brian1.jpg",
       bio: "Brian has been a CrossFit XLR8 member since 2009. With his current work schedule, he doesn’t get to work out or coach as much as he used to. But he gets in a workout and catches up with his CrossFit family as often as possible. You’ll usually find him at the noon class, choosing Option 1 every time! CrossFit has been the motivation to keep moving, so he can keep up with his 5 grand kids and enjoy an active life.",
-    },
-    {
-      name: "Hailey Riedesel",
-      img: "/media/coaches/hailey2.jpg",
-      bio: "Hailey started CrossFit in 2014 and is happy to be back with her XLR8 Family. She received her CrossFit Level 1 and CrossFit Kids certifications in 2016 and recently completed her Masters in Kinesiology at TAMUCC. You can always find Hailey coaching multiple classes through out the week including our unloaded classes at 10am Tuesday and Thursdays.",
     },
     {
       name: "Dan Willot",
@@ -69,7 +69,7 @@ function AboutUs() {
       bio: "Lindsay is a world-class athlete and experienced coach dedicated to helping others achieve their fitness and performance goals. A 3x Olympic Trials Qualifier and 9x Team USA Member, Lindsay brings over 12 years of coaching expertise in volleyball, track (sprints and multi-events), speed and agility training, and adult functional fitness. A Wisconsin native and 2018 University of South Alabama Hall of Fame Inductee, Lindsay was a dual-sport collegiate athlete and multi-sport high school standout. She has also been honored as Wisconsin Athlete of the Year and is a proud member of the National Society of Collegiate Scholars. Passionate about empowering others, she inspires athletes and adults to excel in both sports and everyday life.",
     },
     {
-      name: "anibal Guerrero",
+      name: "Anibal Guerrero",
       img: "/media/coaches/anibal1.jpg",
       bio: "Aníbal started training CrossFit in 2018 in Venezuela and hasn’t stopped since. He loves the challenges and competition, he especially enjoys Olympic lifting — like the clean & jerk and snatch — and although gymnastics isn’t his strongest suit yet, he stays motivated practicing movements like handstand push-ups, wall walks, and muscle-ups. In 2021, he competed in Venezuela’s largest CrossFit competition— an experience that marked a turning point in his motivation as an athlete. He is a mechanical engineer with over 20 years of experience, Aníbal loves his work, but CrossFit is his space to disconnect from work stress — his “personal, selfish, and relaxing hour.” Passionate about sports since childhood, he played baseball throughout his youth and also enjoys soccer and basketball. Since June 2023, he has been part of the XLR8 community, where he immediately connected with the box’s energy and people. Always driven to help others, both in his engineering career and in every workout shared. In 2025, he earned his CF-OL1 certification, aiming to contribute as a coach by helping others move better, train with intention, and enjoy the process."
     },
@@ -82,12 +82,6 @@ function AboutUs() {
 
   return (
     <Container fluid style={{ padding: 0, margin: 0 }}>
-      {/* Our Gym Section */}
-      <OurGym />
-
-      {/* Programs Section */}
-      <Programs />
-
       {/* Meet the Coaches Section */}
       <Row style={{ backgroundColor: "var(--bg-light1)" }}>
         <Col>
@@ -154,6 +148,12 @@ function AboutUs() {
           </div>
         </Col>
       </Row>
+
+      {/* Our Gym Section */}
+      <OurGym />
+
+      {/* Programs Section */}
+      <Programs />
 
       {/* FAQ Section */}
       <Row style={{ backgroundColor: "var(--bg-light2)" }}>
