@@ -43,8 +43,14 @@ function PostWod() {
 
   
   // HANDLER/FETCHING FUNCTIONS
-  const handleLogin = () => {
-    if (username === "admin" && password === "password123") {
+  const handleLogin = async () => {
+    const response = await fetch(`${API_URL}/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+    const data = await response.json();
+    if (data.success) {
       setIsLoggedIn(true);
       setShowLogin(false);
       setAlertMessage(null);

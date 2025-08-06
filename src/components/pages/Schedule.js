@@ -107,7 +107,7 @@ function Schedule() {
               textDecoration: "underline",
             }}
           >
-            *Free trials can be done during any CrossFit class*
+            *Free trials can be done during any CrossFit class, except Saturdays*
           </a>
         </Row>
       </Row>
