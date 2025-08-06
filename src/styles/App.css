@@ -26,11 +26,6 @@ html, body {
   font-style: normal;
 }
 
-.poppins-700 {
-  font-weight: 700 !important;
-  font-size: 1.5rem;
-}
-
 .poppins-900-main {
   font-weight: 900 !important;
   font-size: 3rem !important;
@@ -39,6 +34,11 @@ html, body {
 .poppins-900-sub {
   font-weight: 900 !important;
   font-size: 1.5rem !important;
+}
+
+.poppins-700 {
+  font-weight: 700 !important;
+  font-size: 1.5rem;
 }
 
 /* Home Styling */
