@@ -96,7 +96,11 @@ function Wod({ setIsLoading }) {
         {recentWorkouts.map((workout, index) => {
           // Use imageUrl from backend, only show if present
           const imageSrc = workout.imageUrl || null;
-          const cleanedContent = workout.content.replace(/<img[^>]*>/g, "");
+          const cleanedContent = workout.content
+  .replace(/<img[^>]*>/g, "")
+  .replace(/style="[^"]*font-size:[^;"]*;?[^"]*"/gi, "")
+  .replace(/style="[^"]*color:[^;"]*;?[^"]*"/gi, "")
+  .replace(/style="[^"]*font-family:[^;"]*;?[^"]*"/gi, "");
 
           return (
             <Col
