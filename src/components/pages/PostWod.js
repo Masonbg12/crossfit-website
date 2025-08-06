@@ -342,7 +342,7 @@ const handleAddPost = async () => {
               apiKey="vz83r7df8uh8sv96mh2u08bjn97n2v42p319lxrbaoi995ha"
               value={
                 formData.content ||
-                `<p style="color: red;">WOD Details at CrossFit XLR8/Movements only:<br/>
+                `<p>WOD Details at CrossFit XLR8/Movements only:<br/>
                 Monday: <br/>
                 Tuesday: <br/>
                 Wednesday: <br/>

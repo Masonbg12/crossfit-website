@@ -405,6 +405,14 @@ html {
   align-items: stretch !important;
 }
 
+/* forcing color on imported content from TinyMCE */
+.card-text,
+.poppins-700,
+.card-body-stacked .poppins-700,
+.card-body-stacked .card-text {
+  color: var(--bg-black) !important;
+}
+
 /* Mobile layout for WOD */
 @media (max-width: 768px) {
   .card-mobile {
