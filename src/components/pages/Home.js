@@ -1,6 +1,7 @@
-import { Container, Carousel, Row, Col, Button } from "react-bootstrap";
+import { Container, Carousel, Row, Col, Button, Spinner } from "react-bootstrap";
 import { Cloudinary } from '@cloudinary/url-gen';
 import { AdvancedVideo } from '@cloudinary/react';
+import { useState, useEffect } from 'react';
 import Programs from "../Programs.js";
 import OurGym from "../OurGym.js";
 
@@ -30,6 +31,35 @@ const gallery = [
 function Home() {
   // Define cld inside the component
   const cld = new Cloudinary({ cloud: { cloudName: 'dgdbmfaaq' } });
+  
+  // Loading state for the page
+  const [loading, setLoading] = useState(true);
+
+  // Simulate loading time for video/content
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // 2 second loading time
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Show loading screen
+  if (loading) return (
+    <Container fluid style={{ 
+      backgroundColor: "var(--bg-light1)", 
+      minHeight: "100vh", 
+      display: "flex", 
+      alignItems: "center", 
+      justifyContent: "center", 
+      flexDirection: "column" 
+    }}>
+      <Spinner animation="border" role="status" style={{ width: "3rem", height: "3rem", color: "var(--bg-black)" }}>
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+      <p className="poppins-700 text-center mt-3" style={{ color: "var(--bg-black)" }}>Loading...</p>
+    </Container>
+  );
 
   return (
     <Container fluid style={{ padding: 0, margin: 0, overflow: "hidden" }}>
@@ -68,21 +98,11 @@ function Home() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            backgroundImage: "url('/media/gallery/group-photo.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         >
-          <div
-            className="hero-gradient-overlay"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0) 100%)",
-              zIndex: 2,
-              pointerEvents: "none",
-            }}
-          />
           <AdvancedVideo 
             cldVid={cld.video('crossfit-compressed_peqgjy').quality('auto').format('auto')}
             autoPlay
@@ -97,6 +117,19 @@ function Home() {
               top: 0,
               left: 0,
               zIndex: 1,
+            }}
+          />
+          <div
+            className="hero-gradient-overlay"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%)",
+              zIndex: 2,
+              pointerEvents: "none",
             }}
           />
         </div>
@@ -147,7 +180,7 @@ function Home() {
         style={{ padding: "4rem 0", backgroundColor: "var(--bg-light1)" }}
       >
         <Col>
-          <h2 className="text-center mb-4 poppins-900-main"  style= {{color: "var(--bg-black)"}}>Gallery</h2>
+          <h2 className="text-center mb-4 poppins-900-main" style={{color: "var(--bg-black)"}}>Gallery</h2>
           <div className="carousel-outer-wrap">
             <Carousel
               interval={null}
