@@ -1,15 +1,11 @@
+import React, { useState, useEffect } from 'react';
 import { Container, Carousel, Row, Col, Button, Spinner } from "react-bootstrap";
 import { Cloudinary } from '@cloudinary/url-gen';
 import { AdvancedVideo } from '@cloudinary/react';
-import { useState, useEffect } from 'react';
 import Programs from "../Programs.js";
 import OurGym from "../OurGym.js";
 
 const gallery = [
-  {
-    src: "/media/gallery/group-photo.jpg",
-    alt: "group photo"
-  },
   {
     src: "/media/gallery/side-sign.jpg",
     alt: "side building sign"
@@ -17,6 +13,10 @@ const gallery = [
   {
     src: "/media/gallery/running-wave.jpg",
     alt: "workout action photo"
+  },
+  {
+    src: "/media/group-photo.jpg",
+    alt: "group photo"
   },
   {
     src: "/media/gallery/group-outside.jpg",
@@ -34,6 +34,7 @@ function Home() {
   
   // Loading state for the page
   const [loading, setLoading] = useState(true);
+  const [videoError, setVideoError] = useState(false);
 
   // Simulate loading time for video/content
   useEffect(() => {
@@ -85,7 +86,7 @@ function Home() {
             flexGrow: 0,
           }}
         />
-        {/* Right 70%: Video */}
+        {/* Right 70%: Video or Fallback Image */}
         <div
           className="video-container"
           style={{
@@ -103,22 +104,39 @@ function Home() {
             backgroundPosition: "center",
           }}
         >
-          <AdvancedVideo 
-            cldVid={cld.video('crossfit-compressed_peqgjy').quality('auto').format('auto')}
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              position: "absolute",
-              top: 0,
-              left: 0,
-              zIndex: 1,
-            }}
-          />
+          {!videoError ? (
+            <AdvancedVideo
+              cldVid={cld.video('crossfit-vid').quality('auto').format('auto')}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                zIndex: 1,
+              }}
+              onError={() => setVideoError(true)}
+            />
+          ) : (
+            <img
+              src="/media/group-photo.jpg"
+              alt="smiling group"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                zIndex: 1,
+              }}
+            />
+          )}
           <div
             className="hero-gradient-overlay"
             style={{
