@@ -106,11 +106,15 @@ function Home() {
         >
           {!videoError ? (
             <AdvancedVideo
-              cldVid={cld.video('crossfit-vid').quality('auto').format('auto')}
-              autoPlay
-              loop
-              muted
-              playsInline
+              cldVid={cld
+              .video('crossfit-vid_d4bsun')
+              .quality('auto')
+              .format('auto')
+            }
+            autoPlay
+            loop
+            muted
+            playsInline
               style={{
                 width: "100%",
                 height: "100%",
