@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 // pages to import
 import Home from "./components/pages/Home.js";
@@ -15,6 +15,7 @@ const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
       <Route path="/Programs" element={<Programs />} />
       <Route path="/WOD" element={<WOD />} />
       <Route path="/Schedule" element={<Schedule />} />

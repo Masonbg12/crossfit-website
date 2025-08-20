@@ -35,6 +35,7 @@ function Home() {
   // Loading state for the page
   const [loading, setLoading] = useState(true);
   const [videoError, setVideoError] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   // Simulate loading time for video/content
   useEffect(() => {
@@ -104,7 +105,22 @@ function Home() {
             backgroundPosition: "center",
           }}
         >
-          {!videoError ? (
+          <img
+            src="/media/group-photo.jpg"
+            alt="smiling group"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              zIndex: 1,
+              opacity: videoLoaded && !videoError ? 0 : 1,
+              transition: "opacity 0.5s"
+            }}
+          />
+          {!videoError && (
             <AdvancedVideo
               cldVid={cld
               .video('crossfit-vid_d4bsun')
@@ -115,31 +131,18 @@ function Home() {
             loop
             muted
             playsInline
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                position: "absolute",
-                top: 0,
-                left: 0,
-                zIndex: 1,
-              }}
-              onError={() => setVideoError(true)}
-            />
-          ) : (
-            <img
-              src="/media/group-photo.jpg"
-              alt="smiling group"
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                position: "absolute",
-                top: 0,
-                left: 0,
-                zIndex: 1,
-              }}
-            />
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              zIndex: 2,
+            }}
+            onLoadedData={() => setVideoLoaded(true)}
+            onError={() => setVideoError(true)}
+          />
           )}
           <div
             className="hero-gradient-overlay"
@@ -150,12 +153,11 @@ function Home() {
               width: "100%",
               height: "100%",
               background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0) 60%)",
-              zIndex: 2,
+              zIndex: 3,
               pointerEvents: "none",
             }}
           />
         </div>
-        {/* Text Overlay */}
         <div
           style={{
             position: "absolute",
@@ -163,7 +165,7 @@ function Home() {
             left: 0,
             width: "38vw",
             height: "100vh",
-            zIndex: 3, // Higher than gradient
+            zIndex: 3,
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
