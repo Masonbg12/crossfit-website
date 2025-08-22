@@ -1,96 +1,64 @@
 import { Container, Row, Col, Table } from "react-bootstrap";
 
 function Schedule() {
+  const times = ["5:30 AM", "8:30 AM", "9:30 AM", "12 PM", "4:30 PM", "5:30 PM", "6:30 PM"];
+  const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+  // Schedule data: [time][day]
+  const schedule = [
+    // 5:30 AM
+    ["CrossFit", "CrossFit", "CrossFit", "CrossFit", "CrossFit", "-", "-"],
+    // 8:30 AM
+    ["CrossFit", "CrossFit", "CrossFit", "CrossFit", "CrossFit", "-", "-"],
+    // 9:30 AM
+    ["-", "-", "-", "-", "-", "CrossFit", "-"],
+    // 12 PM
+    ["CrossFit", "CrossFit", "CrossFit", "CrossFit", "CrossFit", "-", "-"],
+    // 4:30 PM
+    ["CrossFit", "CrossFit", "CrossFit", "CrossFit", "CrossFit", "-", "-"],
+    // 5:30 PM
+    ["CrossFit", "CrossFit", "CrossFit", "CrossFit", "CrossFit", "-", "-"],
+    // 6:30 PM
+    ["CrossFit", "-", "CrossFit", "-", "-", "-", "-"],
+  ];
+
   return (
     <Container fluid style={{ minHeight: "100vh", backgroundColor: "var(--bg-light1)" }}>
       <Row className="text-center mb-4">
         <Col>
-          <h2 className="poppins-900-main"  style= {{color: "var(--bg-black)"}}>Weekly Schedule</h2>
-          <p style= {{color: "var(--bg-black)"}}>Plan your week with our CrossFit classes and programs.</p>
+          <h2 className="poppins-900-main" style={{ color: "var(--bg-black)" }}>Weekly Schedule</h2>
+          <p style={{ color: "var(--bg-black)" }}>Plan your week with our CrossFit classes and programs.</p>
         </Col>
       </Row>
       <Row>
         <Col>
-          <Table striped bordered responsive className="text-center" style={{ fontSize: ".75rem", backgroundColor: "var(--bg-light1)"}}>
+          <Table striped bordered responsive className="text-center" style={{ fontSize: ".75rem", backgroundColor: "var(--bg-light1)" }}>
             <thead>
               <tr>
-                <th>Day/Time</th>
-                <th>5:30 AM</th>
-                <th>8:30 AM</th>
-                <th>9:30 AM</th>
-                <th>12 PM</th>
-                <th>4:30 PM</th>
-                <th>5:30 PM</th>
-                <th>6:30 PM</th>
+                <th>Time/Day</th>
+                {days.map((day) => (
+                  <th key={day}>{day}</th>
+                ))}
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Monday</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-                <td>-</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-              </tr>
-              <tr>
-                <td>Tuesday</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-                <td>-</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-              </tr>
-              <tr>
-                <td>Wednesday</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-                <td>-</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-              </tr>
-              <tr>
-                <td>Thursday</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-                <td>-</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-              </tr>
-              <tr>
-                <td>Friday</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-                <td>-</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-                <td>CrossFit</td>
-              </tr>
-              <tr>
-                <td>Saturday</td>
-                <td>-</td>
-                <td>-</td>
-                <td>CrossFit</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-              </tr>
-              <tr>
-                <td>Sunday</td>
-                <td colSpan="7" className="text-center">
-                  Rest Day
-                </td>
-              </tr>
+              {times.map((time, i) => (
+                <tr key={time}>
+                  <td>{time}</td>
+                  {schedule[i].map((cell, j) =>
+                    // Only render the "Rest Day" cell for Sunday in the first row, and span all rows
+                    days[j] === "Sunday"
+                      ? i === 0
+                        ? (
+                          <td key={j} rowSpan={times.length} className="text-center align-middle">
+                            Rest Day
+                          </td>
+                        )
+                        : null
+                      : <td key={j}>{cell}</td>
+                  )}
+                </tr>
+              ))}
             </tbody>
           </Table>
         </Col>

@@ -5,10 +5,10 @@ import emailjs from 'emailjs-com';
 // Options for class times
 const classOptions = [
   "Monday 5:30 AM", "Monday 8:30 AM", "Monday 12 PM", "Monday 4:30 PM", "Monday 5:30 PM", "Monday 6:30 PM",
-  "Tuesday 5:30 AM", "Tuesday 8:30 AM", "Tuesday 12 PM", "Tuesday 4:30 PM", "Tuesday 5:30 PM", "Tuesday 6:30 PM",
+  "Tuesday 5:30 AM", "Tuesday 8:30 AM", "Tuesday 12 PM", "Tuesday 4:30 PM", "Tuesday 5:30 PM",
   "Wednesday 5:30 AM", "Wednesday 8:30 AM", "Wednesday 12 PM", "Wednesday 4:30 PM", "Wednesday 5:30 PM", "Wednesday 6:30 PM",
-  "Thursday 5:30 AM", "Thursday 8:30 AM", "Thursday 12 PM", "Thursday 4:30 PM", "Thursday 5:30 PM", "Thursday 6:30 PM",
-  "Friday 5:30 AM", "Friday 8:30 AM", "Friday 12 PM", "Friday 4:30 PM", "Friday 5:30 PM", "Friday 6:30 PM",
+  "Thursday 5:30 AM", "Thursday 8:30 AM", "Thursday 12 PM", "Thursday 4:30 PM", "Thursday 5:30 PM",
+  "Friday 5:30 AM", "Friday 8:30 AM", "Friday 12 PM", "Friday 4:30 PM", "Friday 5:30 PM",
   "Saturday 9:30 AM",
   "Yoga Wednesday 6:00 PM", "Yoga Friday 9:30 AM"
 ];
