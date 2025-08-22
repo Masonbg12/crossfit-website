@@ -33,7 +33,7 @@ function ContactUs() {
                 </span>
                 <strong>Email:</strong>
                 <br />
-                <a href="mailto:xlr8community@yahoo.com" style={{ fontSize: "1.1rem" }}>xlr8community@yahoo.com</a>
+                <a href="mailto:info@crossfitxlr8.com" style={{ fontSize: "1.1rem" }}>info@crossfitxlr8.com</a>
                 <br />
                 <strong>Address:</strong>
                 <br />
