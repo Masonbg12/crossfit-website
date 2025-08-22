@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Container, Carousel, Row, Col, Button, Spinner } from "react-bootstrap";
 import { Cloudinary } from '@cloudinary/url-gen';
 import { AdvancedVideo } from '@cloudinary/react';
@@ -41,7 +41,7 @@ function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // 2 second loading time
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
