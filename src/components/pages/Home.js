@@ -4,6 +4,8 @@ import { Cloudinary } from '@cloudinary/url-gen';
 import { AdvancedVideo } from '@cloudinary/react';
 import Programs from "../Programs.js";
 import OurGym from "../OurGym.js";
+import FreeTrial from '../FreeTrial.js';
+import FreeTrialButton from '../FreeTrialButton.js';
 
 const gallery = [
   {
@@ -182,12 +184,27 @@ function Home() {
               Achieve your fitness goals with our expert coaching, supportive
               community, and proven CrossFit programs.
             </p>
-            <Button
-              href="/AboutUs"
-              size="lg"
-            >
-              Learn More
-            </Button>
+            <Row>
+              <Col>
+                <Button
+                  href="/AboutUs"
+                  variant="primary"
+                  size="md"
+                  style={{
+                    borderRadius: "5px",
+                    cursor: "pointer",
+                    marginRight: "10px"
+                  }}
+                >
+                  Learn More
+                </Button>
+                <FreeTrialButton 
+                  buttonText='Free Trial'
+                  variant="primary"
+                  size="md"
+                />
+              </Col>
+            </Row>
           </div>
         </div>
       </div>
