@@ -4,7 +4,6 @@ import { Cloudinary } from '@cloudinary/url-gen';
 import { AdvancedVideo } from '@cloudinary/react';
 import Programs from "../Programs.js";
 import OurGym from "../OurGym.js";
-import FreeTrial from '../FreeTrial.js';
 import FreeTrialButton from '../FreeTrialButton.js';
 
 const gallery = [
