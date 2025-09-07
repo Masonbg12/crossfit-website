@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Container, Carousel, Row, Col, Button, Spinner } from "react-bootstrap";
-import { Cloudinary } from '@cloudinary/url-gen';
-import { AdvancedVideo } from '@cloudinary/react';
 import Programs from "../Programs.js";
 import OurGym from "../OurGym.js";
 import FreeTrialButton from '../FreeTrialButton.js';
@@ -30,15 +28,9 @@ const gallery = [
 ];
 
 function Home() {
-  // Define cld inside the component
-  const cld = new Cloudinary({ cloud: { cloudName: 'dgdbmfaaq' } });
-  
   // Loading state for the page
   const [loading, setLoading] = useState(true);
-  const [videoError, setVideoError] = useState(false);
-  const [videoLoaded, setVideoLoaded] = useState(false);
 
-  // Simulate loading time for video/content
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -88,7 +80,7 @@ function Home() {
             flexGrow: 0,
           }}
         />
-        {/* Right 70%: Video or Fallback Image */}
+        {/* Right 70%: Fallback Image Only */}
         <div
           className="video-container"
           style={{
@@ -117,34 +109,9 @@ function Home() {
               top: 0,
               left: 0,
               zIndex: 1,
-              opacity: videoLoaded && !videoError ? 0 : 1,
               transition: "opacity 0.5s"
             }}
           />
-          {!videoError && (
-            <AdvancedVideo
-              cldVid={cld
-              .video('crossfit-vid_d4bsun')
-              .quality('auto')
-              .format('auto')
-            }
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              position: "absolute",
-              top: 0,
-              left: 0,
-              zIndex: 2,
-            }}
-            onLoadedData={() => setVideoLoaded(true)}
-            onError={() => setVideoError(true)}
-          />
-          )}
           <div
             className="hero-gradient-overlay"
             style={{
