@@ -22,7 +22,6 @@ function Footer() {
                 <Link className="link" to="/Schedule">Schedule</Link>
                 <Link className="link" to="/WOD">WOD</Link>
                 <Link className="link" to="/AboutUs">About Us</Link>
-                <Link className="link" to="/Store">Store</Link>
                 <Link className="link" to="/ContactUs">Contact Us</Link>
               </Stack>
             </Col>

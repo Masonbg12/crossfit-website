@@ -22,7 +22,6 @@ function Navigation() {
               <Nav.Link href="/Schedule">Schedule</Nav.Link>
               <Nav.Link href="/WOD">WOD</Nav.Link>
               <Nav.Link href="/AboutUs">About Us</Nav.Link>
-              <Nav.Link href="/Store">Store</Nav.Link>
               <Nav.Link href="/ContactUs">Contact Us</Nav.Link>
             </Nav>
           </Offcanvas.Body>

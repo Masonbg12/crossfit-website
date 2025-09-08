@@ -2,55 +2,55 @@ import { Row, Col, Carousel } from "react-bootstrap";
 
 const gymImages = [
   {
-    src: "/media/building-pics/gym-good-front.jpg",
+    src: "/media/building-pics/gym-good-front.webp",
     alt: "Front view of our gym",
   },
   {
-    src: "/media/building-pics/established-wall.jpg",
+    src: "/media/building-pics/established-wall.webp",
     alt: "Established wall view of our gym",
   },
   {
-    src: "/media/building-pics/main-floor.jpg",
-    alt: "Front view of our gym",
+    src: "/media/building-pics/main-floor.webp",
+    alt: "Main floor view of our gym",
   },
   {
-    src: "/media/building-pics/gym-main.jpg",
+    src: "/media/building-pics/gym-main.webp",
     alt: "Main area view of our gym",
   },
   {
-    src: "/media/building-pics/backyard.jpg",
+    src: "/media/building-pics/backyard.webp",
     alt: "Backyard view of our gym",
   },
   {
-    src: "/media/building-pics/office.jpg",
+    src: "/media/building-pics/office.webp",
     alt: "Office view of our gym",
   },
   {
-    src: "/media/building-pics/gym-kitchen.jpg",
+    src: "/media/building-pics/gym-kitchen.webp",
     alt: "Kitchen room view of our gym",
   },
   {
-    src: "/media/building-pics/gym-massage.jpg",
+    src: "/media/building-pics/gym-massage.webp",
     alt: "Massage room view of our gym",
   },
   {
-    src: "/media/building-pics/gym-kids.jpg",
+    src: "/media/building-pics/gym-kids.webp",
     alt: "Kids area view of our gym",
   },
   {
-    src: "/media/building-pics/gym-back.jpg",
+    src: "/media/building-pics/gym-back.webp",
     alt: "Back view of our gym",
   },
   {
-    src: "/media/building-pics/gym-studio.jpg",
+    src: "/media/building-pics/gym-studio.webp",
     alt: "Studio view of our gym",
   },
   {
-    src: "/media/building-pics/second-floor.jpg",
+    src: "/media/building-pics/second-floor.webp",
     alt: "Second floor view of our gym",
   },
   {
-    src: "/media/building-pics/skis.jpg",
+    src: "/media/building-pics/skis.webp",
     alt: "Ski area view of our gym",
   },
 ];

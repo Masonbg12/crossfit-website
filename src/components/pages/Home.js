@@ -6,23 +6,19 @@ import FreeTrialButton from '../FreeTrialButton.js';
 
 const gallery = [
   {
-    src: "/media/gallery/side-sign.jpg",
+    src: "/media/gallery/side-sign.webp",
     alt: "side building sign"
   },
   {
-    src: "/media/gallery/running-wave.jpg",
+    src: "/media/gallery/running-wave.webp",
     alt: "workout action photo"
   },
   {
-    src: "/media/group-photo.jpg",
+    src: "/media/gallery/group-outside.webp",
     alt: "group photo"
   },
   {
-    src: "/media/gallery/group-outside.jpg",
-    alt: "group photo"
-  },
-  {
-    src: "/media/gallery/parents-partner.jpg",
+    src: "/media/gallery/parents-partner.webp",
     alt: "workout action photo"
   }
 ];
@@ -93,13 +89,13 @@ function Home() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            backgroundImage: "url('/media/gallery/group-photo.jpg')",
+            backgroundImage: "url('/media/gallery/group-photo.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
           <img
-            src="/media/group-photo.jpg"
+            src="/media/group-photo.webp"
             alt="smiling group"
             style={{
               width: "100%",

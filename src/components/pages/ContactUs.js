@@ -10,9 +10,9 @@ function ContactUs() {
           <Card className="shadow-lg border-0"
             style={{
               width: "100%",
-              maxWidth: 520, // increased card width
-              minHeight: 420, // increased card height
-              padding: "2rem 1.5rem", // more internal spacing
+              maxWidth: 520,
+              minHeight: 420,
+              padding: "2rem 1.5rem",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
@@ -44,7 +44,7 @@ function ContactUs() {
         </Col>
         <Col xs={12} md={5} className="d-flex flex-column align-items-center">
           <img
-            src="/media/coaches/brian-bike.jpg"
+            src="/media/coaches/brian-bike.webp"
             alt="Coach Brian on bike"
             style={{
               width: "100%",
