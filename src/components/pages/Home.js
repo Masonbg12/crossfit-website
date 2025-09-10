@@ -172,7 +172,7 @@ function Home() {
       {/* Programs Section */}
       <Programs />
 
-      {/* Google Reviews Section */}
+      {/* Google Reviews Section
       <Row className="justify-content-center py-5" style={{ backgroundColor: "var(--bg-light1)" }}>
         <Col xs={12}>
           <h2 className="text-center mb-4 poppins-900-main" style={{ color: "var(--bg-black)" }}>
@@ -242,7 +242,7 @@ function Home() {
             </a>
           </div>
         </Col>
-      </Row>
+      </Row> */}
     </Container>
   );
 }
