@@ -21,7 +21,7 @@ function Home() {
   const [reviewsLoading, setReviewsLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/google-reviews/reviews') // Adjust path if needed
+    fetch('/api/google-reviews/reviews')
       .then(res => res.json())
       .then(data => {
         setReviews(data);
@@ -190,6 +190,33 @@ function Home() {
                 <Carousel.Item key={idx}>
                   <Card className="shadow-sm mx-auto" style={{ maxWidth: 600, background: "#fff" }}>
                     <Card.Body>
+                      <div className="d-flex align-items-center mb-2">
+                        <img
+                          src={review.profile_photo_url}
+                          alt={review.author_name}
+                          style={{
+                            width: 40,
+                            height: 40,
+                            borderRadius: "50%",
+                            marginRight: 12,
+                            objectFit: "cover",
+                            border: "1px solid #eee"
+                          }}
+                        />
+                        <div>
+                          <a
+                            href={review.author_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ color: "var(--bg-black)", fontWeight: 700, textDecoration: "none" }}
+                          >
+                            {review.author_name}
+                          </a>
+                          <div style={{ fontSize: "0.85rem", color: "#888" }}>
+                            {review.relative_time_description}
+                          </div>
+                        </div>
+                      </div>
                       <div className="mb-2">
                         {Array.from({ length: review.rating }).map((_, i) => (
                           <span key={i} style={{ color: "#FFD700", fontSize: "1.2rem" }}>★</span>
@@ -198,9 +225,6 @@ function Home() {
                       <Card.Text style={{ color: "var(--bg-black)", fontSize: "1.1rem" }}>
                         "{review.text}"
                       </Card.Text>
-                      <Card.Subtitle className="mt-3 text-muted text-end">
-                        — {review.author_name}
-                      </Card.Subtitle>
                     </Card.Body>
                   </Card>
                 </Carousel.Item>
