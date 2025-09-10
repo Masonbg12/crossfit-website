@@ -53,6 +53,22 @@ const gymImages = [
     src: "/media/building-pics/skis.webp",
     alt: "Ski area view of our gym",
   },
+  {
+    src: "/media/gallery/side-sign.webp",
+    alt: "side building sign"
+  },
+  {
+    src: "/media/gallery/running-wave.webp",
+    alt: "workout action photo"
+  },
+  {
+    src: "/media/gallery/group-outside.webp",
+    alt: "group photo"
+  },
+  {
+    src: "/media/gallery/parents-partner.webp",
+    alt: "workout action photo"
+  }
 ];
 
 function OurGym() {

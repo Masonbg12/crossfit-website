@@ -1,27 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Container, Carousel, Row, Col, Button, Spinner } from "react-bootstrap";
+import { Container, Carousel, Row, Col, Button, Spinner, Card } from "react-bootstrap";
 import Programs from "../Programs.js";
 import OurGym from "../OurGym.js";
 import FreeTrialButton from '../FreeTrialButton.js';
-
-const gallery = [
-  {
-    src: "/media/gallery/side-sign.webp",
-    alt: "side building sign"
-  },
-  {
-    src: "/media/gallery/running-wave.webp",
-    alt: "workout action photo"
-  },
-  {
-    src: "/media/gallery/group-outside.webp",
-    alt: "group photo"
-  },
-  {
-    src: "/media/gallery/parents-partner.webp",
-    alt: "workout action photo"
-  }
-];
 
 function Home() {
   // Loading state for the page
@@ -33,6 +14,20 @@ function Home() {
     }, 2000);
 
     return () => clearTimeout(timer);
+  }, []);
+
+  // Google Reviews state
+  const [reviews, setReviews] = useState([]);
+  const [reviewsLoading, setReviewsLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/google-reviews/reviews') // Adjust path if needed
+      .then(res => res.json())
+      .then(data => {
+        setReviews(data);
+        setReviewsLoading(false);
+      })
+      .catch(() => setReviewsLoading(false));
   }, []);
 
   // Show loading screen
@@ -177,33 +172,50 @@ function Home() {
       {/* Programs Section */}
       <Programs />
 
-      {/* Gallery Section */}
-      <Row
-        className="text-center"
-        style={{ padding: "4rem 0", backgroundColor: "var(--bg-light1)" }}
-      >
-        <Col>
-          <h2 className="text-center mb-4 poppins-900-main" style={{color: "var(--bg-black)"}}>Gallery</h2>
-          <div className="carousel-outer-wrap">
-            <Carousel
-              interval={null}
-              indicators={gallery.length > 1}
-              controls={true}
-              fade={true}
-              style={{ margin: "0 auto" }}
-            >
-              {gallery.map((img, idx) => (
+      {/* Google Reviews Section */}
+      <Row className="justify-content-center py-5" style={{ backgroundColor: "var(--bg-light1)" }}>
+        <Col xs={12}>
+          <h2 className="text-center mb-4 poppins-900-main" style={{ color: "var(--bg-black)" }}>
+            What Our Members Say
+          </h2>
+        </Col>
+        <Col xs={12} md={10} lg={8}>
+          {reviewsLoading ? (
+            <div className="text-center">
+              <Spinner animation="border" />
+            </div>
+          ) : (
+            <Carousel indicators={false} controls={reviews.length > 1} interval={7000} fade>
+              {reviews.map((review, idx) => (
                 <Carousel.Item key={idx}>
-                  <div className="d-flex justify-content-center">
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      className="d-block gallery-image"
-                    />
-                  </div>
+                  <Card className="shadow-sm mx-auto" style={{ maxWidth: 600, background: "#fff" }}>
+                    <Card.Body>
+                      <div className="mb-2">
+                        {Array.from({ length: review.rating }).map((_, i) => (
+                          <span key={i} style={{ color: "#FFD700", fontSize: "1.2rem" }}>★</span>
+                        ))}
+                      </div>
+                      <Card.Text style={{ color: "var(--bg-black)", fontSize: "1.1rem" }}>
+                        "{review.text}"
+                      </Card.Text>
+                      <Card.Subtitle className="mt-3 text-muted text-end">
+                        — {review.author_name}
+                      </Card.Subtitle>
+                    </Card.Body>
+                  </Card>
                 </Carousel.Item>
               ))}
             </Carousel>
+          )}
+          <div className="text-center mt-3">
+            <a
+              href="https://www.google.com/maps/place/CrossFit+XLR8"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "var(--bg-black)", textDecoration: "underline" }}
+            >
+              See more reviews on Google
+            </a>
           </div>
         </Col>
       </Row>
