@@ -16,7 +16,7 @@ function App() {
       <Navigation />
       <Router setIsLoading={setIsLoading} />
       {location.pathname !== "/postWOD" && !isLoading && <Footer />}
-      {location.pathname !== "/postWOD" && !isLoading && <ChatBot />}
+      {location.pathname !== "/postWOD" && <ChatBot />}
     </div>
   );
 }
