@@ -5,6 +5,7 @@ import Navigation from "./components/Navigation.js";
 import Footer from "./components/Footer.js";
 import "./styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ChatBot from "./components/ChatBot.js";
 
 function App() {
   const location = useLocation();
@@ -15,6 +16,7 @@ function App() {
       <Navigation />
       <Router setIsLoading={setIsLoading} />
       {location.pathname !== "/postWOD" && !isLoading && <Footer />}
+      <ChatBot />
     </div>
   );
 }
