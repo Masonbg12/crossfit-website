@@ -3,9 +3,9 @@ import { useLocation } from "react-router-dom";
 import Router from "./Router.js";
 import Navigation from "./components/Navigation.js";
 import Footer from "./components/Footer.js";
+import ChatBot from "./components/ChatBot.js";
 import "./styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ChatBot from "./components/ChatBot.js";
 
 function App() {
   const location = useLocation();
@@ -16,7 +16,7 @@ function App() {
       <Navigation />
       <Router setIsLoading={setIsLoading} />
       {location.pathname !== "/postWOD" && !isLoading && <Footer />}
-      <ChatBot />
+      {location.pathname !== "/postWOD" && !isLoading && <ChatBot />}
     </div>
   );
 }
