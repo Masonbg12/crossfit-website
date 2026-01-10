@@ -44,7 +44,7 @@ const FreeTrialButton = ({
   const sendEmail = async (formData) => {
     try {
       const result = await emailjs.send(
-        "service_bofr0ob",
+        "service_lolt6yf",
         "template_dh1135e",
         {
           name: formData.name,
