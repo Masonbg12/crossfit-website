@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDumbbell } from '@fortawesome/free-solid-svg-icons';
 import Programs from "../Programs.js";
@@ -19,7 +19,7 @@ function Home() {
   }, []);
 
   // Google Reviews state
-  const [reviews, setReviews] = useState([]);
+  /*const [reviews, setReviews] = useState([]);
   const [reviewsLoading, setReviewsLoading] = useState(true);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ function Home() {
         setReviewsLoading(false);
       })
       .catch(() => setReviewsLoading(false));
-  }, []);
+  }, []);*/
 
   // Show loading screen
   if (loading) return (
