@@ -1,4 +1,4 @@
-import { Row, Col, Carousel } from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
 
 const gymImages = [
   {
@@ -73,31 +73,28 @@ const gymImages = [
 
 function OurGym() {
   return (
-    <Row style={{ backgroundColor: "var(--bg-light1", padding: "1rem" }}>
-      <Col>
-        <h2 className="text-center my-4 poppins-900-main"  style= {{color: "var(--bg-black)"}}>Our Gym</h2>
-        <div className="carousel-outer-wrap">
+    <div style={{ backgroundColor: "var(--bg-light1)" }}>
+      <div className="our-gym-carousel-wrapper">
           <Carousel
             interval={null}
             indicators={gymImages.length > 1}
             controls={true}
             fade
-            style={{ margin: "0 auto" }}
           >
             {gymImages.map((img, idx) => (
               <Carousel.Item key={idx}>
-                <div className="d-flex justify-content-center">
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className="d-block our-gym-image"
-                  />
-                </div>
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="our-gym-carousel-image"
+                  data-image-key={img.src}
+                />
               </Carousel.Item>
             ))}
-          </Carousel>
-        </div>
-        <p className="text-center p-3"  style= {{color: "var(--bg-black)"}}>
+        </Carousel>
+      </div>
+      <div className="p-4" style={{ backgroundColor: "var(--bg-light1)" }}>
+        <p className="text-center" style={{ color: "var(--bg-black)" }}>
           Located on Hwy 35 in the “gateway” of Portland and Gregory, we have a
           13,000 square foot facility and a 400 meter track to run! Our facility
           offers men and women’s showers, full kitchen, apparel shop. In our main
@@ -113,8 +110,8 @@ function OurGym() {
           and finally, surround sound Peavey sound system with mixer and
           microphones.
         </p>
-      </Col>
-    </Row>
+      </div>
+    </div>
   );
 }
 

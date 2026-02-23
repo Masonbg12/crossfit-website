@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Container, Carousel, Row, Col, Button, Spinner, Card } from "react-bootstrap";
+import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
 import Programs from "../Programs.js";
 import OurGym from "../OurGym.js";
 import FreeTrialButton from '../FreeTrialButton.js';
@@ -60,22 +60,11 @@ function Home() {
           overflow: "hidden",
         }}
       >
-        {/* Left 30%: Black */}
-        <div
-          className="black-box"
-          style={{
-            width: "30vw",
-            height: "100vh",
-            background: "#000",
-            flexShrink: 0,
-            flexGrow: 0,
-          }}
-        />
-        {/* Right 70%: Fallback Image Only */}
+        {/* Full width image container */}
         <div
           className="video-container"
           style={{
-            width: "70vw",
+            width: "100vw",
             height: "100vh",
             position: "relative",
             overflow: "hidden",
@@ -103,36 +92,8 @@ function Home() {
               transition: "opacity 0.5s"
             }}
           />
-          <div
-            className="hero-gradient-overlay"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0) 60%)",
-              zIndex: 3,
-              pointerEvents: "none",
-            }}
-          />
         </div>
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "38vw",
-            height: "100vh",
-            zIndex: 3,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            paddingLeft: "4vw",
-            pointerEvents: "none",
-          }}
-        >
+        <div className="hero-text-overlay">
           <div style={{ pointerEvents: "auto" }}>
             <h1 className="poppins-900-main" style={{ color: "#fff" }}>
               WELCOME TO CROSSFIT XLR8
@@ -166,13 +127,13 @@ function Home() {
         </div>
       </div>
 
-      {/* Our Gym Section */}
-      <OurGym />
-
       {/* Programs Section */}
       <Programs />
 
-      {/* Google Reviews Section
+      {/* Our Gym Section */}
+      <OurGym />
+
+      {/* Google Reviews Section POSSIBLE ADDITION IN THE FUTURE
       <Row className="justify-content-center py-5" style={{ backgroundColor: "var(--bg-light1)" }}>
         <Col xs={12}>
           <h2 className="text-center mb-4 poppins-900-main" style={{ color: "var(--bg-black)" }}>

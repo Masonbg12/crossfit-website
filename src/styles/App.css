@@ -41,30 +41,31 @@ html, body {
   font-size: 1.5rem;
 }
 
-/* Home Styling */
-.hero-gradient-overlay {
-  display: block;
+/* Hero text overlay */
+.hero-text-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-left: 4vw;
+  padding-bottom: 3rem;
+  pointer-events: none;
 }
 
 @media (max-width: 991.98px) {
-  .hero-section > div[style*="position: absolute"] {
+  .hero-text-overlay {
     position: absolute !important;
     left: 0 !important;
     bottom: 0 !important;
-    top: auto !important;
     width: 100vw !important;
-    height: auto !important;
     padding-left: 1rem !important;
     padding-bottom: 2rem !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-end !important;
     z-index: 2;
-  }
-
-  .hero-gradient-overlay {
-    display: none !important;
   }
 
   .hero-section h1,
@@ -173,6 +174,52 @@ html, body {
     object-fit: cover !important;
     border-radius: 0.5rem !important;
   }
+}
+
+/* Our Gym carousel - full background image */
+.our-gym-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0;
+}
+
+.our-gym-carousel-wrapper .carousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.our-gym-carousel-wrapper .carousel-inner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.our-gym-carousel-wrapper .carousel-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.our-gym-carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  image-rendering: high-quality;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Shift running-wave image upwards to show heads */
+.our-gym-carousel-image[data-image-key="/media/gallery/running-wave.webp"] {
+  object-position: center top;
 }
 
 /* Our Gym styling */

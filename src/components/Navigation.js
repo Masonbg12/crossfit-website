@@ -3,7 +3,6 @@ import logo from "../logos/CrossFit_logo_black.png";
 
 function Navigation() {
   return (
-    // ************ work on desktop spacing **********
     <Navbar expand="md" id="nav-bar">
       <Container fluid>
         <Navbar.Brand href="/" className="d-flex align-items-center">
@@ -13,7 +12,7 @@ function Navigation() {
         <Navbar.Offcanvas
           aria-labelledby="offcanvasNavbarLabel"
           placement="end"
-          style={{ width: "75%", backgroundColor: "#415a77" }}
+          style={{ width: "75%", backgroundColor: "var(--bg-dark)" }}
         >
           <Offcanvas.Header closeButton></Offcanvas.Header>
           <Offcanvas.Body>
