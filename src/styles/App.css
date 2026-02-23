@@ -107,6 +107,26 @@ html, body {
   }
 }
 
+/* Dumbbell loading animation */
+.dumbbell-loader {
+  animation: rotateDumbbell 1.5s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes rotateDumbbell {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(180deg);
+  }
+  100% {
+    transform: rotateZ(180deg);
+  }
+}
+
 /* Navbar styling */
 #nav-bar {
   display: flex;

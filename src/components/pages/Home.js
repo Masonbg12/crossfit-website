@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDumbbell } from '@fortawesome/free-solid-svg-icons';
 import Programs from "../Programs.js";
 import OurGym from "../OurGym.js";
 import FreeTrialButton from '../FreeTrialButton.js';
@@ -40,10 +42,10 @@ function Home() {
       justifyContent: "center", 
       flexDirection: "column" 
     }}>
-      <Spinner animation="border" role="status" style={{ width: "3rem", height: "3rem", color: "var(--bg-black)" }}>
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
-      <p className="poppins-700 text-center mt-3" style={{ color: "var(--bg-black)" }}>Loading...</p>
+      <div className="dumbbell-loader">
+        <FontAwesomeIcon icon={faDumbbell} style={{ fontSize: "3rem", color: "var(--bg-black)" }} />
+      </div>
+      <p className="poppins-700 text-center mt-3" style={{ color: "var(--bg-black)" }}>Loading</p>
     </Container>
   );
 
