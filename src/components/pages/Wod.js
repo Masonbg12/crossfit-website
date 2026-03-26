@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Card, Accordion, Spinner } from "react-bootstrap";
 
+const FALLBACK_WODS = [
+  {
+    _id: "demo-1",
+    date: new Date().toISOString(),
+    title: "Demo WOD: 500m Row + 20 Air Squats",
+    content: "<p>Use this fallback workout while the backend is unavailable.</p>",
+    imageUrl: null,
+  },
+];
+
 function Wod({ setIsLoading }) {
   const [workouts, setWorkouts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  const FALLBACK_WODS = [
-    {
-      _id: "demo-1",
-      date: new Date().toISOString(),
-      title: "Demo WOD: 500m Row + 20 Air Squats",
-      content: "<p>Use this fallback workout while the backend is unavailable.</p>",
-      imageUrl: null,
-    },
-  ];
 
   // API URL from environment variables (fallback to localhost for dev)
   const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
