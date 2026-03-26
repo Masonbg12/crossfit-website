@@ -5,22 +5,37 @@ function Wod({ setIsLoading }) {
   const [workouts, setWorkouts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  // API URL from environment variables
-  const API_URL = process.env.REACT_APP_API_URL;
-  const backendURL = `${API_URL}/data`;
+
+  const FALLBACK_WODS = [
+    {
+      _id: "demo-1",
+      date: new Date().toISOString(),
+      title: "Demo WOD: 500m Row + 20 Air Squats",
+      content: "<p>Use this fallback workout while the backend is unavailable.</p>",
+      imageUrl: null,
+    },
+  ];
+
+  // API URL from environment variables (fallback to localhost for dev)
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
+  const backendURL = `${API_URL.replace(/\/$/, "")}/data`;
 
   useEffect(() => {
     const fetchWODs = async () => {
       setIsLoading && setIsLoading(true); // set app loading state
       try {
         const response = await fetch(backendURL);
-        if (!response.ok) throw new Error("Failed to fetch WODs");
+        if (!response.ok) {
+          const msg = `Failed to fetch WODs: ${response.status} ${response.statusText}`;
+          throw new Error(msg);
+        }
         const data = await response.json();
-        setWorkouts(data);
+        setWorkouts(Array.isArray(data) ? data : []);
         setLoading(false);
         setIsLoading && setIsLoading(false); // clear app loading state
       } catch (err) {
         setError(err.message);
+        setWorkouts(FALLBACK_WODS);
         setLoading(false);
         setIsLoading && setIsLoading(false); // clear app loading state
       }
@@ -77,7 +92,7 @@ function Wod({ setIsLoading }) {
   
   if (error) return (
     <Container fluid style={{ backgroundColor: "var(--bg-light1)", minHeight: "100vh", color: "var(--bg-black)" }}>
-      <p className="poppins-700 text-center mt-3">Error, please try again or contact CrossFit XLR8.</p>
+      <p className="poppins-700 text-center mt-3">Error: {error}. Please try again or contact CrossFit XLR8.</p>
     </Container>
   );
 
