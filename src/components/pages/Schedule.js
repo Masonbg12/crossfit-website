@@ -9,9 +9,7 @@ function Schedule() {
     // 5:30 AM
     ["CrossFit", "CrossFit", "CrossFit", "CrossFit", "CrossFit", "-", "-"],
     // 8:30 AM
-    ["CrossFit", "CrossFit", "CrossFit", "CrossFit", "CrossFit", "-", "-"],
-    // 9:30 AM
-    ["-", "-", "-", "-", "-", "CrossFit", "-"],
+    ["CrossFit", "CrossFit", "CrossFit", "CrossFit", "CrossFit", "CrossFit", "-"],
     // 12 PM
     ["CrossFit", "CrossFit", "CrossFit", "CrossFit", "CrossFit", "-", "-"],
     // 4:30 PM
