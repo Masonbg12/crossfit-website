@@ -1,7 +1,7 @@
 import { Container, Row, Col, Table } from "react-bootstrap";
 
 function Schedule() {
-  const times = ["5:30 AM", "8:30 AM", "9:30 AM", "12 PM", "4:30 PM", "5:30 PM", "6:30 PM"];
+  const times = ["5:30 AM", "8:30 AM", "12 PM", "4:30 PM", "5:30 PM", "6:30 PM"];
   const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
   // Schedule data: [time][day]
